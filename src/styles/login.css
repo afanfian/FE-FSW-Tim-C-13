@@ -1,0 +1,16 @@
+/* Style login */
+#login {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 300px;
+    width: 700px;
+    height: 400px;
+    background-color: #61dafb;
+    border-radius: 10px;
+  }
+  #sign-in{
+    padding: 50px;
+  }
+  #sign-in img{
+    align-items: center;
+  }
