@@ -1,12 +1,28 @@
 /* Style login */
+body{
+  background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9);
+}
+#account{
+  margin-left: 270px;
+  width : 65px;
+  height: 65px;
+}
+
+#sign-in h3{
+  font-weight: bold;
+  font-size: 38;
+  color: #7BD8F8;
+  margin-top: 15px;
+  margin-left:230px;
+}
 #login {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 300px;
+    margin-top: 163px;
+    margin-bottom: 190px; 
     width: 700px;
-    height: 400px;
-    background-color: #61dafb;
+    height: 634px;
+    background-color: #FFFFFF;
     border-radius: 10px;
+    gap: 30px;
   }
   #sign-in{
     padding: 50px;
