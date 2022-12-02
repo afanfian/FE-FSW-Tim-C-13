@@ -12,20 +12,18 @@ body{
   font-weight: bold;
   font-size: 38;
   color: #7BD8F8;
-  margin-top: 15px;
-  margin-left:230px;
 }
 #login {
     margin-top: 163px;
     margin-bottom: 190px; 
-    width: 700px;
-    height: 634px;
+    width: 650px;
+    height: 550px;
     background-color: #FFFFFF;
     border-radius: 10px;
     gap: 30px;
   }
   #sign-in{
-    padding: 50px;
+    padding: 40px;
   }
   #sign-in img{
     align-items: center;
