@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from './views/User/login.jsx'
+import Login from './views/User/login.js'
 
 function App () {
   return (
