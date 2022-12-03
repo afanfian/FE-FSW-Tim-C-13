@@ -48,7 +48,7 @@ function login () {
                             </div>
                             <div className="d-grid gap-8 justify-content-center">
 
-                                <p className="mt-4">Dont Have an Account ?  <a href="/sign-up">Sing up</a></p>
+                                <p className="mt-4">Dont Have an Account ?  <a href="/sign-up">Sign up</a></p>
                             </div>
                             <div className="d-grid gap-8 justify-content-center">
                                 <p className="mt-1"> Or Sign in with :</p>
