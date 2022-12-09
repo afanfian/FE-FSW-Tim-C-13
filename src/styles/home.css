@@ -1,6 +1,7 @@
 /* Jumbotron */
-.text-green{
-    color: #4C98CC;
+.btn-green{
+    background-color: #4C98CC;
+    color: white
 }
 /* Search Flight */
 .search-flight{
