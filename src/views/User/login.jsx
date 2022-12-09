@@ -4,6 +4,7 @@ import '../../styles/login.css'
 import account from '../../assets/account.svg'
 import GoogleComponent from 'react-google-login'
 import { gapi } from 'gapi-script'
+import Navbar from '../../component/navbar'
 
 function login () {
   const responseGoogle = (response) => {
@@ -23,6 +24,7 @@ function login () {
   }, [])
   return (
         <Container>
+            <Navbar />
             <Row className="justify-content-center m-auto">
                 <div id="login">
                     <div id="sign-in">
