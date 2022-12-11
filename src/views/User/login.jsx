@@ -22,7 +22,7 @@ function login () {
     gapi.load('client:auth2', start)
   }, [])
   return (
-        <Container>
+        <Container className="login">
             <Row className="justify-content-center m-auto">
                 <div id="login">
                     <div id="sign-in">
