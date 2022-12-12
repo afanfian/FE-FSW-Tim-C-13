@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, InputGroup, Stack } from 'react-bootstrap'
-import Navbar from '../views/layout/navbarbeforelogin'
+import Navbar from '../views/Layout/navbarbeforelogin'
 import '../styles/home.css'
 import LogoPesawat from '../assets/airplane.svg'
 import { Formik } from 'formik'
