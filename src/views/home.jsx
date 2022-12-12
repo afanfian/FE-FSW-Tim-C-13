@@ -188,7 +188,7 @@ function about () {
                       </InputGroup>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                   </Form.Group>
-                  <button type="submit" className="btn-green">Submit form</button>
+                  <button type="submit" className="btn-green">Find tickets</button>
                   </Form>
                 )}
               </Formik>

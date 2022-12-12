@@ -4,3 +4,13 @@ body{
 .logo-navbar{
     width: 50px;
 }
+.btn-navbar{
+    background-color: #4C98CC;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+.btn-navbar:hover {
+    transform: scale(1.1);
+}

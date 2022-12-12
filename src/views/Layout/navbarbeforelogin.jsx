@@ -25,10 +25,10 @@ function OffcanvasExample () {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#home" className="pt-3">Home</Nav.Link>
-                  <Nav.Link href="/about" className="pt-3">About</Nav.Link>
-                  <Nav.Link href="/login"><button className="btn-green">Login</button></Nav.Link>
-                  <Nav.Link href="#registration"><button className="btn-green">Registration</button></Nav.Link>
+                  <Nav.Link href="#home" className="pt-3 text-black fw-bold">Home</Nav.Link>
+                  <Nav.Link href="/about" className="pt-3 text-black fw-bold">About</Nav.Link>
+                  <Nav.Link href="/login"><button className="btn-navbar fw-bold">Login</button></Nav.Link>
+                  <Nav.Link href="#registration"><button className="btn-navbar fw-bold">Registration</button></Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
