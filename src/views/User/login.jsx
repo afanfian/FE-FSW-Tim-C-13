@@ -5,7 +5,7 @@ import GoogleComponent from 'react-google-login'
 import '../../styles/login.css'
 import { gapi } from 'gapi-script'
 import gambarIcon from '../../assets/Aircraft.png'
-import Navbar from '../layout/navbarbeforelogin'
+import Navbar from '../Layout/navbarbeforelogin'
 // import Navbar from '../layout/navbarbeforelogin'
 
 function masuk () {

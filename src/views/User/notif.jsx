@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Card } from 'react-bootstrap'
-import Navbar from '../../views/layout/navbarbeforelogin'
+import Navbar from '../Layout/navbarbeforelogin'
 import '../../styles/notif.css'
 
 const notification = () => {

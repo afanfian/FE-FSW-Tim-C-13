@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 // import Button from 'react-bootstrap/Button'
 import React from 'react'
-import { Container, Nav, Navbar, Offcanvas, Button } from 'react-bootstrap'
+import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
 import '../../styles/layout/navbar.css'
 import Logo from '../../assets/logo-pesawat.svg'
 
@@ -25,10 +25,10 @@ function navbarBeforeLogin () {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#home" className="pt-3">Home</Nav.Link>
-                  <Nav.Link href="/about" className="pt-3">About</Nav.Link>
-                  <Nav.Link href="/login"><Button variant="primary">Login</Button></Nav.Link>
-                  <Nav.Link href="#registration"><Button variant="primary">Registration</Button></Nav.Link>
+                  <Nav.Link href="/" className="pt-3 text-black fw-bold">Home</Nav.Link>
+                  <Nav.Link href="/about" className="pt-3 text-black fw-bold">About</Nav.Link>
+                  <Nav.Link href="/login"><button className="btn-navbar fw-bold">Login</button></Nav.Link>
+                  <Nav.Link href="#registration"><button className="btn-navbar fw-bold">Registration</button></Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

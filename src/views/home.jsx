@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Form,
-  InputGroup,
-  Stack
-} from 'react-bootstrap'
-import Navbar from '../views/layout/navbarbeforelogin'
+import { Container, Row, Col, Form, InputGroup, Stack } from 'react-bootstrap'
+import Navbar from '../views/Layout/navbarbeforelogin'
 import '../styles/home.css'
 import LogoPesawat from '../assets/airplane.svg'
 import { Formik } from 'formik'
@@ -44,7 +36,7 @@ function about () {
               </p>
               <p className="text-green fw-bold h2">Di C-13 AEROPLANE</p>
               <p className="fw-bold h3">Aja!</p>
-              <Button variant="success">Yuk Pesan Ticket</Button>
+              <button className="btn-green">Yuk Pesan Ticket</button>
             </div>
           </Col>
         </Row>
@@ -212,9 +204,9 @@ function about () {
                           Looks good!
                         </Form.Control.Feedback>
                       </Form.Group>
-                      <Button type="submit" className="btn-green">
+                      <button type="submit" className="btn-green">
                         Submit form
-                      </Button>
+                      </button>
                     </Form>
                   )}
                 </Formik>
