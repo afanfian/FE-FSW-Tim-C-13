@@ -1,9 +1,19 @@
 /* Jumbotron */
 .btn-green{
     background-color: #4C98CC;
-    color: white
+    color: white;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
+.btn-green:hover {
+    transform: scale(1.1);
+}
+
 /* Search Flight */
 .search-flight{
     background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#66d5fa)
+}
+.form-1{
+    padding-left: 5%;
 }
