@@ -1,30 +1,32 @@
 /* Style login */
-.login{
-  background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9);
+#masuk {
+  background-color: #ffffff ;
+  min-height: 100vh;
 }
-#account{
+#account {
   margin-left: 270px;
-  width : 65px;
+  width: 65px;
   height: 65px;
 }
 
-#sign-in h3{
+#sign-in h3 {
   font-weight: bold;
   font-size: 38;
-  color: #7BD8F8;
+  color: #7bd8f8;
 }
 #login {
-    margin-top: 163px;
-    margin-bottom: 190px; 
-    width: 650px;
-    height: 550px;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    gap: 30px;
-  }
-  #sign-in{
-    padding: 40px;
-  }
-  #sign-in img{
-    align-items: center;
-  }
+  width: 600px;
+  height: 1024px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  gap: 30px;
+}
+#sign-in {
+  padding: 40px;
+}
+#sign-in img {
+  align-items: center;
+}
+#gambarIcon{
+  width:700px;
+}
