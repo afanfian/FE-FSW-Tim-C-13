@@ -1,6 +1,4 @@
-body{
+#notification{
     background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9);
-}
-.logo-navbar{
-    width: 50px;
+    min-height: 100vh;
 }
