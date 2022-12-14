@@ -1,20 +1,28 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react'
-import { Container, Row, Col, Form, InputGroup, Stack } from 'react-bootstrap'
+import { Container, Row, Col, Form, Carousel } from 'react-bootstrap'
 import Navbar from '../views/Layout/navbarbeforelogin'
 import '../styles/home.css'
 import '../styles/styles.css'
 import LogoPesawat from '../assets/airplane.svg'
-import iconDeparture from '../assets/home/airplane-landing.svg'
-import iconCalendar from '../assets/home/calendar-date.svg'
-import iconArrival from '../assets/home/airplane-takeoff.svg'
-import iconPasengger from '../assets/home/person.svg'
-import iconClass from '../assets/home/sofa-single.svg'
+// import iconDeparture from '../assets/home/airplane-landing.svg'
+// import iconCalendar from '../assets/home/calendar-date.svg'
+// import iconArrival from '../assets/home/airplane-takeoff.svg'
+// import iconPasengger from '../assets/home/person.svg'
+// import iconClass from '../assets/home/sofa-single.svg'
+import Content1 from '../assets/home/content-1.svg'
+import Content2 from '../assets/home/content-2.svg'
+import Content3 from '../assets/home/content-3.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
-// import SelectComponent from '../reducer/search/SelectComponent'
 
 function about () {
+  const [index, setIndex] = useState(0)
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex)
+  }
+
   const schema = Yup.object().shape({
     departure: Yup.string().required('Departure is required'),
     departure_date: Yup.string().required('Departure Date is required'),
@@ -215,6 +223,86 @@ function about () {
               </Col>
             </Row>
           </Col>
+        </Row>
+        {/* Caraousel */}
+        <Row>
+          <Carousel variant="dark" activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+              <Row>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-end"
+                    src={Content1}
+                    alt="First slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded mx-auto"
+                    src={Content2}
+                    alt="Second slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-start"
+                    src={Content3}
+                    alt="Third slide"
+                  />
+                </Col>
+              </Row>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Row>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-end"
+                    src={Content1}
+                    alt="First slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded mx-auto"
+                    src={Content2}
+                    alt="Second slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-start"
+                    src={Content3}
+                    alt="Third slide"
+                  />
+                </Col>
+              </Row>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Row>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-end"
+                    src={Content1}
+                    alt="First slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded mx-auto"
+                    src={Content2}
+                    alt="Second slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-start"
+                    src={Content3}
+                    alt="Third slide"
+                  />
+                </Col>
+              </Row>
+            </Carousel.Item>
+          </Carousel>
         </Row>
       </Container>
     </div>
