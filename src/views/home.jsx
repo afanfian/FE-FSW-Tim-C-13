@@ -6,19 +6,19 @@ import Footer from '../views/Layout/footer'
 import '../styles/home.css'
 import '../styles/styles.css'
 import LogoPesawat from '../assets/airplane.svg'
-// import iconDeparture from '../assets/home/airplane-landing.svg'
-// import iconCalendar from '../assets/home/calendar-date.svg'
-// import iconArrival from '../assets/home/airplane-takeoff.svg'
-// import iconPasengger from '../assets/home/person.svg'
-// import iconClass from '../assets/home/sofa-single.svg'
-import Content1 from '../assets/home/content-1.png'
-import Content2 from '../assets/home/content-2.svg'
-import Content3 from '../assets/home/content-3.svg'
-// import TicketVocation from '../assets/home/ticket-vocation.svg'
+// import iconDeparture from '../assets/Home/airplane-landing.svg'
+// import iconCalendar from '../assets/Home/calendar-date.svg'
+// import iconArrival from '../assets/Home/airplane-takeoff.svg'
+// import iconPasengger from '../assets/Home/person.svg'
+// import iconClass from '../assets/Home/sofa-single.svg'
+import Content1 from '../assets/Home/content-1.png'
+import Content2 from '../assets/Home/content-2.svg'
+import Content3 from '../assets/Home/content-3.svg'
+// import TicketVocation from '../assets/Home/ticket-vocation.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-function about () {
+function home () {
   const [index, setIndex] = useState(0)
 
   const handleSelect = (selectedIndex, e) => {
@@ -74,7 +74,7 @@ function about () {
       <Container>
         {/* Navbar */}
         <Navbar />
-        {/* About */}
+        {/* Jumbotron */}
         <Row>
           <Col className="col-md-6">
             <div>
@@ -273,4 +273,4 @@ function about () {
   )
 }
 
-export default about
+export default home
