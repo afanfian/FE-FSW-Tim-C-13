@@ -33,34 +33,32 @@ function about () {
             </Row>
             {/* About */}
             <Row>
-                <Col className="col-md-12 pt-5">
+                <Col className="col-md-12 pt-5 px-md-5">
                     <div className="about border border-2 shadow p-3 mb-5 bg-body rounded">
                       <h3 className="fw-bold">ABOUT</h3>
-                      <p className="w-100">C-31 Aeroplane merupakan tempat agen perjalanan pembelian tiket pesawat terbang
-                         berbasis aplikasi website dan mobile. C-13 Aeroplane didirikan pada tanggal 10 November 2022,
-                        dengan melihat permasalahan tidak adanya aplikasi website dan mobile khusus pembelian tiket pesawat terbang.
+                      <p className="w-100">C-31 Aeroplane is a place for travel agents to purchase airplane tickets based on website and mobile applications. C-13 Aeroplane was established on November 10 2022, taking into account the problem of the absence of website and mobile applications specifically for purchasing airplane tickets.
                       </p>
                     </div>
                 </Col>
             </Row>
             {/* Vision & Mision */}
-            <Row className="pt-5">
-                <Col className="border border-2 col-12 mb-5 d-flex flex-column flex-lg-row justify-content-evenly shadow p-3 mb-5 bg-body rounded">
+            <Row className="px-md-5">
+                <Col className="mision col-12 mb-5 d-flex flex-column flex-lg-row justify-content-evenly px-md-5">
                     <div className="vision d-flex flex-column">
                         <h3 className="text-green">Vision</h3>
-                        <p className="w-75">Menjadi Inovasi Baru dalam Menyediakan Solusi Aplikasi Website dan Mobile Dalam Pembelian Tiket Pesawat.</p>
+                        <p className="w-100">Becoming a New Innovation in Providing Website and Mobile Application Solutions in Purchasing Airplane Tickets.</p>
                         <h3 className="text-green">Mision</h3>
-                        <p className="w-75">New Changes in Innovation for Purchasing Special Aircraft Tickets, Based on the Rapid Development and Spread of Use of Website and Mobile-Based Technologies.</p>
+                        <p className="w-100">New Changes in Innovation for Purchasing Special Aircraft Tickets, Based on the Rapid Development and Spread of Use of Website and Mobile-Based Technologies.</p>
                     </div>
                     <div>
-                        <img src={VisionMision} width="300px" className="pr-5"/>
+                        <img src={VisionMision} width="250px" className="pr-5"/>
                     </div>
                 </Col>
             </Row>
             {/* Our Achievment */}
             <Row>
-                <Col className="achievment col-12">
-                    <div className="shadow shadow-primary shadow-intensity-lg p-3 mb-5 bg-body rounded">
+                <Col className="achievment col-12 px-md-5">
+                    <div className="mb-5">
                         <h3 className="text-center fw-bold text-center">OUR ACHIEVEMENT</h3>
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
@@ -81,7 +79,7 @@ function about () {
             </Row>
             {/* Print Tickets */}
             <Row>
-                <Col>
+                <Col className="px-md-5">
                     <div className="print-ticket text-center text-white shadow p-3 mb-5 rounded">
                       <h3 className="fw-bold">Just Check, Print Your Travel Tickets!</h3>
                       <h5>Let's enjoy your trip using the C13 Airplane, don't forget traveling guys!</h5>
