@@ -2,9 +2,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './views/User/login'
-import Navbar from './views/Layout/navbarbeforelogin'
+// import Navbar from './views/Layout/navbarbeforelogin'
 import Home from './views/home'
 import Notification from './views/User/notif'
+// import Testing from './views/testing'
 
 function App () {
   return (
@@ -12,10 +13,10 @@ function App () {
       <Router>
         <div className="App">
           <Routes>
-            <Route path='/navbar' element={<Navbar/>}/>
             <Route path='/' element={<Home />}/>
             <Route path='/login' element={<Login />} />
             <Route path='/notification' element={<Notification />} />
+            {/* <Route path='/testing' element={<Testing />}/> */}
           </Routes>
           {/* <Route render={() => <h1>404 page not found</h1>} /> */}
         </div>
