@@ -18,7 +18,7 @@ import Content3 from '../assets/home/content-3.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-function about () {
+function home () {
   const [index, setIndex] = useState(0)
 
   const handleSelect = (selectedIndex, e) => {
@@ -273,4 +273,4 @@ function about () {
   )
 }
 
-export default about
+export default home
