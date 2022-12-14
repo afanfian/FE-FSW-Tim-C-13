@@ -5,6 +5,7 @@ import Login from './views/User/login'
 import Home from './views/home'
 import About from './views/about'
 import Notification from './views/User/notif'
+import PageNotFound from './views/notFoundPage'
 
 function App () {
   return (
@@ -16,8 +17,8 @@ function App () {
             <Route path='/about' element={<About />} />
             <Route path='/login' element={<Login />} />
             <Route path='/notification' element={<Notification />} />
+            <Route path="*" component={<PageNotFound />} />
           </Routes>
-          {/* <Route render={() => <h1>404 page not found</h1>} /> */}
         </div>
       </Router>
     </>

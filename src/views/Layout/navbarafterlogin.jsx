@@ -25,10 +25,10 @@ function navigasiLogin () {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/" className="pt-3">Home</Nav.Link>
-                  <Nav.Link href="/about" className="pt-3">About</Nav.Link>
-                  <Nav.Link href="/notification"className="pt-3">Notification</Nav.Link>
-                  <Nav.Link href="#profil"className="pt-3">Profil</Nav.Link>
+                  <Nav.Link href="/" className="pt-3 text-black fw-bold">Home</Nav.Link>
+                  <Nav.Link href="/about" className="pt-3 text-black fw-bold">About</Nav.Link>
+                  <Nav.Link href="/notification"className="pt-3 text-black fw-bold">Notification</Nav.Link>
+                  <Nav.Link href="#profil"className="pt-3 text-black fw-bold">Profil</Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
