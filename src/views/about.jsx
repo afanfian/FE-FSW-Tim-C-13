@@ -44,8 +44,8 @@ function about () {
                 </Col>
             </Row>
             {/* Vision & Mision */}
-            <Row className="pt-5 ">
-                <Col className="col-12 d-flex flex-column flex-lg-row justify-content-evenly shadow p-3 mb-5 bg-body rounded">
+            <Row className="pt-5">
+                <Col className="border border-2 col-12 mb-5 d-flex flex-column flex-lg-row justify-content-evenly shadow p-3 mb-5 bg-body rounded">
                     <div className="vision d-flex flex-column">
                         <h3 className="text-green">Vision</h3>
                         <p className="w-75">Menjadi Inovasi Baru dalam Menyediakan Solusi Aplikasi Website dan Mobile Dalam Pembelian Tiket Pesawat.</p>
@@ -59,8 +59,8 @@ function about () {
             </Row>
             {/* Our Achievment */}
             <Row>
-                <Col>
-                    <div className="shadow p-3 mb-5 bg-body rounded">
+                <Col className="achievment col-12">
+                    <div className="shadow shadow-primary shadow-intensity-lg p-3 mb-5 bg-body rounded">
                         <h3 className="text-center fw-bold text-center">OUR ACHIEVEMENT</h3>
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
