@@ -13,6 +13,7 @@ import LogoPesawat from '../assets/airplane.svg'
 import Content1 from '../assets/home/content-1.svg'
 import Content2 from '../assets/home/content-2.svg'
 import Content3 from '../assets/home/content-3.svg'
+import TicketVocation from '../assets/home/ticket-vocation.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -303,6 +304,15 @@ function about () {
               </Row>
             </Carousel.Item>
           </Carousel>
+        </Row>
+        {/* Image */}
+        <Row>
+          <Col className="col-6">
+            <img src={TicketVocation}/>
+          </Col>
+          <Col className="col-6">
+            <img src={TicketVocation}/>
+          </Col>
         </Row>
       </Container>
     </div>
