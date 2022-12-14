@@ -70,28 +70,34 @@ function home () {
   // const [sofa, setSofa] = useState('')
 
   return (
-    <div id="home">
-      <Container>
+    <div >
         {/* Navbar */}
-        <Navbar />
-        {/* Jumbotron */}
-        <Row>
-          <Col className="col-md-6">
-            <div>
-              <img src={LogoPesawat} width="300px" />
-            </div>
-          </Col>
-          <Col className="col-md-6 pt-5">
-            <div className="text-center">
-              <p className="fw-bold h1">
-                Confused about where to find plane tickets?
-              </p>
-              <p className="text-green fw-bold h2">On C-13 AEROPLANE</p>
-              <p className="fw-bold h3">Only!</p>
-              <button className="btn-green">Let's Order Tickets</button>
-            </div>
-          </Col>
-        </Row>
+        <div id="home">
+          {/* <div className="content"> */}
+          <Container>
+            <Navbar />
+            {/* Jumbotron */}
+            <Row>
+              <Col className="col-md-6">
+                <div>
+                  <img src={LogoPesawat} width="300px" />
+                </div>
+              </Col>
+              <Col className="col-md-6 pt-5">
+                <div className="text-center">
+                  <p className="fw-bold h1">
+                    Confused about where to find plane tickets?
+                  </p>
+                  <p className="text-green fw-bold h2">On C-13 AEROPLANE</p>
+                  <p className="fw-bold h3">Only!</p>
+                  <button className="btn-green">Let's Order Tickets</button>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          {/* </div> */}
+        </div>
+      <Container>
         {/* Form Ticket */}
         <Row className="pt-5">
           <Col className="col-md-12 w-100 search-flight shadow p-3 mb-5 bg-body rounded">
@@ -266,9 +272,13 @@ function home () {
             <img src={TicketVocation} width="300px" className="mx-auto"/>
           </Col>
         </Row> */}
-        {/* Footer */}
-        <Footer />
       </Container>
+        {/* Footer */}
+        <div id="footer">
+          <Container>
+            <Footer />
+          </Container>
+        </div>
     </div>
   )
 }

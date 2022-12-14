@@ -31,7 +31,9 @@ function footer () {
                 </div>
                 <div className="section-4">
                     <p>C-13 AEROPLANE</p>
-                    <div><img src={logo} alt="logo" className='ps-3'/></div>
+                    <div>
+                        <img src={logo} alt="logo" className='ps-3'/>
+                    </div>
                 </div>
             </Container>
         </footer>

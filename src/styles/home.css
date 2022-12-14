@@ -1,8 +1,9 @@
 /* Jumbotron */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
 
+
 #home{
-    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
+    background-image: linear-gradient(to bottom, #86CEFF , white);
     font-family: 'Poppins', sans-serif;
 }
 .btn-green{

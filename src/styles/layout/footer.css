@@ -1,6 +1,12 @@
 /* Footer */
+#footer{
+    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
+}
+
 footer {
-    padding: 2rem 0 8rem 0;
+    /* padding: 2rem 0 8rem 0; */
+    padding-top: 3%;
+    padding-bottom: 5%;
 }
 
 footer .container {
