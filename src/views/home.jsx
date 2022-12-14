@@ -255,6 +255,56 @@ function home () {
                 </Col>
               </Row>
             </Carousel.Item>
+            <Carousel.Item>
+              <Row>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-end"
+                    src={Content1}
+                    alt="First slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded mx-auto"
+                    src={Content2}
+                    alt="Second slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-start"
+                    src={Content3}
+                    alt="Third slide"
+                  />
+                </Col>
+              </Row>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Row>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-end"
+                    src={Content1}
+                    alt="First slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded mx-auto"
+                    src={Content2}
+                    alt="Second slide"
+                  />
+                </Col>
+                <Col className="col-4 mb-5">
+                  <img
+                    className="d-block w-75 rounded float-start"
+                    src={Content3}
+                    alt="Third slide"
+                  />
+                </Col>
+              </Row>
+            </Carousel.Item>
           </Carousel>
         </Row>
         {/* Promo Ticket */}
