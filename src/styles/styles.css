@@ -1,0 +1,84 @@
+.App {
+    font-family: sans-serif;
+  }
+
+.dropdown-container {
+  width: 250px;
+  position: relative;
+}
+
+.dropdown {
+  border: none;
+  width: 100%;
+  border-bottom: none;
+  box-sizing: border-box;
+  position: absolute;
+  display: none;
+}
+
+.dropdown.visible {
+display: block;
+}
+
+.option {
+  height: 60px;
+  width: 350px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.option:hover {
+  background-color: royalblue;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-container input {
+  width: 350px;
+  padding-left: 5%;
+  border-width: 1px;
+  height: 36px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.input-arrow-container {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -2px;
+  cursor: pointer;
+}
+
+.input-arrow {
+  border: none;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.input-clean-container {
+  position: relative;
+  padding-left: 390px;
+  padding-bottom: 12%;
+  cursor: pointer;
+}
+
+.input-clean {
+  border: none;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+  

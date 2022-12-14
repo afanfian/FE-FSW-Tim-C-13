@@ -1,7 +1,6 @@
 /* Jumbotron */
 #home{
-    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9);
-    min-height: 100vh;
+    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
 }
 .btn-green{
     background-color: #4C98CC;
@@ -22,3 +21,86 @@
 .form-1{
     padding-left: 5%;
 }
+/* Fitur Search */
+.dropdown-container {
+    width: 250px;
+    position: relative;
+    }
+    
+    .dropdown {
+    border: 1px solid black;
+    width: 100%;
+    border-bottom: none;
+    box-sizing: border-box;
+    position: absolute;
+    display: none;
+    }
+    
+    .dropdown.visible {
+    display: block;
+    }
+    
+    .option {
+    height: 36px;
+    border-bottom: 1px solid black;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: pointer;
+    background-color: white;
+    }
+    
+    .option:hover {
+    background-color: royalblue;
+    }
+    
+    .input-container {
+    position: relative;
+    width: 100%;
+    }
+    
+    .dropdown-container input {
+    width: 100%;
+    padding: 0;
+    border-width: 1px;
+    height: 36px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    position: relative;
+    }
+    
+    .input-arrow-container {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -2px;
+    cursor: pointer;
+    }
+    
+    .input-arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    }
+    
+    .input-clean-container {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -2px;
+    cursor: pointer;
+    }
+    
+    .input-clean {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    }    
