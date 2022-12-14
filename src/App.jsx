@@ -17,7 +17,7 @@ function App () {
             <Route path='/about' element={<About />} />
             <Route path='/login' element={<Login />} />
             <Route path='/notification' element={<Notification />} />
-            <Route path="*" component={<PageNotFound />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </Router>

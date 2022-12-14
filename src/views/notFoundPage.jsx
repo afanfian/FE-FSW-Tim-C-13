@@ -1,6 +1,4 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import '../styles/notFoundPage.css'
 
 function NotFoundPage () {
@@ -19,11 +17,11 @@ function NotFoundPage () {
                 Sorry, an error has occured, Requested page not found!
               </div>
               <div className="error-actions">
-                <Link>
-                  <Button className="btn btn-default btn-lg">
+                <a href="/" >
+                  <button className="btn-green">
                     Take Me Home
-                  </Button>
-                </Link>
+                  </button>
+                </a>
               </div>
             </div>
           </div>
