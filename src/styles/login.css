@@ -1,7 +1,10 @@
 /* Style login */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap');
+
 #masuk {
   background-color: #ffffff ;
   min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
 }
 #account {
   margin-left: 270px;

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import '../../styles/layout/footer.css'
-import iconFacebook from '../../assets/home/icon_facebook.svg'
-import iconInstagram from '../../assets/home/icon_instagram.svg'
-import iconMail from '../../assets/home/icon_mail.svg'
-import logo from '../../assets/home/logo-2.svg'
+import iconFacebook from '../../assets/Home/icon_facebook.svg'
+import iconInstagram from '../../assets/Home/icon_instagram.svg'
+import iconMail from '../../assets/Home/icon_mail.svg'
+import logo from '../../assets/Home/logo-2.svg'
 
 function footer () {
   return (

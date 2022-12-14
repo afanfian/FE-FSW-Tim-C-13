@@ -3,7 +3,9 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Navbar from '../views/Layout/navbarbeforelogin'
 import Footer from '../views/Layout/footer'
+import '../styles/about.css'
 import LogoPesawat from '../assets/airplane.svg'
+import VisionMision from '../assets/About/img-vision.png'
 
 function about () {
   return (
@@ -11,11 +13,11 @@ function about () {
         <Container>
             {/* Navbar */}
             <Navbar />
-            {/* About */}
+            {/* Jumbotron */}
             <Row>
                 <Col className="col-md-6">
                     <div>
-                    <img src={LogoPesawat} width="300px" />
+                        <img src={LogoPesawat} width="300px" />
                     </div>
                 </Col>
                 <Col className="col-md-6 pt-5">
@@ -26,6 +28,64 @@ function about () {
                     <p className="text-green fw-bold h2">On C-13 AEROPLANE</p>
                     <p className="fw-bold h3">Only!</p>
                     <button className="btn-green">Let's Order Tickets</button>
+                    </div>
+                </Col>
+            </Row>
+            {/* About */}
+            <Row>
+                <Col className="col-md-12 pt-5">
+                    <div className="about border border-2 shadow p-3 mb-5 bg-body rounded">
+                      <h3 className="fw-bold">ABOUT</h3>
+                      <p className="w-100">C-31 Aeroplane merupakan tempat agen perjalanan pembelian tiket pesawat terbang
+                         berbasis aplikasi website dan mobile. C-13 Aeroplane didirikan pada tanggal 10 November 2022,
+                        dengan melihat permasalahan tidak adanya aplikasi website dan mobile khusus pembelian tiket pesawat terbang.
+                      </p>
+                    </div>
+                </Col>
+            </Row>
+            {/* Vision & Mision */}
+            <Row className="pt-5 ">
+                <Col className="col-12 d-flex flex-column flex-lg-row justify-content-evenly shadow p-3 mb-5 bg-body rounded">
+                    <div className="vision d-flex flex-column">
+                        <h3 className="text-green">Vision</h3>
+                        <p className="w-75">Menjadi Inovasi Baru dalam Menyediakan Solusi Aplikasi Website dan Mobile Dalam Pembelian Tiket Pesawat.</p>
+                        <h3 className="text-green">Mision</h3>
+                        <p className="w-75">New Changes in Innovation for Purchasing Special Aircraft Tickets, Based on the Rapid Development and Spread of Use of Website and Mobile-Based Technologies.</p>
+                    </div>
+                    <div>
+                        <img src={VisionMision} width="300px" className="pr-5"/>
+                    </div>
+                </Col>
+            </Row>
+            {/* Our Achievment */}
+            <Row>
+                <Col>
+                    <div className="shadow p-3 mb-5 bg-body rounded">
+                        <h3 className="text-center fw-bold text-center">OUR ACHIEVEMENT</h3>
+                        <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">150</h4>
+                                <h5 className="text-black text-center">Airport</h5>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">350</h4>
+                                <h5 className="text-black text-center">Plane</h5>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">5000</h4>
+                                <h5 className="text-black text-center">Travel Transactions</h5>
+                            </div>
+                        </div>
+                    </div>
+                </Col>
+            </Row>
+            {/* Print Tickets */}
+            <Row>
+                <Col>
+                    <div className="print-ticket text-center text-white shadow p-3 mb-5 rounded">
+                      <h3 className="fw-bold">Just Check, Print Your Travel Tickets!</h3>
+                      <h5>Let's enjoy your trip using the C13 Airplane, don't forget traveling guys!</h5>
+                      <button className="btn-green p-2">Let's Order Tickets</button>
                     </div>
                 </Col>
             </Row>
