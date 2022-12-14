@@ -1,0 +1,44 @@
+/* Footer */
+footer {
+    margin-top: 4rem;
+    padding: 2rem 0 8rem 0;
+}
+
+footer .container {
+    gap: 2rem;
+}
+
+footer p {
+    font-weight: 300;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+footer .section-2 a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+footer .section-2 a:hover {
+    transform: scale(1.1);
+}
+
+.social-media a {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: #0d28a6;
+}
+
+footer .logo {
+    width: 6.25rem;
+    height: 2.125rem;
+    background-color: #0d28a6;
+}
+
+footer .social-media a:hover {
+    transform: scale(1.1);
+}

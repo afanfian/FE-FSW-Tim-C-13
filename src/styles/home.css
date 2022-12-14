@@ -1,7 +1,6 @@
 /* Jumbotron */
 #home{
-    /* background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9); */
-    min-height: 100vh;
+    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
 }
 .btn-green{
     background-color: #4C98CC;

@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, Carousel } from 'react-bootstrap'
 import Navbar from '../views/Layout/navbarbeforelogin'
+import Footer from '../views/Layout/footer'
 import '../styles/home.css'
 import '../styles/styles.css'
 import LogoPesawat from '../assets/airplane.svg'
@@ -10,10 +11,10 @@ import LogoPesawat from '../assets/airplane.svg'
 // import iconArrival from '../assets/home/airplane-takeoff.svg'
 // import iconPasengger from '../assets/home/person.svg'
 // import iconClass from '../assets/home/sofa-single.svg'
-import Content1 from '../assets/home/content-1.svg'
+import Content1 from '../assets/home/content-1.png'
 import Content2 from '../assets/home/content-2.svg'
 import Content3 from '../assets/home/content-3.svg'
-import TicketVocation from '../assets/home/ticket-vocation.svg'
+// import TicketVocation from '../assets/home/ticket-vocation.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -71,6 +72,7 @@ function about () {
   return (
     <div id="home">
       <Container>
+        {/* Navbar */}
         <Navbar />
         {/* About */}
         <Row>
@@ -253,67 +255,19 @@ function about () {
                 </Col>
               </Row>
             </Carousel.Item>
-            <Carousel.Item>
-              <Row>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded float-end"
-                    src={Content1}
-                    alt="First slide"
-                  />
-                </Col>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded mx-auto"
-                    src={Content2}
-                    alt="Second slide"
-                  />
-                </Col>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded float-start"
-                    src={Content3}
-                    alt="Third slide"
-                  />
-                </Col>
-              </Row>
-            </Carousel.Item>
-            <Carousel.Item>
-              <Row>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded float-end"
-                    src={Content1}
-                    alt="First slide"
-                  />
-                </Col>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded mx-auto"
-                    src={Content2}
-                    alt="Second slide"
-                  />
-                </Col>
-                <Col className="col-4 mb-5">
-                  <img
-                    className="d-block w-75 rounded float-start"
-                    src={Content3}
-                    alt="Third slide"
-                  />
-                </Col>
-              </Row>
-            </Carousel.Item>
           </Carousel>
         </Row>
-        {/* Image */}
-        <Row>
+        {/* Promo Ticket */}
+        {/* <Row>
           <Col className="col-6">
-            <img src={TicketVocation}/>
+            <img src={TicketVocation} width="300px" className="mx-auto"/>
           </Col>
           <Col className="col-6">
-            <img src={TicketVocation}/>
+            <img src={TicketVocation} width="300px" className="mx-auto"/>
           </Col>
-        </Row>
+        </Row> */}
+        {/* Footer */}
+        <Footer />
       </Container>
     </div>
   )
