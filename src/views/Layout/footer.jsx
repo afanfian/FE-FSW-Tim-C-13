@@ -4,7 +4,7 @@ import '../../styles/layout/footer.css'
 import iconFacebook from '../../assets/Home/icon_facebook.svg'
 import iconInstagram from '../../assets/Home/icon_instagram.svg'
 import iconMail from '../../assets/Home/icon_mail.svg'
-import Logo from '../../assets/Home/logo-2.svg'
+import Logo from '../../assets/Home/logo2.svg'
 
 function footer () {
   return (
