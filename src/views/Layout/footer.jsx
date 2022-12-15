@@ -4,7 +4,7 @@ import '../../styles/layout/footer.css'
 import iconFacebook from '../../assets/Home/icon_facebook.svg'
 import iconInstagram from '../../assets/Home/icon_instagram.svg'
 import iconMail from '../../assets/Home/icon_mail.svg'
-import logo from '../../assets/Home/logo-2.svg'
+import Logo from '../../assets/Home/logo-2.svg'
 
 function footer () {
   return (
@@ -32,7 +32,7 @@ function footer () {
                 <div className="section-4">
                     <p>C-13 AEROPLANE</p>
                     <div>
-                        <img src={logo} alt="logo" className='ps-3'/>
+                        <img src={Logo} alt="logo" className='ps-3'/>
                     </div>
                 </div>
             </Container>
