@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/notFoundPage.css'
-import logo from '../assets/Home/logo-2.svg'
+import Logo from '../assets/Home/logo-2.svg'
 
 function NotFoundPage () {
   return (
@@ -9,7 +9,7 @@ function NotFoundPage () {
           <div className="row">
             <div className="col-md-12">
               <div className="error-template">
-                <img src={logo} alt="logo" width={200}/>
+                <img src={Logo} alt="logo" width={200}/>
                 <h1>
                   Oops!
                 </h1>
