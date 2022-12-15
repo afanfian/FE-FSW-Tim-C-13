@@ -29,7 +29,7 @@ function navbarBeforeLogin () {
                     <Nav.Link href="/" className="pt-3 text-black fw-bold">Home</Nav.Link>
                     <Nav.Link href="/about" className="pt-3 text-black fw-bold">About</Nav.Link>
                     <Nav.Link href="/login"><button className="btn-navbar fw-bold">Login</button></Nav.Link>
-                    <Nav.Link href="#registration"><button className="btn-navbar fw-bold">Registration</button></Nav.Link>
+                    <Nav.Link href="/register"><button className="btn-navbar fw-bold">Registration</button></Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

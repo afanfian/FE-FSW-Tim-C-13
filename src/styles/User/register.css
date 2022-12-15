@@ -1,0 +1,17 @@
+#register{
+    background-image: linear-gradient(to bottom, #86CEFF , white);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+
+.icon-right{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.text-green-1{
+    padding-top: 1%;
+    color: #7BD8F8;
+    font-weight: bold;
+}
