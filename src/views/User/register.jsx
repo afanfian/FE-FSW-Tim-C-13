@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Col, Container, Row } from 'react-bootstrap'
 import Navbar from '../Layout/navbarbeforelogin'
-import { account, gambarIcon } from '../../assets'
+import { account, gambarIcon } from '../../assets/index.js'
 import '../../styles/User/register.css'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
