@@ -11,7 +11,7 @@ import LogoPesawat from '../assets/airplane.svg'
 // import iconArrival from '../assets/Home/airplane-takeoff.svg'
 // import iconPasengger from '../assets/Home/person.svg'
 // import iconClass from '../assets/Home/sofa-single.svg'
-import Content1 from '../assets/Home/content1.png'
+// import Content1 from '../assets/Home/content1.png'
 import Content2 from '../../src/assets/Home/content2.svg'
 import Content3 from '../../src/assets/Home/content3.svg'
 // import TicketVocation from '../assets/Home/ticket-vocation.svg'
@@ -239,11 +239,11 @@ function home () {
             <Carousel.Item>
               <Row>
                 <Col className="col-4 mb-5">
-                  <img
+                  {/* <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
                     alt="First slide"
-                  />
+                  /> */}
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
@@ -264,11 +264,11 @@ function home () {
             <Carousel.Item>
               <Row>
                 <Col className="col-4 mb-5">
-                  <img
+                  {/* <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
                     alt="First slide"
-                  />
+                  /> */}
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
@@ -289,11 +289,11 @@ function home () {
             <Carousel.Item>
               <Row>
                 <Col className="col-4 mb-5">
-                  <img
+                  {/* <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
                     alt="First slide"
-                  />
+                  /> */}
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
