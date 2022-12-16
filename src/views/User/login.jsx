@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react'
 import { Button, Form, Col, Container, Row } from 'react-bootstrap'
-import account from '../../assets/account.svg'
 import GoogleComponent from 'react-google-login'
 import '../../styles/login.css'
 import { gapi } from 'gapi-script'
-import gambarIcon from '../../assets/Aircraft.png'
 import Navbar from '../Layout/navbarbeforelogin'
-// import Navbar from '../layout/navbarbeforelogin'
+import { account, gambarIcon } from '../../assets'
 
 function masuk () {
   const responseGoogle = (response) => {
