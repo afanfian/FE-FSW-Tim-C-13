@@ -11,7 +11,7 @@ const index = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/notification" element={<Notification />} />
           <Route path="/about" element={<About/>} />
-          <Route path="/error404" element={<NotFoundPage/>} />
+          <Route path="*" element={<NotFoundPage/>} />
         </Routes>
       </BrowserRouter>
   )

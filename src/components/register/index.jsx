@@ -78,7 +78,7 @@ function register () {
                         <Form.Group className='mb-3' controlId="address">
                             <Form.Label>Address</Form.Label>
                             <Form.Control
-                            type="date"
+                            type="text"
                             placeholder="Address"
                             name="address"
                             value={values.address}
@@ -92,7 +92,7 @@ function register () {
                         <Form.Group className='mb-3' controlId="phone">
                             <Form.Label>Phone</Form.Label>
                             <Form.Control
-                            type="date"
+                            type="text"
                             placeholder="Phone"
                             name="phone"
                             value={values.phone}
