@@ -1,8 +1,7 @@
 import React from 'react'
 import { Form, Col, Container, Row } from 'react-bootstrap'
-import Navbar from '../Layout/navbarbeforelogin'
 import { account, gambarIcon } from '../../assets/index.js'
-import '../../styles/User/register.css'
+import './register.css'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -19,7 +18,6 @@ function register () {
   return (
     <div id="register">
       <Container >
-        <Navbar />
         {/* Formik */}
         <Row>
             <Col className="col-md-6 pt-5 border border-2 shadow p-3 mb-5 bg-body rounded">
@@ -80,7 +78,7 @@ function register () {
                         <Form.Group className='mb-3' controlId="address">
                             <Form.Label>Address</Form.Label>
                             <Form.Control
-                            type="date"
+                            type="text"
                             placeholder="Address"
                             name="address"
                             value={values.address}
@@ -94,7 +92,7 @@ function register () {
                         <Form.Group className='mb-3' controlId="phone">
                             <Form.Label>Phone</Form.Label>
                             <Form.Control
-                            type="date"
+                            type="text"
                             placeholder="Phone"
                             name="phone"
                             value={values.phone}

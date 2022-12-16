@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 #notification{
-    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%,#00BAF9);
     min-height: 100vh;
+    background-image: linear-gradient(to bottom, #86CEFF , white);
     font-family: 'Poppins', sans-serif;
 }

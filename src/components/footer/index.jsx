@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
-import '../../styles/layout/footer.css'
+import './footer.css'
 import { Logo, Facebook, Instagram, Email } from '../../assets/index.js'
 
 function footer () {

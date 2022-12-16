@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import Navbar from '../views/Layout/navbarbeforelogin'
-import Footer from '../views/Layout/footer'
-import '../styles/about.css'
-import { LogoPesawat, VisionMision } from '../assets/index.js'
+import './about.css'
+import { LogoPesawat, VisionMision } from '../../assets'
+import Navbar from '../navbar'
+import Footer from '../footer'
 
 function about () {
   return (
@@ -93,7 +93,7 @@ function about () {
         </Container>
         <div id="footer">
           <Container>
-            <Footer />
+              <Footer />
           </Container>
         </div>
     </div>

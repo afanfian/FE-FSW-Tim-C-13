@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { Button, Form, Col, Container, Row } from 'react-bootstrap'
 import GoogleComponent from 'react-google-login'
-import '../../styles/login.css'
+import './login.css'
 import { gapi } from 'gapi-script'
-import Navbar from '../Layout/navbarbeforelogin'
 import { account, gambarIcon } from '../../assets/index.js'
+import Navbar from '../navbar'
 
 function masuk () {
   const responseGoogle = (response) => {
@@ -34,7 +34,7 @@ function masuk () {
                   <img src={account} />
                 </div>
                 <div className="d-grid gap-8 justify-content-center mt-2">
-                  <h3>MASUK</h3>
+                  <h3>LOGIN</h3>
                 </div>
 
                 <Form>
@@ -58,7 +58,7 @@ function masuk () {
                   </div>
                   <div className="d-grid gap-8 justify-content-center">
                     <p className="mt-4">
-                      Dont Have an Account ? <a href="/sign-up">Sign up</a>
+                      Dont Have an Account ? <a href="/register">Sign up</a>
                     </p>
                   </div>
                   <div className="d-grid gap-8 justify-content-center">
