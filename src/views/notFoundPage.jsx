@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/notFoundPage.css'
-import Logo from '../../src/assets/Home/logo2.svg'
+import { Logo } from '../assets/index.js'
 
 function NotFoundPage () {
   return (

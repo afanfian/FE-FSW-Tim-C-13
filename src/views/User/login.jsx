@@ -4,7 +4,7 @@ import GoogleComponent from 'react-google-login'
 import '../../styles/login.css'
 import { gapi } from 'gapi-script'
 import Navbar from '../Layout/navbarbeforelogin'
-import { account, gambarIcon } from '../../assets'
+import { account, gambarIcon } from '../../assets/index.js'
 
 function masuk () {
   const responseGoogle = (response) => {

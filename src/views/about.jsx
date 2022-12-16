@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Navbar from '../views/Layout/navbarbeforelogin'
 import Footer from '../views/Layout/footer'
 import '../styles/about.css'
-import { LogoPesawat, VisionMision } from '../assets'
+import { LogoPesawat, VisionMision } from '../assets/index.js'
 
 function about () {
   return (
