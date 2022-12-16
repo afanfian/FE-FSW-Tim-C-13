@@ -1,8 +1,7 @@
 import React from 'react'
 import { Form, Col, Container, Row } from 'react-bootstrap'
-import Navbar from '../Layout/navbarbeforelogin'
 import { account, gambarIcon } from '../../assets/index.js'
-import '../../styles/User/register.css'
+import './register.css'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -19,7 +18,6 @@ function register () {
   return (
     <div id="register">
       <Container >
-        <Navbar />
         {/* Formik */}
         <Row>
             <Col className="col-md-6 pt-5 border border-2 shadow p-3 mb-5 bg-body rounded">

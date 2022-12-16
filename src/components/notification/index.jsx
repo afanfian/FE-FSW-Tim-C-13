@@ -1,11 +1,12 @@
 import React from 'react'
 import { Container, Row, Card } from 'react-bootstrap'
-import Navbar from '../Layout/navbarafterlogin'
-import '../../styles/notif.css'
+import Navbar from '../navbar/navbarafterlogin'
+import './notif.css'
+import Footer from '../footer'
 
 const notification = () => {
   return (
-    <div id="notification">
+    <><div id="notification">
       <Navbar />
       <Container>
         <Row className="justify-content-center m-auto">
@@ -36,10 +37,12 @@ const notification = () => {
             <Card.Body>
               Penerbangan anda menuju Jakarta <b>telah selesai</b>.
             </Card.Body>
-          </Card >
+          </Card>
         </Row>
       </Container>
-    </div>
+    </div><div>
+        <Footer />
+      </div></>
   )
 }
 

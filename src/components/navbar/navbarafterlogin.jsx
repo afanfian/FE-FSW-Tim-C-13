@@ -2,7 +2,7 @@
 // import Button from 'react-bootstrap/Button'
 import React from 'react'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
-import '../../styles/layout/navbar.css'
+import './navbar.css'
 import { LogoPesawatNavbar } from '../../assets/index.js'
 
 function navigasiLogin () {

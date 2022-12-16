@@ -1,11 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react'
 import { Container, Row, Col, Form, Carousel } from 'react-bootstrap'
-import Navbar from '../views/Layout/navbarbeforelogin'
-import Footer from '../views/Layout/footer'
-import '../styles/home.css'
-import '../styles/styles.css'
-import { Content1, Content2, Content3, LogoPesawat } from '../assets/index.js'
+import './home.css'
+import Navbar from '../navbar'
+import Footer from '../footer'
+import './styles.css'
+import {
+  Content1,
+  Content2,
+  Content3,
+  LogoPesawat
+} from '../../assets/index.js'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
@@ -61,33 +66,33 @@ function home () {
   // const [sofa, setSofa] = useState('')
 
   return (
-    <div >
-        {/* Navbar */}
-        <div id="home">
-          {/* <div className="content"> */}
-          <Container>
-            <Navbar />
-            {/* Jumbotron */}
-            <Row>
-              <Col className="col-md-6">
-                <div>
-                  <img src={LogoPesawat} width="300px" />
-                </div>
-              </Col>
-              <Col className="col-md-6 pt-5">
-                <div className="text-center">
-                  <p className="fw-bold h1">
-                    Confused about where to find plane tickets?
-                  </p>
-                  <p className="text-green fw-bold h2">On C-13 AEROPLANE</p>
-                  <p className="fw-bold h3">Only!</p>
-                  <button className="btn-green">Let's Order Tickets</button>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-          {/* </div> */}
-        </div>
+    <><div>
+      {/* Navbar */}
+      <div id="home">
+        {/* <div className="content"> */}
+        <Container>
+          <Navbar />
+          {/* Jumbotron */}
+          <Row>
+            <Col className="col-md-6">
+              <div>
+                <img src={LogoPesawat} width="300px" />
+              </div>
+            </Col>
+            <Col className="col-md-6 pt-5">
+              <div className="text-center">
+                <p className="fw-bold h1">
+                  Confused about where to find plane tickets?
+                </p>
+                <p className="text-green fw-bold h2">On C-13 AEROPLANE</p>
+                <p className="fw-bold h3">Only!</p>
+                <button className="btn-green">Let's Order Tickets</button>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        {/* </div> */}
+      </div>
       <Container>
         {/* Form Ticket */}
         <Row className="pt-5">
@@ -108,17 +113,16 @@ function home () {
                   }}
                 >
                   {({
-                    handleSubmit,
-                    handleChange,
-                    handleBlur,
-                    values,
-                    touched,
-                    isValid,
-                    errors
+                    handleSubmit, handleChange, handleBlur, values, touched, isValid, errors
                   }) => (
                     <Form noValidate onSubmit={handleSubmit}>
                       <Row className="mb-3">
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="departure">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="departure"
+                        >
                           <Form.Label>Departure</Form.Label>
                           <Form.Control
                             type="text"
@@ -126,13 +130,17 @@ function home () {
                             name="departure"
                             value={values.departure}
                             onChange={handleChange}
-                            isInvalid={!!errors.departure}
-                          />
+                            isInvalid={!!errors.departure} />
                           <Form.Control.Feedback type="invalid">
                             {errors.departure}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="arrival">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="arrival"
+                        >
                           <Form.Label>Arrival</Form.Label>
                           <Form.Control
                             type="text"
@@ -140,13 +148,17 @@ function home () {
                             name="arrival"
                             value={values.arrival}
                             onChange={handleChange}
-                            isInvalid={!!errors.arrival}
-                          />
+                            isInvalid={!!errors.arrival} />
                           <Form.Control.Feedback type="invalid">
                             {errors.arrival}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="departure_date">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="departure_date"
+                        >
                           <Form.Label>Departure Date</Form.Label>
                           <Form.Control
                             type="date"
@@ -154,13 +166,17 @@ function home () {
                             name="departure_date"
                             value={values.departure_date}
                             onChange={handleChange}
-                            isInvalid={!!errors.departure_date}
-                          />
+                            isInvalid={!!errors.departure_date} />
                           <Form.Control.Feedback type="invalid">
                             {errors.departure_date}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="arrival_date">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="arrival_date"
+                        >
                           <Form.Label>Arrival Date</Form.Label>
                           <Form.Control
                             type="date"
@@ -168,13 +184,17 @@ function home () {
                             name="arrival_date"
                             value={values.arrival_date}
                             onChange={handleChange}
-                            isInvalid={!!errors.arrival_date}
-                          />
+                            isInvalid={!!errors.arrival_date} />
                           <Form.Control.Feedback type="invalid">
                             {errors.arrival_date}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="passenger">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="passenger"
+                        >
                           <Form.Label>Passenger</Form.Label>
                           <Form.Control
                             type="text"
@@ -182,13 +202,17 @@ function home () {
                             name="passenger"
                             value={values.passenger}
                             onChange={handleChange}
-                            isInvalid={!!errors.passenger}
-                          />
+                            isInvalid={!!errors.passenger} />
                           <Form.Control.Feedback type="invalid">
                             {errors.passenger}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group as={Col} md="6" className='mb-3' controlId="sofa">
+                        <Form.Group
+                          as={Col}
+                          md="6"
+                          className="mb-3"
+                          controlId="sofa"
+                        >
                           <Form.Label>Class</Form.Label>
                           <Form.Control
                             type="text"
@@ -196,8 +220,7 @@ function home () {
                             name="sofa"
                             value={values.sofa}
                             onChange={handleChange}
-                            isInvalid={!!errors.sofa}
-                          />
+                            isInvalid={!!errors.sofa} />
 
                           <Form.Control.Feedback type="invalid">
                             {errors.sofa}
@@ -213,10 +236,11 @@ function home () {
                           isInvalid={!!errors.terms}
                           feedback={errors.terms}
                           feedbackType="invalid"
-                          id="validationFormik0"
-                        />
+                          id="validationFormik0" />
                       </Form.Group>
-                      <button type="submit" className="btn-green">Submit form</button>
+                      <button type="submit" className="btn-green">
+                        Submit form
+                      </button>
                     </Form>
                   )}
                 </Formik>
@@ -233,22 +257,19 @@ function home () {
                   <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
-                    alt="First slide"
-                  />
+                    alt="First slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded mx-auto"
                     src={Content2}
-                    alt="Second slide"
-                  />
+                    alt="Second slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded float-start"
                     src={Content3}
-                    alt="Third slide"
-                  />
+                    alt="Third slide" />
                 </Col>
               </Row>
             </Carousel.Item>
@@ -258,22 +279,19 @@ function home () {
                   <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
-                    alt="First slide"
-                  />
+                    alt="First slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded mx-auto"
                     src={Content2}
-                    alt="Second slide"
-                  />
+                    alt="Second slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded float-start"
                     src={Content3}
-                    alt="Third slide"
-                  />
+                    alt="Third slide" />
                 </Col>
               </Row>
             </Carousel.Item>
@@ -283,22 +301,19 @@ function home () {
                   <img
                     className="d-block w-75 rounded float-end"
                     src={Content1}
-                    alt="First slide"
-                  />
+                    alt="First slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded mx-auto"
                     src={Content2}
-                    alt="Second slide"
-                  />
+                    alt="Second slide" />
                 </Col>
                 <Col className="col-4 mb-5">
                   <img
                     className="d-block w-75 rounded float-start"
                     src={Content3}
-                    alt="Third slide"
-                  />
+                    alt="Third slide" />
                 </Col>
               </Row>
             </Carousel.Item>
@@ -306,21 +321,17 @@ function home () {
         </Row>
         {/* Promo Ticket */}
         {/* <Row>
-          <Col className="col-6">
-            <img src={TicketVocation} width="300px" className="mx-auto"/>
-          </Col>
-          <Col className="col-6">
-            <img src={TicketVocation} width="300px" className="mx-auto"/>
-          </Col>
-        </Row> */}
+      <Col className="col-6">
+        <img src={TicketVocation} width="300px" className="mx-auto"/>
+      </Col>
+      <Col className="col-6">
+        <img src={TicketVocation} width="300px" className="mx-auto"/>
+      </Col>
+    </Row> */}
       </Container>
-        {/* Footer */}
-        <div id="footer">
-          <Container>
-            <Footer />
-          </Container>
-        </div>
-    </div>
+    </div><div>
+        <Footer />
+      </div></>
   )
 }
 
