@@ -3,20 +3,20 @@ import VisionMision from './About/img-vision.png'
 
 // Image Admin
 
-// Image Home
-import Landing from './Home/airplaneLanding.svg'
-import Takeoff from './Home/airplaneTakeoff.svg'
-import Calendar from './Home/calendarDate.svg'
-import Content1 from './Home/content1.png'
-import Content2 from './Home/content2.svg'
-import Content3 from './Home/content3.svg'
-import Facebook from './Home/iconFacebook.svg'
-import Instagram from './Home/iconInstagram.svg'
-import Email from './Home/iconMail.svg'
-import Logo from './Home/logo2.svg'
-import Person from './Home/person.svg'
-import Sofa from './Home/sofaSingle.svg'
-import LogoTicket from './Home/ticketVocation.svg'
+// Image General
+import Landing from './General/airplaneLanding.svg'
+import Takeoff from './General/airplaneTakeoff.svg'
+import Calendar from './General/calendarDate.svg'
+import Content1 from './General/content1.png'
+import Content2 from './General/content2.svg'
+import Content3 from './General/content3.svg'
+import Facebook from './General/iconFacebook.svg'
+import Instagram from './General/iconInstagram.svg'
+import Email from './General/iconMail.svg'
+import Logo from './General/logo2.svg'
+import Person from './General/person.svg'
+import Sofa from './General/sofaSingle.svg'
+import LogoTicket from './General/ticketVocation.svg'
 
 // Image User
 import account from './User/account.svg'
