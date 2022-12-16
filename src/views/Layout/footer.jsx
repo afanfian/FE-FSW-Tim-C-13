@@ -1,10 +1,7 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import '../../styles/layout/footer.css'
-import iconFacebook from '../../assets/Home/icon_facebook.svg'
-import iconInstagram from '../../assets/Home/icon_instagram.svg'
-import iconMail from '../../assets/Home/icon_mail.svg'
-import Logo from '../../assets/Home/logo2.svg'
+import { Logo, Facebook, Instagram, Email } from '../../assets/index.js'
 
 function footer () {
   return (
@@ -24,9 +21,9 @@ function footer () {
                 <div className="section-3 d-flex flex-column">
                     <p>Connect with us</p>
                     <div className="social-media d-flex gap-2">
-                        <a href="#"><img src={iconFacebook} alt="Facebook" /></a>
-                        <a href="#"><img src={iconInstagram} alt="Instagram" /></a>
-                        <a href="#"><img src={iconMail} alt="Email" /></a>
+                        <a href="#"><img src={Facebook} alt="Facebook" /></a>
+                        <a href="#"><img src={Instagram} alt="Instagram" /></a>
+                        <a href="#"><img src={Email} alt="Email" /></a>
                     </div>
                 </div>
                 <div className="section-4">

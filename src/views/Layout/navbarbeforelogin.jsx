@@ -3,7 +3,7 @@
 import React from 'react'
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap'
 import '../../styles/layout/navbar.css'
-import Logo from '../../assets/logo-pesawat.svg'
+import { LogoPesawatNavbar } from '../../assets/index.js'
 
 function navbarBeforeLogin () {
   return (
@@ -12,7 +12,7 @@ function navbarBeforeLogin () {
         {['sm'].map((expand) => (
           <Navbar key={expand} expand={expand} className="navbar mb-3">
             <Container fluid>
-              <Navbar.Brand href="#"><img src={Logo} className="logo-navbar"/></Navbar.Brand>
+              <Navbar.Brand href="#"><img src={LogoPesawatNavbar} className="logo-navbar"/></Navbar.Brand>
               <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
               <Navbar.Offcanvas
                 id={`offcanvasNavbar-expand-${expand}`}
@@ -21,7 +21,7 @@ function navbarBeforeLogin () {
               >
                 <Offcanvas.Header closeButton>
                   <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  <img src={Logo} className="logo-navbar"></img>
+                  <img src={LogoPesawatNavbar} className="logo-navbar"></img>
                   </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
