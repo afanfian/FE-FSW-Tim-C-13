@@ -21,7 +21,7 @@ function register () {
         {/* Formik */}
         <Row>
             <Col className="col-md-6 pt-5 border border-2 shadow p-3 mb-5 bg-body rounded">
-                <img src={account} className="icon-right" />
+                <img src={account} className="icon-right" alt=""/>
                 <h1 className="text-green-1 pb-3 text-center">REGISTER</h1>
                 <Formik
                     validationSchema={schema}
@@ -152,7 +152,7 @@ function register () {
             </Col>
             <Col className="col-md-6 pt-5">
                 <div>
-                    <img src={gambarIcon} width="300" className="icon-right" />
+                    <img src={gambarIcon} width="300" className="icon-right" alt=""/>
                 </div>
             </Col>
         </Row>

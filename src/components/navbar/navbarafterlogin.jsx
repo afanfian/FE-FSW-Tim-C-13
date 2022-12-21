@@ -11,7 +11,7 @@ function navigasiLogin () {
       {['sm'].map((expand) => (
         <Navbar key={expand} expand={expand} className="navbar mb-3">
           <Container fluid>
-            <Navbar.Brand href="#"><img src={LogoPesawatNavbar} className="logo-navbar"/></Navbar.Brand>
+            <Navbar.Brand href="#"><img src={LogoPesawatNavbar} className="logo-navbar" alt=""/></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -20,7 +20,7 @@ function navigasiLogin () {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                <img src={LogoPesawatNavbar} className="logo-navbar" />
+                <img src={LogoPesawatNavbar} className="logo-navbar" alt=""/>
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

@@ -1,15 +1,40 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react'
-import { Button, Form, Col, Container, Row } from 'react-bootstrap'
+import { Form, Col, Container, Row } from 'react-bootstrap'
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import GoogleComponent from 'react-google-login'
 import './login.css'
 import { gapi } from 'gapi-script'
 import { account, gambarIcon } from '../../assets/index.js'
 import Navbar from '../navbar'
+import { useDispatch } from 'react-redux'
+import { loginActions, loginGoogleActions, verifyAccountActions } from '../../config/redux/actions/authActions'
 
-function masuk () {
+const LoginComponent = (props) => {
+  const history = useNavigate()
+  const {
+    register,
+    
+    handleSubmit,
+    formState: { errors, isDirty, isValid }
+  } = useForm()
+
+  const dispatch = useDispatch()
+  const onSubmit = (data) => {
+    dispatch(loginActions(data, history))
+  }
+
+  // Verify Account From Email
+  if (props.tokenVerify) {
+    const token = { urlToken: props.tokenVerify }
+    dispatch(verifyAccountActions(token, history))
+  }
+
+  // Login With Google
   const responseGoogle = (response) => {
-    // console.log(response);
-    window.localStorage.setItem('accessToken', response.accessToken)
+    dispatch(loginGoogleActions(response, history))
+    console.log(response.accessToken)
   }
   useEffect(() => {
     function start () {
@@ -24,41 +49,64 @@ function masuk () {
   }, [])
   return (
     <div id="masuk">
-      <Container >
+      <Container>
         <Navbar />
-        <Row className="justify-content-center m-auto">
-          <Col className="col-md-7 pt-5">
+        <Row>
+          <Col className="col-md-6 pt-3 border border-2 shadow mb-2 bg-body rounded">
             <div id="login">
               <div id="sign-in">
                 <div className="d-grid gap-8 justify-content-center">
-                  <img src={account} />
+                  <img src={account} alt=""/>
                 </div>
                 <div className="d-grid gap-8 justify-content-center mt-2">
-                  <h3>LOGIN</h3>
+                  <h3>MASUK</h3>
                 </div>
 
-                <Form>
-                  <Form.Group
-                    className="mt-5 mb-3 shadow-sm"
-                    controlId="formBasicEmail"
-                  >
-                    <Form.Control type="email" placeholder="Username" />
-                  </Form.Group>
+                <Form onSubmit={handleSubmit(onSubmit)}>
+                  <div className="mt-5 mb-3 shadow-sm">
+                  <label htmlFor="" className="mb-2">Email</label>
+                        <input className={errors.email ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                         type="text"
+                         placeholder="Enter your Email"
+                         name='email'
+                         aria-label=""
+                         {...register('email', {
+                           required: 'Please enter your email',
+                           pattern: {
+                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                             message: 'Please input true email.'
+                           }
+                         })}/>
+                        {errors.email && <p className="text-danger">{errors.email.message}</p>}
+                  </div>
 
-                  <Form.Group
-                    className="mb-3 shadow-sm"
-                    controlId="formBasicPassword"
-                  >
-                    <Form.Control type="password" placeholder="Password" />
-                  </Form.Group>
+                  <div className="mt-3 mb-3 shadow-sm">
+                  <label htmlFor="" className="mb-2">Password</label>
+                        <input className={errors.password ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                        type="password"
+                        placeholder="Enter your password"
+                        name='password'
+                        aria-label=""
+                        {...register('password', {
+                          required: 'Please enter your password',
+                          minLength: {
+                            value: 8,
+                            message: 'Password Too Short'
+                          },
+                          maxLength: {
+                            value: 18,
+                            message: 'Password Too Long'
+                          }
+                        }
+                        )}/>
+                        {errors.password && <p className="text-danger">{errors.password.message}</p>}
+                  </div>
                   <div className="d-grid gap-8">
-                    <Button variant="primary" type="submit">
-                      Sign-in
-                    </Button>
+                  <button className={isDirty && isValid ? 'button form-control' : 'button form-control opacity-50'} placeholder="Default input" aria-label="default input example" disabled={!isDirty || !isValid}>Sign-in</button>
                   </div>
                   <div className="d-grid gap-8 justify-content-center">
                     <p className="mt-4">
-                      Dont Have an Account ? <a href="/register">Sign up</a>
+                      Dont Have an Account ? <a href="/sign-up">Sign up</a>
                     </p>
                   </div>
                   <div className="d-grid gap-8 justify-content-center">
@@ -79,9 +127,9 @@ function masuk () {
             </div>
           </Col>
 
-          <Col className="col-md-5 pt-5">
+          <Col className="col-md-6 pt-5">
             <div>
-              <img id="gambarIcon" src={gambarIcon} />
+              <img src={gambarIcon} width="300" className="icon-right" alt=""/>
             </div>
           </Col>
         </Row>
@@ -89,4 +137,4 @@ function masuk () {
     </div>
   )
 }
-export default masuk
+export default LoginComponent

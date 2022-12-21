@@ -1,7 +1,9 @@
-/* #navbar{
-    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#navbar{
+    /* background-image: linear-gradient(#FFFFFF,#7BD8F8 70%); */
     font-family: 'Poppins', sans-serif;
-} */
+}
 
 .logo-navbar{
     width: 100px;

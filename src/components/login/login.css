@@ -18,7 +18,7 @@
   color: #7bd8f8;
 }
 #login {
-  width: 600px;
+  width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   gap: 30px;
@@ -29,6 +29,9 @@
 #sign-in img {
   align-items: center;
 }
-#gambarIcon{
-  width:100%;
+
+.icon-right{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
