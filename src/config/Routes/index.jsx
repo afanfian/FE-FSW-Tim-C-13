@@ -4,16 +4,18 @@ import { Login, Register, Notification, About, Home, NotFoundPage } from '../../
 
 const index = () => {
   return (
-      <BrowserRouter>
-        <Routes>
-        <Route path="/" element={<Home/>} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/about" element={<About/>} />
-          <Route path="*" element={<NotFoundPage/>} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* User Before Login */}
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        {/* User After Login */}
+        <Route path="user/notification" element={<Notification />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

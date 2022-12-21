@@ -1,7 +1,11 @@
 #register{
-    background-image: linear-gradient(to bottom, #86CEFF , white);
+    /* background-image: linear-gradient(to bottom, #86CEFF , white); */
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+}
+
+#register-in{
+    padding: 40px;
 }
 
 .icon-right{
