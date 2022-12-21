@@ -6,6 +6,7 @@ import Navbar from './navbar'
 import NotFoundPageComponent from './notFound'
 import NotificationComponent from './notification'
 import RegisterComponent from './register'
+import MyAccountComponent from './myaccount'
 
 export {
   AboutComponent,
@@ -15,5 +16,6 @@ export {
   Navbar,
   NotFoundPageComponent,
   NotificationComponent,
-  RegisterComponent
+  RegisterComponent,
+  MyAccountComponent
 }
