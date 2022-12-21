@@ -48,6 +48,10 @@ export const AuthService = {
     localStorage.removeItem('isLogged')
     localStorage.removeItem('user')
     localStorage.removeItem('role')
+  },
+  register : async (data) => {
+    const response = await API.post('/auth/register', data);
+    return response;
   }
 }
 
