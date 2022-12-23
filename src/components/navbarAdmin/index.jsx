@@ -46,6 +46,9 @@ const profilePopover = (
 return (
     <Navbar expand="xxl" className="navbar">
         <Container fluid className="m-0 px-5">
+        <div>
+            <h3 className="text-green">C-13 AEROPLANE</h3>
+        </div>
         <Navbar.Brand className="fs-2 fw-bolder">{navbarName}</Navbar.Brand>
         <Stack direction="horizontal" gap={4}>
             <div className="chatIcon">
