@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbarafterlogin'
 import Footer from '../footer'
+import './userProfile.css'
 import { registerActions } from '../../config/redux/actions/authActions';
 
 function userProfile(){
@@ -22,10 +23,10 @@ function userProfile(){
         <div id="userProfile">
             <Navbar/>
             <Container>
-                <Row className="border border-2 shadow mb-2 bg-body rounded">
-                    <Col className="col-md-6 pt-3">
+                <Row>
+                    <Col className="col-md-6 pt-3 border border-2 shadow mb-2 bg-body rounded">
                         <Form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="mt-3 mb-3 shadow-sm">
+                            <div className="mt-5 mb-3 shadow-sm">
                                 <label htmlFor="" className="mb-2">Firstname</label>
                                 <input className={errors.firstname ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                                 type="text"
@@ -75,13 +76,7 @@ function userProfile(){
                                 })} />
                                 {errors.address && <p className="text-danger">{errors.address.message}</p>}
                             </div>
-                            <div className="d-grid gap-8">
-                                <button className={dirtyFields && isValid ? 'button form-control' : 'button form-control opacity-50'} placeholder="Default input" aria-label="default input example" disabled={!dirtyFields || !isValid}>Register</button>
-                            </div>
-                        </Form>
-                    </Col>
-                    <Col className="col-md-6 pt-3">
-                        <Form onSubmit={handleSubmit(onSubmit)}>
+
                             <div className="mt-3 mb-3 shadow-sm">
                                 <label htmlFor="" className="mb-2">Phone</label>
                                 <input className={errors.Phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
