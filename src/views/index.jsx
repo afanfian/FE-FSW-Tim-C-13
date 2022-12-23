@@ -6,5 +6,6 @@ import NotFoundPage from './Error/notfoundpage'
 import Register from './Register'
 import MyAccount from './MyAccount'
 import Booking from './Booking'
+import Schedule from './Schedule'
 
 export { Login, Notification, NotFoundPage, About, Home, Register , MyAccount, Schedule, Booking }
