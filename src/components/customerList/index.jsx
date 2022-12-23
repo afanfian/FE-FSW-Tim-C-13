@@ -16,7 +16,7 @@ function CustomerList(){
             <Row>
                 <Col>
                     <div id="customer">
-                    <p className="text-center h3 fw-bold pb-5">Yuk Cek Jadwal Pemberangkatanmu !</p>
+                    <p className="text-center h3 fw-bold pb-5">Customer Data  <span className="text-green">C-13 AEROPLANE</span></p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">

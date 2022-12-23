@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Login, Register, Notification, About, Home, NotFoundPage, MyAccount, Schedule, Booking, CustomerList} from '../../views'
+import { Login, Register, Notification, About, Home, NotFoundPage, MyAccount, Schedule, Booking, CustomerList, PaymentList} from '../../views'
 
 const index = () => {
   return (
@@ -17,8 +17,10 @@ const index = () => {
         <Route path="/myaccount" element={<MyAccount />} />
         <Route path="/booking" element={<Booking />} />
         {/* Admin */}
-        <Route path="/schedule" element={<Schedule />} />
-        <Route path="/customerlist" element={<CustomerList />} />
+        <Route path="/admin/customer-list" element={<CustomerList />} />
+        {/* <Route path="/admin/buy-ticket" element={<BuyTicket />} /> */}
+        <Route path="/admin/schedule-list" element={<Schedule />} />
+        <Route path="/admin/payment-list" element={<PaymentList />} />
       </Routes>
     </BrowserRouter>
   )

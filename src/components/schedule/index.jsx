@@ -16,7 +16,7 @@ function Schedule(){
             <Row>
                 <Col>
                     <div id="schedule">
-                    <p className="text-center h3 fw-bold pb-5">Yuk Cek Jadwal Pemberangkatanmu !</p>
+                    <p className="text-center h3 fw-bold pb-5">Let's Check Your Departure Schedule!</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">
