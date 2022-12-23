@@ -23,7 +23,7 @@ export const AuthService = {
   },
 
   loginGoogle: async (data) => {
-    const response = await API.post('auth/google', data)
+    const response = await API.post('/auth/google', data)
     console.log(response.data.data.roleId)
     const Name = response.data.data.firstName
     const RoleId = response.data.data.roleId
