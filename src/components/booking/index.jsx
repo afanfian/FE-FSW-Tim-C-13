@@ -4,7 +4,7 @@ import "./booking.css";
 import Navbar from "../navbar";
 import { DetailPemesan, DetailPenumpang, Services, Bagasi } from "../../assets";
 
-const bookingComponent = () => {
+function bookingComponent() {
   return (
     <div id="booking" className="">
       <Container>
