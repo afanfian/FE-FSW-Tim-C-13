@@ -79,7 +79,7 @@ function userProfile(){
 
                             <div className="mt-3 mb-3 shadow-sm">
                                 <label htmlFor="" className="mb-2">Phone</label>
-                                <input className={errors.Phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                                <input className={errors.phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                                 type="number"
                                 placeholder="Phone"
                                 name='phone'
@@ -138,13 +138,14 @@ function userProfile(){
                             </div>
 
                             <div className="mt-3 mb-3 shadow-sm">
-                                <label htmlFor="" className="mb-2">Confirm Password</label>
-                                <input className={errors.ConfirmPassword ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
-                                type="password"
-                                placeholder="****************************"
-                                name='ConfirmPassword'
+                                <label htmlFor="" className="mb-2">Image</label>
+                                <input className={errors.image ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                                type="file"
+                                placeholder="Image"
+                                name='image'
+                                accept="image/png, image/jpeg"
                                 aria-label=""
-                                {...register('ConfirmPassword', {
+                                {...register('image', {
                                     required: "Password is Required",
                                     minLength: {
                                     value: 8,
@@ -153,11 +154,10 @@ function userProfile(){
                                     maxLength: {
                                     value: 18,
                                     message: "Password Too Long",
-                                    },
-                                    validate: (value) => value === getValues('password') || "Password doesn't match",
+                                    }
                                 }
                                 )} />
-                                {errors.ConfirmPassword && <p className="text-danger">{errors.ConfirmPassword.message}</p>}
+                                {errors.image && <p className="text-danger">{errors.image.message}</p>}
                             </div>
                             <div className="d-grid gap-8">
                                 <button className={dirtyFields && isValid ? 'button form-control' : 'button form-control opacity-50'} placeholder="Default input" aria-label="default input example" disabled={!dirtyFields || !isValid}>Register</button>
