@@ -7,6 +7,7 @@ import NotFoundPageComponent from './notFound'
 import NotificationComponent from './notification'
 import RegisterComponent from './register'
 import MyAccountComponent from './myaccount'
+import Booking from './booking'
 
 export {
   AboutComponent,
@@ -17,5 +18,6 @@ export {
   NotFoundPageComponent,
   NotificationComponent,
   RegisterComponent,
-  MyAccountComponent
+  MyAccountComponent,
+  Booking
 }

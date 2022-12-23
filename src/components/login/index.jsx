@@ -1,52 +1,55 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
-import { Form, Col, Container, Row } from 'react-bootstrap'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
-import GoogleComponent from 'react-google-login'
-import './login.css'
-import { gapi } from 'gapi-script'
-import { account, gambarIcon } from '../../assets/index.js'
-import Navbar from '../navbar'
-import { useDispatch } from 'react-redux'
-import { loginActions, loginGoogleActions, verifyAccountActions } from '../../config/redux/actions/authActions'
+import React, { useEffect } from "react";
+import { Form, Col, Container, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import GoogleComponent from "react-google-login";
+import "./login.css";
+import { gapi } from "gapi-script";
+import { account, gambarIcon } from "../../assets/index.js";
+import Navbar from "../navbar";
+import { useDispatch } from "react-redux";
+import {
+  loginActions,
+  loginGoogleActions,
+  verifyAccountActions,
+} from "../../config/redux/actions/authActions";
 
 const LoginComponent = (props) => {
-  const history = useNavigate()
+  const history = useNavigate();
   const {
     register,
-
     handleSubmit,
-    formState: { errors, isDirty, isValid }
-  } = useForm()
+    formState: { errors, isDirty, isValid },
+  } = useForm();
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const onSubmit = (data) => {
-    dispatch(loginActions(data, history))
-  }
+    dispatch(loginActions(data, history));
+  };
 
   // Verify Account From Email
   if (props.tokenVerify) {
-    const token = { urlToken: props.tokenVerify }
-    dispatch(verifyAccountActions(token, history))
+    const token = { urlToken: props.tokenVerify };
+    dispatch(verifyAccountActions(token, history));
   }
 
   // Login With Google
   const responseGoogle = (response) => {
-    dispatch(loginGoogleActions(response, history))
-    console.log(response.accessToken)
-  }
+    dispatch(loginGoogleActions(response, history));
+    console.log(response.accessToken);
+  };
   useEffect(() => {
     function start() {
       gapi.client.init({
         clientId:
-          '267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com',
-        scope: ''
-      })
+          "267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com",
+        scope: "",
+      });
     }
 
-    gapi.load('client:auth2', start)
-  }, [])
+    gapi.load("client:auth2", start);
+  }, []);
   return (
     <div id="masuk">
       <Container>
@@ -64,45 +67,75 @@ const LoginComponent = (props) => {
 
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mt-5 mb-3 shadow-sm">
-                    <label htmlFor="" className="mb-2">Email</label>
-                    <input className={errors.email ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <label htmlFor="" className="mb-2">
+                      Email
+                    </label>
+                    <input
+                      className={
+                        errors.email
+                          ? "form-control ps-4 border-danger"
+                          : "form-control ps-4"
+                      }
                       type="text"
                       placeholder="Enter your Email"
-                      name='email'
+                      name="email"
                       aria-label=""
-                      {...register('email', {
-                        required: 'Please enter your email',
+                      {...register("email", {
+                        required: "Please enter your email",
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                          message: 'Please input true email.'
-                        }
-                      })} />
-                    {errors.email && <p className="text-danger">{errors.email.message}</p>}
+                          message: "Please input true email.",
+                        },
+                      })}
+                    />
+                    {errors.email && (
+                      <p className="text-danger">{errors.email.message}</p>
+                    )}
                   </div>
 
                   <div className="mt-3 mb-3 shadow-sm">
-                    <label htmlFor="" className="mb-2">Password</label>
-                    <input className={errors.password ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <label htmlFor="" className="mb-2">
+                      Password
+                    </label>
+                    <input
+                      className={
+                        errors.password
+                          ? "form-control ps-4 border-danger"
+                          : "form-control ps-4"
+                      }
                       type="password"
                       placeholder="Enter your password"
-                      name='password'
+                      name="password"
                       aria-label=""
-                      {...register('password', {
-                        required: 'Please enter your password',
+                      {...register("password", {
+                        required: "Please enter your password",
                         minLength: {
                           value: 8,
-                          message: 'Password Too Short'
+                          message: "Password Too Short",
                         },
                         maxLength: {
                           value: 18,
-                          message: 'Password Too Long'
-                        }
-                      }
-                      )} />
-                    {errors.password && <p className="text-danger">{errors.password.message}</p>}
+                          message: "Password Too Long",
+                        },
+                      })}
+                    />
+                    {errors.password && (
+                      <p className="text-danger">{errors.password.message}</p>
+                    )}
                   </div>
                   <div className="d-grid gap-8">
-                    <button className={isDirty && isValid ? 'button form-control' : 'button form-control opacity-50'} placeholder="Default input" aria-label="default input example" disabled={!isDirty || !isValid}>Sign-in</button>
+                    <button
+                      className={
+                        isDirty && isValid
+                          ? "button form-control"
+                          : "button form-control opacity-50"
+                      }
+                      placeholder="Default input"
+                      aria-label="default input example"
+                      disabled={!isDirty || !isValid}
+                    >
+                      Sign-in
+                    </button>
                   </div>
                   <div className="d-grid gap-8 justify-content-center">
                     <p className="mt-4">
@@ -118,7 +151,7 @@ const LoginComponent = (props) => {
                       clientId="267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com"
                       onSuccess={responseGoogle}
                       onFailure={responseGoogle}
-                      cookiePolicy={'single_host_origin'}
+                      cookiePolicy={"single_host_origin"}
                       className="m-md-3"
                     />
                   </div>
@@ -134,6 +167,6 @@ const LoginComponent = (props) => {
         </Row>
       </Container>
     </div>
-  )
-}
-export default LoginComponent
+  );
+};
+export default LoginComponent;

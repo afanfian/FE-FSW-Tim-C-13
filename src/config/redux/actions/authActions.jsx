@@ -1,5 +1,5 @@
 import { AuthService } from '../../../services/authService'
-import SweatAlert from '../../sweatAlert'
+// import SweatAlert from '../../sweatAlert'
 
 // Login with email & password
 export const loginActions = (data, history) => async (dispatch) => {
@@ -10,6 +10,7 @@ export const loginActions = (data, history) => async (dispatch) => {
     history('/')
   } catch (error) {
     // SweatAlert(String(error.response.message), 'warning')
+    // console.log('login failed')
   }
 }
 // Login with Google
@@ -37,10 +38,10 @@ export const verifyAccountActions = (data, history) => async (dispatch) => {
 export const registerActions = (data, history) => async (dispatch) => {
   try {
     await AuthService.register(data);
-    SweatAlert('Register Success', 'success');
+    // SweatAlert('Register Success', 'success');
     history('/login');
   } catch (error) {
-    SweatAlert(String(error.response.data.message), 'warning')
+    // SweatAlert(String(error.response.data.message), 'warning')
   }
 }
 // Logout

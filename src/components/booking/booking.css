@@ -1,0 +1,6 @@
+#booking{
+    background-image : element('../../assets/User/airplane-blue-ocean.png');
+}
+#detail-booking{
+    background-color:aqua;
+}
