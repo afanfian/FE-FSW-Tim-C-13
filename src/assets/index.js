@@ -23,5 +23,10 @@ import account from './User/account.svg'
 import gambarIcon from './User/Aircraft.png'
 import LogoPesawat from './User/airplane.svg'
 import LogoPesawatNavbar from './User/logoPesawat.svg'
+import Services from './User/services.svg'
+import DetailPenumpang from './User/detail-penumpang.svg'
+import DetailPemesan from './User/detail-pemesanan.svg'
+import Bagasi from './User/bagasi.svg'
 
-export { Landing, Takeoff, Calendar, Facebook, Instagram, Email, Logo, Person, Sofa, LogoTicket, VisionMision, Content1, Content2, Content3, account, gambarIcon, LogoPesawatNavbar, LogoPesawat }
+export { Landing, Takeoff, Calendar, Facebook, Instagram, Email, Logo, Person, Sofa, LogoTicket, VisionMision, Content1, Content2, Content3, account, gambarIcon, LogoPesawatNavbar, LogoPesawat,
+Services, DetailPenumpang, DetailPemesan, Bagasi }
