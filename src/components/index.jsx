@@ -14,6 +14,7 @@ import Schedule from './schedule'
 import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
+import UserProfile from './userProfile'
 
 export {
   AboutComponent,
@@ -31,5 +32,6 @@ export {
   Schedule,
   Booking,
   CustomerList,
-  PaymentList
+  PaymentList,
+  UserProfile
 }
