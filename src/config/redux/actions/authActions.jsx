@@ -3,26 +3,27 @@ import SweatAlert from '../../sweatAlert'
 
 // Login with email & password
 export const loginActions = (data, history) => async (dispatch) => {
-  try {
-    const response = await AuthService.login(data)
-    dispatch({ type: 'LOGIN', payload: response.data })
-    // SweatAlert(response.message, 'success')
-    history('/')
+    try {
+      const response = await AuthService.login(data);
+      dispatch({type: 'LOGIN', payload: response.data});
+      // SweatAlert(response.data.message, 'success');
+      SweatAlert('Sukses Dong', 'success');
+      history('/');
   } catch (error) {
-    // SweatAlert(String(error.response.message), 'warning')
-    // console.log('login failed')
-  }
+      // SweatAlert(String(error.response.data.message), 'warning')
+      SweatAlert(String('Kok Gagal Terus Sih'), 'warning')
+  }   
 }
 // Login with Google
 export const loginGoogleActions = (data, history) => async (dispatch) => {
-  try {
-    const response = await AuthService.loginGoogle(data)
-    dispatch({ type: 'LOGIN', payload: response.data })
-    // SweatAlert(response.message, 'success')
-    history('/')
+    try {
+      const response = await AuthService.loginGoogle(data);
+      dispatch({type: 'LOGIN', payload: response.data});
+      SweatAlert(response.data.message, 'success');
+      history('/');
   } catch (error) {
-    // SweatAlert('test','warning')
-  }
+      SweatAlert(String(error.response.data.message), 'warning')
+  }   
 }
 // Verify Account
 export const verifyAccountActions = (data, history) => async (dispatch) => {
@@ -39,7 +40,7 @@ export const registerActions = (data, history) => async (dispatch) => {
   try {
     await AuthService.register(data);
     SweatAlert('Register Success', 'success');
-    // history('/login');
+    history('/login');
   } catch (error) {
     SweatAlert(String(error.response.data.message), 'warning')
   }

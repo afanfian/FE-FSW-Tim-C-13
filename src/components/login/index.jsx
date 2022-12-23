@@ -44,7 +44,7 @@ const LoginComponent = (props) => {
       gapi.client.init({
         clientId:
           "267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com",
-        scope: "",
+          mode: 'cors',
       });
     }
 
