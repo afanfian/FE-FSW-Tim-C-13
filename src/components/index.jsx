@@ -11,6 +11,7 @@ import SidebarAdmin from './sidebarAdmin'
 import NavbarAdmin from './navbarAdmin'
 import LayoutAdmin from './layoutAdmin'
 import Schedule from './schedule'
+import Booking from './booking'
 
 export {
   AboutComponent,
@@ -25,5 +26,6 @@ export {
   SidebarAdmin,
   NavbarAdmin,
   LayoutAdmin,
-  Schedule
+  Schedule,
+  Booking
 }
