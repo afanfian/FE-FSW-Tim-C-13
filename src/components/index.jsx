@@ -7,6 +7,10 @@ import NotFoundPageComponent from './notFound'
 import NotificationComponent from './notification'
 import RegisterComponent from './register'
 import MyAccountComponent from './myaccount'
+import SidebarAdmin from './sidebarAdmin'
+import NavbarAdmin from './navbarAdmin'
+import LayoutAdmin from './layoutAdmin'
+import Schedule from './schedule'
 import Booking from './booking'
 
 export {
@@ -19,5 +23,9 @@ export {
   NotificationComponent,
   RegisterComponent,
   MyAccountComponent,
+  SidebarAdmin,
+  NavbarAdmin,
+  LayoutAdmin,
+  Schedule,
   Booking
 }
