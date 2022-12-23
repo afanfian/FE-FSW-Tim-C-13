@@ -50,7 +50,10 @@ return (
             <h3 className="text-green">C-13 AEROPLANE</h3>
         </div>
         <Navbar.Brand className="fs-2 fw-bolder">{navbarName}</Navbar.Brand>
-        <Stack direction="horizontal" gap={4}>
+        <Stack direction="horizontal" gap={4}>  
+            <div>
+                <h5 className="pt-2 fw-bold">I'm Admin</h5>
+            </div>
             <OverlayTrigger trigger="click" placement="bottom" overlay={profilePopover}>
             <div className="userIcon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6C72A7" className="bi bi-person-circle" viewBox="0 0 16 16">

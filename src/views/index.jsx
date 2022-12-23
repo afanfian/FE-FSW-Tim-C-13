@@ -7,5 +7,6 @@ import Register from './Register'
 import MyAccount from './MyAccount'
 import Booking from './Booking'
 import Schedule from './Schedule'
+import CustomerList from './CustomerList'
 
-export { Login, Notification, NotFoundPage, About, Home, Register , MyAccount, Schedule, Booking }
+export { Login, Notification, NotFoundPage, About, Home, Register , MyAccount, Schedule, Booking, CustomerList }

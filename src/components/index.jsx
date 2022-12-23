@@ -12,6 +12,7 @@ import NavbarAdmin from './navbarAdmin'
 import LayoutAdmin from './layoutAdmin'
 import Schedule from './schedule'
 import Booking from './booking'
+import CustomerList from './customerList'
 
 export {
   AboutComponent,
@@ -27,5 +28,6 @@ export {
   NavbarAdmin,
   LayoutAdmin,
   Schedule,
-  Booking
+  Booking,
+  CustomerList
 }
