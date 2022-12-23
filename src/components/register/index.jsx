@@ -29,7 +29,7 @@ function register() {
                   <img src={account} alt="" />
                 </div>
                 <div className="d-grid gap-8 justify-content-center mt-2">
-                  <h3>REGISTER</h3>
+                  <h3 className="text-green-1">REGISTER</h3>
                 </div>
 
                 <Form onSubmit={handleSubmit(onSubmit)}>
@@ -65,6 +65,23 @@ function register() {
                         }
                       })} />
                     {errors.lastname && <p className="text-danger">{errors.lastname.message}</p>}
+                  </div>
+
+                  <div className="mt-3 mb-3 shadow-sm">
+                    <label htmlFor="" className="mb-2">Address</label>
+                    <input className={errors.address ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                      type="text"
+                      placeholder="Address"
+                      name='address'
+                      aria-label=""
+                      {...register('address', {
+                        required: "Address is Required",
+                        maxLength: {
+                          value: 100,
+                          message: "Name Too Long",
+                        }
+                      })} />
+                    {errors.address && <p className="text-danger">{errors.address.message}</p>}
                   </div>
 
                   <div className="mt-3 mb-3 shadow-sm">
