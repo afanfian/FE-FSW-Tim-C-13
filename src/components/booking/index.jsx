@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import "./booking.css";
-import Navbar from "../navbar";
+import Navbar from '../navbar/navbarafterlogin'
 import {
   DetailPemesan,
   DetailPenumpang,

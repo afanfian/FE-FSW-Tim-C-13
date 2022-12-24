@@ -57,7 +57,7 @@ function navigasiLogin() {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/" className="pt-3 text-black fw-bold">Home</Nav.Link>
-                  <Nav.Link href="/booking" className="pt-3 text-black fw-bold">Booking</Nav.Link>
+                  <Nav.Link href="/user/booking" className="pt-3 text-black fw-bold">Booking</Nav.Link>
                   <Nav.Link href="/user/notification" className="pt-3 text-black fw-bold">Notification</Nav.Link>
                 </Nav>
                 <Stack direction="horizontal" gap={4}>  
