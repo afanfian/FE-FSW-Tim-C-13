@@ -4,7 +4,7 @@ import Navbar from '../navbar/navbarafterlogin'
 import './notif.css'
 import Footer from '../footer'
 
-const notification = () => {
+function notification(){
   return (
     <>
       <div id="notification">

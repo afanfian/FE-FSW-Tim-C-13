@@ -1,6 +1,66 @@
 #booking{
-    background-image : element('../../assets/User/airplane-blue-ocean.png');
+    background-image: url("../../assets/User/airplane-blue-ocean.png");
+    height: 100%;
 }
 #detail-booking{
-    background-color:aqua;
+    background-color: #ffff;
+    border-radius: 10px;
+    width:100%;
+}
+
+#detail-pemesan h4{
+    margin-top:6px;
+    margin-left:4px;
+}
+
+#detail-penumpang h4{
+    margin-top:6px;
+    margin-left:4px;
+}
+
+#order select{
+    height: 28px;
+}
+
+#email input{
+    width:220px;
+}
+#passanger select{
+    height: 28px;
+}
+
+#logo-bagasi{
+    margin-left:50px
+}
+#bagasi h6{
+    margin-top: 10px;
+    margin-left:5px;
+}
+
+#ket-bagasi{
+    margin-left:78px;
+}
+
+#ket-bagasi p{
+    font-size:12px;
+    color:darkgrey;
+    font-weight: 500;
+}
+
+#detail-flight{
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+#location img{
+    align-items: center;
+}
+
+#time p{
+    font-weight:bold;
+}
+
+#ticket-price h4{
+    font-weight:bold;
 }
