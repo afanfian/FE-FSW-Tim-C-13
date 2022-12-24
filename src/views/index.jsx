@@ -10,5 +10,6 @@ import Schedule from './Schedule'
 import CustomerList from './CustomerList'
 import PaymentList from './PaymentList'
 import Profile  from './Profile'
+import Checkout from './Checkout'
 
-export { Login, Notification, NotFoundPage, About, Home, Register , MyAccount, Schedule, Booking, CustomerList, PaymentList, Profile }
+export { Login, Notification, NotFoundPage, About, Home, Register , MyAccount, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout }

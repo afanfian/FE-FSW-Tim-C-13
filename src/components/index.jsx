@@ -15,6 +15,7 @@ import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
 import Profile from './profile'
+import Checkout from './checkout'
 
 export {
   AboutComponent,
@@ -33,5 +34,6 @@ export {
   Booking,
   CustomerList,
   PaymentList,
-  Profile
+  Profile,
+  Checkout
 }
