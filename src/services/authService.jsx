@@ -3,9 +3,9 @@ import API from './api'
 export const AuthService = {
   login: async (data) => {
     const response = await API.post('/auth/login', data)
-    const Name = response.data.data.firstName
-    const RoleId = response.data.data.roleId
-    setHeadersAndStorage(response.data, Name, RoleId)
+    // const Name = response.data.firstName
+    // const RoleId = response.data.roleId
+    // setHeadersAndStorage(response.data, Name, RoleId)
     if (data.rememberMe === true) {
       setTimeout(() => {
         localStorage.removeItem('token')

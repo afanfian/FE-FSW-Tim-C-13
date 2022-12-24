@@ -86,7 +86,7 @@ function register() {
 
                   <div className="mt-3 mb-3 shadow-sm">
                     <label htmlFor="" className="mb-2">Phone</label>
-                    <input className={errors.Phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <input className={errors.phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                       type="number"
                       placeholder="Phone"
                       name='phone'
