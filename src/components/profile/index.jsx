@@ -97,6 +97,7 @@ function profileComponent() {
           </div>
         </div>
       </Row>
+      <Footer />
     </Container>
   );
 }

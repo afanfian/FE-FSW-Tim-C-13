@@ -7,7 +7,6 @@ import {
   DetailPenumpang,
   Services,
   Bagasi,
-  ArrowRight,
   ArrowLongRight,
 } from "../../assets";
 
@@ -25,26 +24,34 @@ function bookingComponent() {
               <div>
                 {/* Airport Location */}
                 <div id="location" className="d-flex">
-                  <div id="departure-place" className="col-auto p-2">
+                  <div id="departure-place" className="col-auto ps-2">
                     <p>Medan</p>
+                    <p>(KNO)</p>
                   </div>
                   <div className="col-auto p-2">
                     <img src={ArrowLongRight} />
                   </div>
-                  <div id="destination-place" className="col-auto p-2">
-                    <p>Jakarta</p>
+                  <div id="destination-place" className="col-auto ps-2">
+                    <p>Jakarta </p>
+                    <p>(CGK) </p>
                   </div>
                 </div>
 
-                {/* Airport Code */}
-                <div id="location" className="d-flex">
-                  <div id="departure-place" className="col-auto me-5">
-                    <p>KNO</p>
-                  </div>
-                  <div id="destination-place" className="col-auto ">
-                    <p>CGK</p>
+                {/* Waktu berangkat */}
+                <div id="time" className="">
+                  <div id="departure-time" className="col-auto ps-2 d-flex">
+                    <p>Waktu Keberangkatan :  </p>
+                    <p>15.00</p>
                   </div>
                 </div>
+                <hr />
+                {/* Harga Tiket */}
+                <div id="ticket-price" className="col-auto ps-2 d-flex align-items-center">
+                    <h4>Price :  IDR  896.000</h4>
+                  
+                </div>
+
+
               </div>
             </div>
 
@@ -60,7 +67,7 @@ function bookingComponent() {
                 </div>
 
                 <div id="order" className="ms-5">
-                  <select name="Title" id="" className="me-4">
+                  <select name="Title" id="" className="me-4 mt-2">
                     <option disable selected>
                       Title
                     </option>
@@ -68,7 +75,7 @@ function bookingComponent() {
                     <option>Mrs.</option>
                     <option>Ms.</option>
                   </select>
-                  <input placeholder="Input your name" />
+                  <input placeholder="Input your name" className="mt-2" />
                   <div id="email" className="mt-2">
                     <input placeholder="Input your email " />
                   </div>
