@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import "./profile.css";
-import { Navbar, Footer } from "../../components";
+import { Footer } from "../../components";
+import Navbar from '../navbar/navbarafterlogin'
 
 function profileComponent() {
   return (

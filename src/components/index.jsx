@@ -14,7 +14,6 @@ import Schedule from './schedule'
 import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
-import UserProfile from './userProfile'
 import Profile from './profile'
 
 export {
@@ -34,6 +33,5 @@ export {
   Booking,
   CustomerList,
   PaymentList,
-  UserProfile,
   Profile
 }
