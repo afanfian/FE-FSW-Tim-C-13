@@ -15,7 +15,7 @@ import {
   verifyAccountActions,
 } from "../../config/redux/actions/authActions";
 
-function LoginComponent() {
+function LoginComponent(props) {
   const history = useNavigate();
   const {
     register,

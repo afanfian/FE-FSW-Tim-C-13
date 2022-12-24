@@ -1,8 +1,10 @@
 #booking{
-    background-image : element('../../assets/User/airplane-blue-ocean.png');
+    background-image: url("../../assets/User/airplane-blue-ocean.png");
+    height: 100%;
 }
 #detail-booking{
-    background-color:aqua;
+    background-color: #ffff;
+    border-radius: 10px;
     width:100%;
 }
 
@@ -21,7 +23,7 @@
 }
 
 #email input{
-    width:254px;
+    width:220px;
 }
 #passanger select{
     height: 28px;
@@ -45,5 +47,11 @@
 }
 
 #detail-flight{
-    background-color:purple;
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+#location img{
+    align-items: center;
 }

@@ -27,6 +27,8 @@ import Services from './User/services.svg'
 import DetailPenumpang from './User/detail-penumpang.svg'
 import DetailPemesan from './User/detail-pemesanan.svg'
 import Bagasi from './User/bagasi.svg'
+import ArrowRight from './User/arrow-right.svg'
+import ArrowLongRight from './User/arrows-long-right.svg'
 
 export { Landing, Takeoff, Calendar, Facebook, Instagram, Email, Logo, Person, Sofa, LogoTicket, VisionMision, Content1, Content2, Content3, account, gambarIcon, LogoPesawatNavbar, LogoPesawat,
-Services, DetailPenumpang, DetailPemesan, Bagasi }
+Services, DetailPenumpang, DetailPemesan, Bagasi, ArrowRight, ArrowLongRight }
