@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Stack } from 'react-bootstrap';
 import './LayoutAdmin.css';
 import SidebarAdmin from '../sidebarAdmin'
