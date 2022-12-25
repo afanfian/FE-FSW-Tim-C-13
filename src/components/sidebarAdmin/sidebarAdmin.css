@@ -1,0 +1,32 @@
+.sidebar {
+    background-color: #0F4187;
+    height: 100vh;
+    width: 300px;
+}
+
+.logoWrapper {
+    height: 70px;
+}
+
+.sideLinkTitle {
+    color: white;
+    text-decoration: none;
+}
+
+.sideLinkTitle .icon {
+    width: 30px;
+}
+
+.sideLink {
+    color: white;
+    text-decoration: none;
+}
+
+.sideLink .icon {
+    width: 30px;
+}
+
+.sideLink:hover {
+    color: white;
+    cursor: pointer;
+}

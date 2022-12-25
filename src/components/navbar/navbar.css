@@ -1,7 +1,9 @@
-/* #navbar{
-    background-image: linear-gradient(#FFFFFF,#7BD8F8 70%);
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#navbar{
+    /* background-image: linear-gradient(#FFFFFF,#7BD8F8 70%); */
     font-family: 'Poppins', sans-serif;
-} */
+}
 
 .logo-navbar{
     width: 100px;
@@ -10,7 +12,6 @@
 .btn-navbar{
     background-color: #4C98CC;
     color: white;
-    border-radius: 10px;
     padding: 10px;
     border: none;
     font-weight: bold;

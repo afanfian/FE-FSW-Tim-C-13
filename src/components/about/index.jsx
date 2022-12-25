@@ -16,7 +16,7 @@ function about () {
                 <Row>
                     <Col className="col-md-6">
                         <div>
-                            <img src={LogoPesawat} width="300px" />
+                            <img src={LogoPesawat} width="300px" alt=""/>
                         </div>
                     </Col>
                     <Col className="col-md-6 pt-5">
@@ -54,7 +54,7 @@ function about () {
                         <p className="w-100">New Changes in Innovation for Purchasing Special Aircraft Tickets, Based on the Rapid Development and Spread of Use of Website and Mobile-Based Technologies.</p>
                     </div>
                     <div>
-                        <img src={VisionMision} width="250px" className="pr-5"/>
+                        <img src={VisionMision} width="250px" className="pr-5" alt="" />
                     </div>
                 </Col>
             </Row>

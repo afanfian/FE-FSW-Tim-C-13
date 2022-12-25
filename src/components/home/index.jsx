@@ -76,7 +76,7 @@ function home () {
           <Row>
             <Col className="col-md-6">
               <div>
-                <img src={LogoPesawat} width="300px" />
+                <img src={LogoPesawat} width="300px" alt="" />
               </div>
             </Col>
             <Col className="col-md-6 pt-5">

@@ -1,7 +1,7 @@
 import React from 'react'
 import { AboutComponent } from '../../components'
 
-const Register = () => {
+const About = () => {
   return (
     <div>
       <AboutComponent />
@@ -9,4 +9,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default About

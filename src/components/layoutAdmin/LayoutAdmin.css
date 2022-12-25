@@ -1,0 +1,55 @@
+/* Main Content */
+.body-wrapper {
+    max-height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.main-content {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+/* Breadcrumb */
+
+li.breadcrumb-item a {
+    color: #BCBCBC;
+    text-decoration: none;
+}
+
+li.breadcrumb-item.active  {
+    color: #172D39;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.breadcrumb-item:hover {
+    color: #BCBCBC;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Table */
+
+table {
+    border: none;
+}
+
+.leftCornerTableRadius, table {
+    border-radius: 10px 0 0 0;
+}
+
+.rightCornerTableRadius, table {
+  border-radius: 0 10px 0 0;
+}
+thead tr {
+    background-color: #296DCD;
+    color: white;
+}
+
+tbody tr {
+    border-bottom: 2px solid #E5E5E5;
+}
+.margin-dashboard{
+    margin-left: 20%;
+}

@@ -1,13 +1,13 @@
-import React from 'react'
-import { Routes, store } from './config'
-import { Provider } from 'react-redux'
+import React from "react";
+import { Routes, store } from "./config";
+import { Provider } from "react-redux";
 
-function App () {
+function App() {
   return (
     <Provider store={store}>
-      <Routes/>
+      <Routes />
     </Provider>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -5,3 +5,15 @@
     background-image: linear-gradient(to bottom, #86CEFF , white);
     font-family: 'Poppins', sans-serif;
 }
+
+.btn-green{
+    background-color: #4C98CC;
+    color: white;
+    border-radius: 10px;
+    padding: 1.5%;
+    border: none;
+    font-weight: bold;
+}
+.btn-green:hover {
+    transform: scale(1.1);
+}
