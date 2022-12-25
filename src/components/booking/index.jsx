@@ -1,6 +1,6 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
-import "./booking.css";
+import React from "react"
+import { Container, Row } from "react-bootstrap"
+import "./booking.css"
 import Navbar from '../navbar/navbarafterlogin'
 import {
   DetailPemesan,
@@ -29,7 +29,7 @@ function bookingComponent() {
                     <p>(KNO)</p>
                   </div>
                   <div className="col-auto p-2">
-                    <img src={ArrowLongRight} />
+                    <img src={ArrowLongRight} alt="arrowlongright" />
                   </div>
                   <div id="destination-place" className="col-auto ps-2">
                     <p>Jakarta </p>
@@ -62,7 +62,7 @@ function bookingComponent() {
               {/* Detail Pemesan */}
               <div id="detail-pemesan" className="mb-4">
                 <div className="d-flex p-2">
-                  <img src={DetailPemesan} alt="" />
+                  <img src={DetailPemesan} alt="Detail Pemasanan" />
                   <h4> Detail Pemesan </h4>
                 </div>
 
@@ -85,7 +85,7 @@ function bookingComponent() {
               {/* Detail Penumpang */}
               <div id="detail-penumpang" className="mb-4">
                 <div className="d-flex p-2">
-                  <img src={DetailPenumpang} alt="" />
+                  <img src={DetailPenumpang} alt="Detail Penumpang" />
                   <h4> Detail Penumpang </h4>
                 </div>
 
@@ -105,13 +105,13 @@ function bookingComponent() {
               {/* Services */}
               <div id="detail-penumpang" className="mb-4">
                 <div className="d-flex p-2">
-                  <img src={Services} alt="" />
+                  <img src={Services} alt="Services" />
                   <h4> Layanan Ekstra </h4>
                 </div>
 
                 <div id="bagasi">
                   <div id="logo-bagasi" className="d-flex">
-                    <img src={Bagasi} alt="" />
+                    <img src={Bagasi} alt="Bagasi " />
                     <h6>Bagasi</h6>
                   </div>
 

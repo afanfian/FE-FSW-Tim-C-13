@@ -6,7 +6,6 @@ import Navbar from './navbar'
 import NotFoundPageComponent from './notFound'
 import NotificationComponent from './notification'
 import RegisterComponent from './register'
-import MyAccountComponent from './myaccount'
 import SidebarAdmin from './sidebarAdmin'
 import NavbarAdmin from './navbarAdmin'
 import LayoutAdmin from './layoutAdmin'
@@ -15,6 +14,7 @@ import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
 import Profile from './profile'
+import Checkout from './checkout'
 
 export {
   AboutComponent,
@@ -25,7 +25,6 @@ export {
   NotFoundPageComponent,
   NotificationComponent,
   RegisterComponent,
-  MyAccountComponent,
   SidebarAdmin,
   NavbarAdmin,
   LayoutAdmin,
@@ -33,5 +32,6 @@ export {
   Booking,
   CustomerList,
   PaymentList,
-  Profile
+  Profile,
+  Checkout
 }
