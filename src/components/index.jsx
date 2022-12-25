@@ -6,7 +6,6 @@ import Navbar from './navbar'
 import NotFoundPageComponent from './notFound'
 import NotificationComponent from './notification'
 import RegisterComponent from './register'
-import MyAccountComponent from './myaccount'
 import SidebarAdmin from './sidebarAdmin'
 import NavbarAdmin from './navbarAdmin'
 import LayoutAdmin from './layoutAdmin'
@@ -26,7 +25,6 @@ export {
   NotFoundPageComponent,
   NotificationComponent,
   RegisterComponent,
-  MyAccountComponent,
   SidebarAdmin,
   NavbarAdmin,
   LayoutAdmin,
