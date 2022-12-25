@@ -7,9 +7,9 @@ import { verifyAccountActions } from '../../config/redux/actions/authActions';
 import './notif.css'
 import Footer from '../footer'
 
-function notification(){
+function notification() {
   const history = useNavigate();
-  const data = {token: window.localStorage.getItem('token')}
+  const data = { token: window.localStorage.getItem('token') }
   const dispatch = useDispatch();
   const onSubmit = () => {
     dispatch(verifyAccountActions(data, history));
@@ -22,13 +22,14 @@ function notification(){
         <Container>
           <Row className="justify-content-center m-auto">
             <h3 className="my-3"><b>NOTIFICATION</b></h3>
-            <Card className="mb-3">
+            <Card className="col-md-6 mb-3 text-center">
               <Card.Body>
-                <p className="fw-bold">[Verification]</p>
+                <p className="fw-bold h3">[Data Verification]</p>
               </Card.Body>
               <Card.Body>
-                <p>{window.localStorage.getItem('token')}</p>
-                <button className="btn-primary" onClick={onSubmit}>Klik</button>
+                {/* <p>{window.localStorage.getItem('token')}</p> */}
+                <p className="h4">Verify Your Account Below!</p>
+                <button className="btn-green" onClick={onSubmit}>Klik</button>
               </Card.Body>
             </Card>
 
@@ -61,11 +62,11 @@ function notification(){
             </Card>
           </Row>
         </Container>
-    </div>
-     <div>
+      </div>
+      <div>
         <Footer />
       </div>
-      </>
+    </>
   )
 }
 
