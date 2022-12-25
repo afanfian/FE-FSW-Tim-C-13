@@ -6,12 +6,10 @@ export const loginActions = (data, history) => async (dispatch) => {
     try {
       const response = await AuthService.login(data);
       dispatch({type: 'LOGIN', payload: response.data});
-      // SweatAlert(response.data.message, 'success');
-      SweatAlert('Sukses Dong', 'success');
-      history('/');
+      SweatAlert(response.data.message, 'success');
+      history('/user/notification');
   } catch (error) {
-      // SweatAlert(String(error.response.data.message), 'warning')
-      SweatAlert(String('Kok Gagal Terus Sih'), 'warning')
+      SweatAlert(String(error.response.data.message), 'warning')
   }   
 }
 // Login with Google
@@ -29,17 +27,17 @@ export const loginGoogleActions = (data, history) => async (dispatch) => {
 export const verifyAccountActions = (data, history) => async (dispatch) => {
   try {
     await AuthService.verifyAccount(data)
-    // SweatAlert('Verified Account', 'success')
-    history('/login')
+    SweatAlert('Verified Account', 'success')
+    history('/user/booking')
   } catch (error) {
-    // SweatAlert(String(error.response.message), 'warning')
+    SweatAlert(String(error.response.message), 'warning')
   }
 }
 // Register
 export const registerActions = (data, history) => async (dispatch) => {
   try {
-    await AuthService.register(data);
-    SweatAlert('Register Success', 'success');
+    const response = await AuthService.register(data);
+    SweatAlert(response.data.message, 'success');
     history('/login');
   } catch (error) {
     SweatAlert(String(error.response.data.message), 'warning')
@@ -50,9 +48,9 @@ export const logoutActions = (history) => async (dispatch) => {
   try {
     const response = await AuthService.logout()
     dispatch({ type: 'LOGOUT', payload: response })
-    // SweatAlert('Berhasil Logout', 'success')
-    history('/')
+    SweatAlert('Berhasil Logout', 'success')
+    history('/login')
   } catch (error) {
-    // SweatAlert(String(error.response.message), 'warning')
+    SweatAlert(String(error.response.message), 'warning')
   }
 }

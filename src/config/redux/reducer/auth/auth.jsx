@@ -1,9 +1,9 @@
 const initialState = {
   // local storage
-  user: JSON.parse(localStorage.getItem('user')) || {},
+  // user: JSON.parse(localStorage.getItem('user')) || {},
   token: localStorage.getItem('token'),
-  isLoggedIn: !!localStorage.getItem('user'),
-  roleId: JSON.parse(localStorage.getItem('role')) || {}
+  // isLoggedIn: !!localStorage.getItem('user'),
+  // roleId: JSON.parse(localStorage.getItem('role')) || {}
 }
 
 const auth = (state = initialState, action) => {
