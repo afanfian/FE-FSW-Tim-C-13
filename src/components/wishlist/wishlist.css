@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#wishlist{
+    background-image:linear-gradient(to bottom, #86CEFF , white);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}

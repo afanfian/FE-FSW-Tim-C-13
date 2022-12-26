@@ -35,36 +35,53 @@ function register() {
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <div className="mt-5 mb-3 shadow-sm">
                     <label htmlFor="" className="mb-2">Firstname</label>
-                    <input className={errors.firstname ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <input className={errors.firstName ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                       type="text"
                       placeholder="Fristname"
-                      name='firstname'
+                      name='firstName'
                       aria-label=""
-                      {...register('firstname', {
+                      {...register('firstName', {
                         required: "First Name is Required",
                         maxLength: {
                           value: 15,
                           message: "Name Too Long",
                         }
                       })} />
-                    {errors.firstname && <p className="text-danger">{errors.firstname.message}</p>}
+                    {errors.firstName && <p className="text-danger">{errors.firstName.message}</p>}
                   </div>
 
                   <div className="mt-3 mb-3 shadow-sm">
                     <label htmlFor="" className="mb-2">Lastname</label>
-                    <input className={errors.lastname ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <input className={errors.lastName ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                       type="text"
                       placeholder="Lastname"
-                      name='lastname'
+                      name='lastName'
                       aria-label=""
-                      {...register('lastname', {
+                      {...register('lastName', {
                         required: "Last Name is Required",
                         maxLength: {
                           value: 15,
                           message: "Name Too Long",
                         }
                       })} />
-                    {errors.lastname && <p className="text-danger">{errors.lastname.message}</p>}
+                    {errors.lastName && <p className="text-danger">{errors.lastName.message}</p>}
+                  </div>
+
+                  <div className="mt-3 mb-3 shadow-sm">
+                    <label htmlFor="" className="mb-2">Username</label>
+                    <input className={errors.username ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                      type="text"
+                      placeholder="Username"
+                      name='username'
+                      aria-label=""
+                      {...register('username', {
+                        required: "Last Name is Required",
+                        maxLength: {
+                          value: 15,
+                          message: "Name Too Long",
+                        }
+                      })} />
+                    {errors.username && <p className="text-danger">{errors.username.message}</p>}
                   </div>
 
                   <div className="mt-3 mb-3 shadow-sm">
@@ -86,12 +103,12 @@ function register() {
 
                   <div className="mt-3 mb-3 shadow-sm">
                     <label htmlFor="" className="mb-2">Phone</label>
-                    <input className={errors.phone ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
+                    <input className={errors.phone_number ? 'form-control ps-4 border-danger' : 'form-control ps-4'}
                       type="number"
                       placeholder="Phone"
-                      name='phone'
+                      name='phone_number'
                       aria-label=""
-                      {...register('phone', {
+                      {...register('phone_number', {
                         required: "Phone Number is Required",
                         minLength: {
                           value: 12,
@@ -102,7 +119,7 @@ function register() {
                           message: "Phone Number Too Long",
                         }
                       })} />
-                    {errors.phone && <p className="text-danger">{errors.phone.message}</p>}
+                    {errors.phone_number && <p className="text-danger">{errors.phone_number.message}</p>}
                   </div>
 
                   <div className="mb-3 shadow-sm">

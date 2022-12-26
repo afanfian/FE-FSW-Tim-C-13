@@ -60,8 +60,9 @@ function navigasiLogin() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/user/checkout" className="pt-3 text-black fw-bold">Checkout</Nav.Link>
                   <Nav.Link href="/user/booking" className="pt-3 text-black fw-bold">Booking</Nav.Link>
+                  <Nav.Link href="/user/checkout" className="pt-3 text-black fw-bold">Checkout</Nav.Link>
+                  <Nav.Link href="/user/wishlist" className="pt-3 text-black fw-bold">Wishlist</Nav.Link>
                   <Nav.Link href="/user/notification" className="pt-3 text-black fw-bold">Notification</Nav.Link>
                 </Nav>
                 <Stack direction="horizontal" gap={4}>  

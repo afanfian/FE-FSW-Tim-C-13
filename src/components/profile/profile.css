@@ -40,5 +40,17 @@
         border-radius: 0.35rem;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
+    .btn-green{
+        background-color: #4C98CC;
+        color: white;
+        border: none;
+        font-weight: bold;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .btn-green:hover {
+        transform: scale(1.1);
+    }
     
  
