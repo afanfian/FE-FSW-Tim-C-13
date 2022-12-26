@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Form } from "react-bootstrap";
-import { useForm } from 'react-hook-form';
-import "./profile.css";
-import { Footer } from "../../components";
-import Navbar from '../navbar/navbarafterlogin'
+import { Container, Row, Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
+import { Footer } from "../../components";
+import Navbar from '../navbar/navbarafterlogin'
+import "./profile.css";
 
 function profileComponent() {
   // Get Profile
@@ -36,9 +35,17 @@ function profileComponent() {
     })
 };
   // const { register, handleSubmit, formState: { errors, dirtyFields, isValid }, getValues } = useForm();
-  const onSubmit = (data) => {
+  const handleSubmit = (data) => {
     dispatch(editProfileActions(data));
   }
+
+  const [onEdit, setOnEdit] = useState(false);
+
+  const handleEdit = (event) => {
+    event.preventDefault();
+    setOnEdit((prev) => !prev);
+  };
+
   return (
     <>
       <div id="profile">
@@ -71,65 +78,72 @@ function profileComponent() {
               {/* <!-- Account details card--> */}
               <div class="card mb-4">
                 <div class="card-header">Account Details</div>
+                <Button onClick={handleEdit} variant="outline-info" >
+                    Edit
+                </Button>
                 <div class="card-body">
-                  <Form>
-                    {/* <!-- Form Group (username)--> */}
-                    <div class="mb-3">
-                      <label class="small mb-1" for="inputUsername">
-                        Username (how your name will appear to other users on the
-                        site)
-                      </label>
-                      <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" />
-                    </div>
-                    {/* <!-- Form Row--> */}
-                    <div class="row gx-3 mb-3">
-                      {/* <!-- Form Group (first name)--> */}
-                      <div class="col-md-6">
-                        <label class="small mb-1" for="inputFirstName">
-                          First name
-                        </label>
-                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                      </div>
-                      {/* <!-- Form Group (last name)--> */}
-                      <div class="col-md-6">
-                        <label class="small mb-1" for="inputLastName">
-                          Last name
-                        </label>
-                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                      </div>
-                    </div>
-                    {/* <!-- Form Row        --> */}
-                    <div class="row gx-3 mb-3">
-                      {/* <!-- Form Group (location)--> */}
-                      <div class="col-md-6">
-                        <label class="small mb-1" for="inputLocation">
-                          Address
-                        </label>
-                        <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" />
-                      </div>
-                    </div>
-                    {/* <!-- Form Group (email address)--> */}
-                    <div class="mb-3">
-                      <label class="small mb-1" for="inputEmailAddress">
-                        Email address
-                      </label>
-                      <input class="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {(user.profile)?(user.profile.email):(null)} />
-                    </div>
-                    {/* <!-- Form Row--> */}
-                    <div class="row gx-3 mb-3">
-                      {/* <!-- Form Group (phone number)--> */}
-                      <div class="col-md-6">
-                        <label class="small mb-1" for="inputPhone">
-                          Phone number
-                        </label>
-                        <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" />
-                      </div>
-                    </div>
-                    {/* <!-- Save changes button--> */}
-                    <button class="btn btn-primary" type="button">
-                      Save changes
-                    </button>
-                  </Form>
+                  {onEdit ? (
+                     <Form onSubmit={handleSubmit(formData)}>
+                     {/* <!-- Form Group (username)--> */}
+                     <div class="mb-3">
+                       <label class="small mb-1" for="inputUsername">
+                         Username (how your name will appear to other users on the
+                         site)
+                       </label>
+                       <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" />
+                     </div>
+                     {/* <!-- Form Row--> */}
+                     <div class="row gx-3 mb-3">
+                       {/* <!-- Form Group (first name)--> */}
+                       <div class="col-md-6">
+                         <label class="small mb-1" for="inputFirstName">
+                           First name
+                         </label>
+                         <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                       </div>
+                       {/* <!-- Form Group (last name)--> */}
+                       <div class="col-md-6">
+                         <label class="small mb-1" for="inputLastName">
+                           Last name
+                         </label>
+                         <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                       </div>
+                     </div>
+                     {/* <!-- Form Row        --> */}
+                     <div class="row gx-3 mb-3">
+                       {/* <!-- Form Group (location)--> */}
+                       <div class="col-md-6">
+                         <label class="small mb-1" for="inputLocation">
+                           Address
+                         </label>
+                         <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" />
+                       </div>
+                     </div>
+                     {/* <!-- Form Group (email address)--> */}
+                     <div class="mb-3">
+                       <label class="small mb-1" for="inputEmailAddress">
+                         Email address
+                       </label>
+                       <input class="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {formData.email} />
+                     </div>
+                     {/* <!-- Form Row--> */}
+                     <div class="row gx-3 mb-3">
+                       {/* <!-- Form Group (phone number)--> */}
+                       <div class="col-md-6">
+                         <label class="small mb-1" for="inputPhone">
+                           Phone number
+                         </label>
+                         <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" />
+                       </div>
+                     </div>
+                     {/* <!-- Save changes button--> */}
+                     <button class="btn btn-primary" type="button">
+                       Save changes
+                     </button>
+                   </Form>
+                  ) : (
+                    <h1>{(user.profile)?(user.profile.email):(null)}</h1>
+                  )}
                 </div>
               </div>
             </div>
