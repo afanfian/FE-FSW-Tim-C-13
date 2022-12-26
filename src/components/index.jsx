@@ -13,6 +13,7 @@ import Schedule from './schedule'
 import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
+import AirportList from './airportList'
 import Profile from './profile'
 import Checkout from './checkout'
 import Wishlist from './wishlist'
@@ -33,6 +34,7 @@ export {
   Booking,
   CustomerList,
   PaymentList,
+  AirportList,
   Profile,
   Checkout,
   Wishlist
