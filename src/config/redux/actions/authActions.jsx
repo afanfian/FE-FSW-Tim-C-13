@@ -63,13 +63,14 @@ export const getProfileActions = () => async (dispatch) => {
     SweatAlert(String(error.response.message), 'warning')
   }
 }
+
 //EditProfile
 export const editProfileActions = (data) => async (dispatch) => {
   try {
     const response = await AuthService.editProfile(data)
     console.log(response)
     dispatch({ type: 'EDITPROFILE', payload: response  })
-    SweatAlert('Berhasil Logout', 'success')
+    SweatAlert(response.data.message, 'success')
   } catch (error) {
     SweatAlert(String(error.response.message), 'warning')
   }
