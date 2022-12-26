@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
 import { Footer } from "../../components";
 import Navbar from '../navbar/navbarafterlogin'
+import './profile.css'
 
 function profileComponent() {
   // Get Profile
@@ -83,8 +84,8 @@ function profileComponent() {
                   <img
                     className="img-account-profile rounded-circle mb-2"
                     src={(user.profile)?(user.profile.photo):(null)}
-                    alt="photo-user"
-                    width="300px"
+                    alt="photouser"
+                    width="200px"
                   />
                 </div>
               </div>

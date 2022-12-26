@@ -65,12 +65,13 @@ export const getProfileActions = () => async (dispatch) => {
 }
 
 //EditProfile
-export const editProfileActions = (data) => async (dispatch) => {
+export const editProfileActions = (data, history) => async (dispatch) => {
   try {
     const response = await AuthService.editProfile(data)
     console.log(response)
     dispatch({ type: 'EDITPROFILE', payload: response  })
     SweatAlert(response.data.message, 'success')
+    history('/user/pofile')
   } catch (error) {
     SweatAlert(String(error.response.message), 'warning')
   }
