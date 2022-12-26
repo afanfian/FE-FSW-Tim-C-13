@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Form, Card } from "react-bootstrap";
+import { Container, Row, Card} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
 import { Footer } from "../../components";
 import Navbar from '../navbar/navbarafterlogin'
+import './profile.css'
 
 function profileComponent() {
   // Get Profile
@@ -13,30 +14,6 @@ function profileComponent() {
   useEffect(()=>{
     dispatch(getProfileActions())
   },[dispatch])
-  if(user.profile){
-  // console.log('cekuser', user.profile.email)
-  }
-
-  // Edit Profile
-  const initalState = {
-    // username: "",
-    // password: "",
-    email: user.profile ? user.profile.email : "",
-  }
-  const [formData, setFormData] = useState(initalState);
-
-  const handleChange = (e) => {
-    setFormData(prevFormData => {
-        return {
-            ...prevFormData,
-            [e.target.name]: e.target.value
-        }
-    })
-};
-  // const { register, handleSubmit, formState: { errors, dirtyFields, isValid }, getValues } = useForm();
-  const handleSubmit = (data) => {
-    dispatch(editProfileActions(data));
-  }
 
   const [onEdit, setOnEdit] = useState(false);
 
@@ -44,6 +21,53 @@ function profileComponent() {
     event.preventDefault();
     setOnEdit((prev) => !prev);
   };
+
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [username, setusername] = useState("");
+  const [phone_number, setphone_number] = useState("");
+  const [address, setaddress] = useState("");
+  const [photo, setphoto] = useState("photo")
+
+
+
+  const handlefirstName = (event) =>{
+    setfirstName(event.target.value)
+  }
+
+  const handlelastName = (event) =>{
+    setlastName(event.target.value)
+  }
+
+  const handleusername = (event) =>{
+    setusername(event.target.value)
+  }
+
+  const handlephone_number = (event) =>{
+    setphone_number(event.target.value)
+  }
+
+  const handleaddress = (event) =>{
+    setaddress(event.target.value)
+  }
+
+  const updateForm = async(event)=>{
+    event.preventDefault()
+    const form = {firstName, lastName, username, phone_number, address, image:photo}
+    const formDataImage = new FormData();
+    
+    for (const key in form) { 
+      formDataImage.append(key, form[key]); 
+    } 
+
+   await dispatch(editProfileActions(formDataImage))
+    .then((response)=>({
+      response
+    }))
+    .catch((error)=>({
+      error
+    }))
+  }
 
   return (
     <>
@@ -59,17 +83,10 @@ function profileComponent() {
                   {/* <!-- Profile picture image--> */}
                   <img
                     className="img-account-profile rounded-circle mb-2"
-                    src="http://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt=""
+                    src={(user.profile)?(user.profile.photo):(null)}
+                    alt="photouser"
+                    width="200px"
                   />
-                  {/* <!-- Profile picture help block--> */}
-                  <div className="small font-italic text-muted mb-4">
-                    JPG or PNG no larger than 5 MB
-                  </div>
-                  {/* <!-- Profile picture upload button--> */}
-                  <button className="btn btn-primary" type="button">
-                    Upload new image
-                  </button>
                 </div>
               </div>
             </div>
@@ -83,95 +100,96 @@ function profileComponent() {
                   </button>
                 </div>
                 <div className="card-body">
-                  {onEdit ? (
-                     <Form onSubmit={handleSubmit(formData)}>
+                {onEdit ? (
+                <form onSubmit={updateForm}>
                      {/* <!-- Form Group (username)--> */}
                      <div className="mb-3">
-                       <label className="small mb-1" for="inputUsername">
+                       <label className="small mb-1" htmlFor="inputUsername">
                          Username (how your name will appear to other users on the
                          site)
                        </label>
-                       <input className="form-control" id="inputUsername" type="text" placeholder="Enter your username" />
+                       <input className="form-control" onChange={handleusername} value={username} id="inputUsername" type="text" placeholder="Enter your username" />
                      </div>
                      {/* <!-- Form Row--> */}
                      <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (first name)--> */}
                        <div className="col-md-6">
-                         <label className="small mb-1" for="inputFirstName">
+                         <label className="small mb-1" htmlFor="inputFirstName">
                            First name
                          </label>
-                         <input className="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                         <input className="form-control" onChange={handlefirstName} value={firstName} id="inputFirstName" type="text" placeholder="Enter your first name" />
                        </div>
                        {/* <!-- Form Group (last name)--> */}
                        <div className="col-md-6">
-                         <label className="small mb-1" for="inputLastName">
+                         <label className="small mb-1" htmlFor="inputLastName">
                            Last name
                          </label>
-                         <input className="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                         <input className="form-control" onChange={handlelastName} value={lastName} id="inputLastName" type="text" placeholder="Enter your last name" />
                        </div>
                      </div>
                      {/* <!-- Form Row        --> */}
                      <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (location)--> */}
                        <div className="col-md-6">
-                         <label className="small mb-1" for="inputLocation">
+                         <label className="small mb-1" htmlFor="inputLocation">
                            Address
                          </label>
-                         <input className="form-control" id="inputLocation" type="text" placeholder="Enter your location" />
+                         <input className="form-control" onChange={handleaddress} value={address} id="inputLocation" type="text" placeholder="Enter your location" />
                        </div>
-                     </div>
-                     {/* <!-- Form Group (email address)--> */}
-                     <div className="mb-3">
-                       <label className="small mb-1" for="inputEmailAddress">
-                         Email address
-                       </label>
-                       <input className="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {formData.email} />
                      </div>
                      {/* <!-- Form Row--> */}
                      <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (phone number)--> */}
                        <div className="col-md-6">
-                         <label className="small mb-1" for="inputPhone">
+                         <label className="small mb-1" htmlFor="inputPhone">
                            Phone number
                          </label>
-                         <input className="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" />
+                         <input className="form-control" onChange={handlephone_number} value={phone_number}id="inputPhone" type="text" placeholder="Enter your phone number" />
                        </div>
                      </div>
+                     <div className="row gx-3 mb-3">
+                          <div>
+                            <label className="small mb-1" htmlFor="image">
+                              Photo
+                            </label>
+                            <input className="form-control" type="file" onChange={(e) => setphoto(e.target.files[0])} />
+                          </div>
+                     </div>
                      {/* <!-- Save changes button--> */}
-                     <button className="btn btn-primary" type="button">
+                     <button className="btn btn-primary" type="submit">
                        Save changes
                      </button>
-                   </Form>
-                  ) : (
-                    <Card.Body>
-                       <div className="mb-3">
-                        <p className="fw-bold">Username</p>
-                        <p>{(user.profile)?(user.profile.username):(null)}</p>
+                </form>
+                 ) : (
+                  <Card.Body>
+                     <div className="mb-3">
+                      <p className="fw-bold">Username</p>
+                      <p>{(user.profile)?(user.profile.username):(null)}</p>
+                    </div>
+                    <div className="row gx-3 mb-3">
+                      <div className="col-md-6">
+                        <p className="fw-bold">Firstname</p>
+                        <p>{(user.profile)?(user.profile.firstName):(null)}</p>
                       </div>
-                      <div className="row gx-3 mb-3">
-                        <div className="col-md-6">
-                          <p className="fw-bold">Firstname</p>
-                          <p>{(user.profile)?(user.profile.firstName):(null)}</p>
-                        </div>
-                        <div className="col-md-6">
-                          <p className="fw-bold">Lastname</p>
-                          <p>{(user.profile)?(user.profile.lastName):(null)}</p>
-                        </div>
+                      <div className="col-md-6">
+                        <p className="fw-bold">Lastname</p>
+                        <p>{(user.profile)?(user.profile.lastName):(null)}</p>
                       </div>
-                      <div className="mb-3">
-                        <p className="fw-bold">Address</p>
-                        <p>{(user.profile)?(user.profile.address):(null)}</p>
-                      </div>
-                      <div className="mb-3">
-                        <p className="fw-bold">Email</p>
-                        <p>{(user.profile)?(user.profile.email):(null)}</p>
-                      </div>
-                      <div className="mb-3">
-                        <p className="fw-bold">Phone</p>
-                        <p>{(user.profile)?(user.profile.phone_number):(null)}</p>
-                      </div>
-                    </Card.Body>
-                  )}
+                    </div>
+                    <div className="mb-3">
+                      <p className="fw-bold">Address</p>
+                      <p>{(user.profile)?(user.profile.address):(null)}</p>
+                    </div>
+                    <div className="mb-3">
+                      <p className="fw-bold">Email</p>
+                      <p>{(user.profile)?(user.profile.email):(null)}</p>
+                    </div>
+                    <div className="mb-3">
+                      <p className="fw-bold">Phone</p>
+                      <p>{(user.profile)?(user.profile.phone_number):(null)}</p>
+                    </div>
+                  </Card.Body>
+                )}
                 </div>
               </div>
             </div>
