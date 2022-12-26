@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Form, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
 import { Footer } from "../../components";
@@ -51,92 +51,94 @@ function profileComponent() {
         <Navbar/>
         <Container>
           <Row>
-            <div class="col-xl-4">
+            <div className="col-xl-4">
               {/* <!-- Profile picture card--> */}
-              <div class="card mb-4 mb-xl-0">
-                <div class="card-header">Profile Picture</div>
-                <div class="card-body text-center">
+              <div className="card mb-4 mb-xl-0">
+                <div className="card-header">Profile Picture</div>
+                <div className="card-body text-center">
                   {/* <!-- Profile picture image--> */}
                   <img
-                    class="img-account-profile rounded-circle mb-2"
+                    className="img-account-profile rounded-circle mb-2"
                     src="http://bootdey.com/img/Content/avatar/avatar1.png"
                     alt=""
                   />
                   {/* <!-- Profile picture help block--> */}
-                  <div class="small font-italic text-muted mb-4">
+                  <div className="small font-italic text-muted mb-4">
                     JPG or PNG no larger than 5 MB
                   </div>
                   {/* <!-- Profile picture upload button--> */}
-                  <button class="btn btn-primary" type="button">
+                  <button className="btn btn-primary" type="button">
                     Upload new image
                   </button>
                 </div>
               </div>
             </div>
-            <div class="col-xl-8">
+            <div className="col-xl-8">
               {/* <!-- Account details card--> */}
-              <div class="card mb-4">
-                <div class="card-header">Account Details</div>
-                <Button onClick={handleEdit} variant="outline-info" >
-                    Edit
-                </Button>
-                <div class="card-body">
+              <div className="card mb-4">
+                <div className="card-header">
+                  <p>Account Details</p>
+                  <button onClick={handleEdit} className="btn-green w-25">
+                      Edit
+                  </button>
+                </div>
+                <div className="card-body">
                   {onEdit ? (
                      <Form onSubmit={handleSubmit(formData)}>
                      {/* <!-- Form Group (username)--> */}
-                     <div class="mb-3">
-                       <label class="small mb-1" for="inputUsername">
+                     <div className="mb-3">
+                       <label className="small mb-1" for="inputUsername">
                          Username (how your name will appear to other users on the
                          site)
                        </label>
-                       <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" />
+                       <input className="form-control" id="inputUsername" type="text" placeholder="Enter your username" />
                      </div>
                      {/* <!-- Form Row--> */}
-                     <div class="row gx-3 mb-3">
+                     <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (first name)--> */}
-                       <div class="col-md-6">
-                         <label class="small mb-1" for="inputFirstName">
+                       <div className="col-md-6">
+                         <label className="small mb-1" for="inputFirstName">
                            First name
                          </label>
-                         <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                         <input className="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
                        </div>
                        {/* <!-- Form Group (last name)--> */}
-                       <div class="col-md-6">
-                         <label class="small mb-1" for="inputLastName">
+                       <div className="col-md-6">
+                         <label className="small mb-1" for="inputLastName">
                            Last name
                          </label>
-                         <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                         <input className="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
                        </div>
                      </div>
                      {/* <!-- Form Row        --> */}
-                     <div class="row gx-3 mb-3">
+                     <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (location)--> */}
-                       <div class="col-md-6">
-                         <label class="small mb-1" for="inputLocation">
+                       <div className="col-md-6">
+                         <label className="small mb-1" for="inputLocation">
                            Address
                          </label>
-                         <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" />
+                         <input className="form-control" id="inputLocation" type="text" placeholder="Enter your location" />
                        </div>
                      </div>
                      {/* <!-- Form Group (email address)--> */}
-                     <div class="mb-3">
-                       <label class="small mb-1" for="inputEmailAddress">
+                     <div className="mb-3">
+                       <label className="small mb-1" for="inputEmailAddress">
                          Email address
                        </label>
-                       <input class="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {formData.email} />
+                       <input className="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {formData.email} />
                      </div>
                      {/* <!-- Form Row--> */}
-                     <div class="row gx-3 mb-3">
+                     <div className="row gx-3 mb-3">
                        {/* <!-- Form Group (phone number)--> */}
-                       <div class="col-md-6">
-                         <label class="small mb-1" for="inputPhone">
+                       <div className="col-md-6">
+                         <label className="small mb-1" for="inputPhone">
                            Phone number
                          </label>
-                         <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" />
+                         <input className="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" />
                        </div>
                      </div>
                      {/* <!-- Save changes button--> */}
-                     <button class="btn btn-primary" type="button">
+                     <button className="btn btn-primary" type="button">
                        Save changes
                      </button>
                    </Form>
