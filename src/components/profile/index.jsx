@@ -1,10 +1,44 @@
-import React from "react";
-import { Container, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Row, Form } from "react-bootstrap";
+import { useForm } from 'react-hook-form';
 import "./profile.css";
 import { Footer } from "../../components";
 import Navbar from '../navbar/navbarafterlogin'
+import { useDispatch, useSelector } from "react-redux";
+import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
 
 function profileComponent() {
+  // Get Profile
+  let {user} = useSelector(state => state.auth);
+
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getProfileActions())
+  },[dispatch])
+  if(user.profile){
+  // console.log('cekuser', user.profile.email)
+  }
+
+  // Edit Profile
+  const initalState = {
+    // username: "",
+    // password: "",
+    email: user.profile ? user.profile.email : "",
+  }
+  const [formData, setFormData] = useState(initalState);
+
+  const handleChange = (e) => {
+    setFormData(prevFormData => {
+        return {
+            ...prevFormData,
+            [e.target.name]: e.target.value
+        }
+    })
+};
+  // const { register, handleSubmit, formState: { errors, dirtyFields, isValid }, getValues } = useForm();
+  const onSubmit = (data) => {
+    dispatch(editProfileActions(data));
+  }
   return (
     <>
       <div id="profile">
@@ -38,7 +72,7 @@ function profileComponent() {
               <div class="card mb-4">
                 <div class="card-header">Account Details</div>
                 <div class="card-body">
-                  <form>
+                  <Form>
                     {/* <!-- Form Group (username)--> */}
                     <div class="mb-3">
                       <label class="small mb-1" for="inputUsername">
@@ -79,7 +113,7 @@ function profileComponent() {
                       <label class="small mb-1" for="inputEmailAddress">
                         Email address
                       </label>
-                      <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" />
+                      <input class="form-control" name="email" onChange={handleChange} id="inputEmailAddress" type="email" placeholder="Enter your email address"  value= {(user.profile)?(user.profile.email):(null)} />
                     </div>
                     {/* <!-- Form Row--> */}
                     <div class="row gx-3 mb-3">
@@ -95,7 +129,7 @@ function profileComponent() {
                     <button class="btn btn-primary" type="button">
                       Save changes
                     </button>
-                  </form>
+                  </Form>
                 </div>
               </div>
             </div>

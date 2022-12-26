@@ -6,41 +6,14 @@ export const AuthService = {
     const Name = response.data.firstName
     const RoleId = response.data.roleId
     setHeadersAndStorage(response.data, Name, RoleId)
-    // if (data.rememberMe === true) {
-    //   setTimeout(() => {
-    //     localStorage.removeItem('token')
-    //     localStorage.removeItem('isLogged')
-    //   }, 604800000)
-    // } else {
-    //   setTimeout(() => {
-    //     localStorage.removeItem('token')
-    //     localStorage.removeItem('isLogged')
-    //   }, 86400000)
-    // }
-    // console.log(response.data)
-
     return response
   },
-
   loginGoogle: async (data) => {
     const response = await API.post('/auth/google', data)
     console.log(response.data.data.roleId)
     const Name = response.data.data.firstName
     const RoleId = response.data.data.roleId
     setHeadersAndStorage(response.data, Name, RoleId)
-    // if (data.rememberMe === true) {
-    //   setTimeout(() => {
-    //     localStorage.removeItem('token')
-    //     localStorage.removeItem('isLogged')
-    //   }, 604800000)
-    // } else {
-    //   setTimeout(() => {
-    //     localStorage.removeItem('token')
-    //     localStorage.removeItem('isLogged')
-    //   }, 86400000)
-    // }
-    // console.log(response.data)
-
     return response
   },
   logout: async () => {
@@ -55,6 +28,14 @@ export const AuthService = {
   },
   verifyAccount: async (data) =>{
     const response = await API.post('/auth/verify', data);
+    return response;
+  },
+  getProfile: async(data) => {
+    const response = await API.get('/auth/profile', data);
+    return response;
+  },
+  editProfile: async(data) => {
+    const response = await API.put('/auth/profile', data);
     return response;
   }
 }
