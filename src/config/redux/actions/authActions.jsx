@@ -54,3 +54,25 @@ export const logoutActions = (history) => async (dispatch) => {
     SweatAlert(String(error.response.message), 'warning')
   }
 }
+//GetProfile
+export const getProfileActions = () => async (dispatch) => {
+  try {
+    const response = await AuthService.getProfile()
+    dispatch({ type: 'GETPROFILE', payload: response  })
+  } catch (error) {
+    SweatAlert(String(error.response.message), 'warning')
+  }
+}
+
+//EditProfile
+export const editProfileActions = (data, history) => async (dispatch) => {
+  try {
+    const response = await AuthService.editProfile(data)
+    console.log(response)
+    dispatch({ type: 'EDITPROFILE', payload: response  })
+    SweatAlert(response.data.message, 'success')
+    history('/user/pofile')
+  } catch (error) {
+    SweatAlert(String(error.response.message), 'warning')
+  }
+}
