@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Form, Button } from "react-bootstrap";
+import { Container, Row, Form, Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileActions, editProfileActions } from "../../config/redux/actions/authActions";
 import { Footer } from "../../components";
 import Navbar from '../navbar/navbarafterlogin'
-import "./profile.css";
 
 function profileComponent() {
   // Get Profile
@@ -142,7 +141,34 @@ function profileComponent() {
                      </button>
                    </Form>
                   ) : (
-                    <h1>{(user.profile)?(user.profile.email):(null)}</h1>
+                    <Card.Body>
+                       <div className="mb-3">
+                        <p className="fw-bold">Username</p>
+                        <p>{(user.profile)?(user.profile.username):(null)}</p>
+                      </div>
+                      <div className="row gx-3 mb-3">
+                        <div className="col-md-6">
+                          <p className="fw-bold">Firstname</p>
+                          <p>{(user.profile)?(user.profile.firstName):(null)}</p>
+                        </div>
+                        <div className="col-md-6">
+                          <p className="fw-bold">Lastname</p>
+                          <p>{(user.profile)?(user.profile.lastName):(null)}</p>
+                        </div>
+                      </div>
+                      <div className="mb-3">
+                        <p className="fw-bold">Address</p>
+                        <p>{(user.profile)?(user.profile.address):(null)}</p>
+                      </div>
+                      <div className="mb-3">
+                        <p className="fw-bold">Email</p>
+                        <p>{(user.profile)?(user.profile.email):(null)}</p>
+                      </div>
+                      <div className="mb-3">
+                        <p className="fw-bold">Phone</p>
+                        <p>{(user.profile)?(user.profile.phone_number):(null)}</p>
+                      </div>
+                    </Card.Body>
                   )}
                 </div>
               </div>
