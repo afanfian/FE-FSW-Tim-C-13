@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { Row, Col, Table, Button, ButtonGroup, Modal, Form } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
-import {  CreateAirportActions, PutAirportActions, DeleteAirportActions } from "../../config/redux/actions/airportActions";
+// import {  CreateAirportActions, PutAirportActions, DeleteAirportActions } from "../../config/redux/actions/airportActions";
+import { CreateTicketActions, PutTicketActions, DeleteTicketActions } from "../../config/redux/actions/ticketAction";
 import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
 import './ticketList.css'
@@ -14,38 +15,41 @@ function TicketList(){
     const [editForm, seteditForm] = useState([]) //Form Edit
     const [formCreate, setFormCreate] = useState([]) //Create
     const dispatch = useDispatch();
-
+    console.log(formCreate);
     const [ticket, setTicket] = useState([]) //Get
     // Get
     useEffect(()=>{
         TicketService.getTicket().then((res)=>{
             setTicket(res.data.tickets);
         });
+        AirportService.getAirport().then((res)=>{
+            setAirport(res.data.airports);
+        });
     },[update])
     
     // Edit
     const updatehandler = async () => {
-        await dispatch(PutAirportActions(editForm.id,editForm));
+        await dispatch(PutTicketActions(editForm.id,editForm));
         setUpdate(!update)
     }
 
     // Create
     const createHandler = async () => {
-        await dispatch(CreateAirportActions(formCreate));
+        await dispatch(CreateTicketActions(formCreate));
         setUpdate(!update)
         setCreate(true)
     }
 
     // Delete
     const deleteHandler = async (id) => {
-        await dispatch(DeleteAirportActions(id));
+        await dispatch(DeleteTicketActions(id));
         setUpdate(!update)
     }
 
     // Modal
     const modalHandler = async (id) => {
-        AirportService.getAirportId(id).then((res)=>{
-        seteditForm(res.data.airport)
+        TicketService.getTicketId(id).then((res)=>{
+        seteditForm(res.data.ticket)
         setShow(true)
     })};
     
@@ -56,7 +60,7 @@ function TicketList(){
     const [create, setCreate] = useState(false);
     const handleCloseCreate = () => setCreate(false);
 
-    
+    let i = 1;
     return(
         <DasboardLayoutAdmin>
         <nav aria-label="breadcrumb">
@@ -70,8 +74,8 @@ function TicketList(){
             <Col>
                 <div id="airport">
                     <p className="text-center h3 fw-bold"><span className="text-green">C-13 AEROPLANE</span> Flight Ticket List</p>
-                    <div className="float-lg-end py-2 px-5 mx-2">
-                        <Button variant="outline-primary" onClick={setCreate} >Add Aiport</Button>
+                    <div className="float-lg-end py-2 px-3 mx-2">
+                        <Button variant="outline-primary" onClick={setCreate} >Add Ticket</Button>
                     </div>
                     <div>
                     <Table>
@@ -91,15 +95,15 @@ function TicketList(){
                                 return(
                                 <>
                                     <tr className="text-center">
-                                        <td>{ticket.id}</td>
+                                        <td>{i++}</td>
                                         <td>{ticket.airport.airport_name}</td>
-                                        <td>{ticket.departure_date}</td>
-                                        <td>{ticket.arrival_date}</td>
+                                        <td>{ticket.departure_date.split("T")[0]}</td>
+                                        <td>{ticket.arrival_date.split("T")[0]}</td>
                                         <td>{ticket.class}</td>
                                         <td>{ticket.price}</td>
                                         <ButtonGroup className="mb-2 text-center">
-                                            <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(airport.id)} >Edit</Button>
-                                            <Button variant="outline-danger" onClick={()=>deleteHandler(airport.id)}>Delete</Button>
+                                            <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(ticket.id)} >Edit</Button>
+                                            <Button variant="outline-danger" onClick={()=>deleteHandler(ticket.id)}>Delete</Button>
                                         </ButtonGroup>
                                     </tr>
                                 </>
@@ -120,21 +124,52 @@ function TicketList(){
             <Modal.Body>
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Airport Name</Form.Label>
+                    <Form.Select aria-label="Default select example"
+                        onChange={(e)=> setFormCreate({...formCreate,id_airport: e.target.value})}
+                    >
+                        <option>Select Airport</option>
+                        {airport.map((airport) => (
+                            <option value={airport.id} key={airport.id}>
+                            {airport.airport_name}
+                            </option>
+                        ))} 
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Departure Date</Form.Label>
                     <Form.Control
-                        value={formCreate.airport_name} 
-                        onChange={(e)=> setFormCreate({...formCreate,airport_name: e.target.value})}
-                        name='airport_name' 
+                        value={formCreate.departure_date} 
+                        onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
+                        name='departure_date' 
+                        type="date"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Arrival Date</Form.Label>
+                    <Form.Control
+                        value={formCreate.arrival_date} 
+                        onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
+                        className="form-control" 
+                        name='arrival_date' 
+                        type="date"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Class</Form.Label>
+                    <Form.Control
+                        value={formCreate.class} 
+                        onChange={(e)=> setFormCreate({...formCreate,class: e.target.value})}
+                        name='class' 
                         type="text"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Airport Location</Form.Label>
+                    <Form.Label>Price</Form.Label>
                     <Form.Control
-                        value={formCreate.airport_location} 
-                        onChange={(e)=> setFormCreate({...formCreate,airport_location: e.target.value})} 
+                        value={formCreate.price} 
+                        onChange={(e)=> setFormCreate({...formCreate,price: e.target.value})} 
                         className="form-control" 
-                        name='airport_location' 
+                        name='price' 
                         type="text"
                     />
                 </Form.Group>
@@ -157,22 +192,51 @@ function TicketList(){
             </Modal.Header>
             <Modal.Body>
             <Form>
+                {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Select aria-label="Default select example">
+                        <option>Select Airport</option>
+                        {dataAirport.data?.map((airport) => (
+                            <option value={airport.city} key={airport.id}>
+                            {airport.city}
+                            </option>
+                        ))}
+                    </Form.Select>
+                </Form.Group> */}
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Airport Name</Form.Label>
+                    <Form.Label>Departure Date</Form.Label>
                     <Form.Control
-                        value={editForm.airport_name} 
-                        onChange={(e)=> seteditForm({...editForm,airport_name: e.target.value})}
-                        name='airport_name' 
+                        value={editForm.departure_date} 
+                        onChange={(e)=> seteditForm({...editForm,departure_date: e.target.value})}
+                        name='departure_date' 
                         type="text"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Airport Location</Form.Label>
+                    <Form.Label>Arrival Date</Form.Label>
                     <Form.Control
-                        value={editForm.airport_location} 
-                        onChange={(e)=> seteditForm({...editForm,airport_location: e.target.value})} 
+                        value={editForm.arrival_date} 
+                        onChange={(e)=> seteditForm({...editForm,arrival_date: e.target.value})} 
                         className="form-control" 
-                        name='airport_location' 
+                        name='arrival_date' 
+                        type="text"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Class</Form.Label>
+                    <Form.Control
+                        value={editForm.class} 
+                        onChange={(e)=> seteditForm({...editForm,class: e.target.value})}
+                        name='class' 
+                        type="text"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control
+                        value={editForm.price} 
+                        onChange={(e)=> seteditForm({...editForm,price: e.target.value})} 
+                        className="form-control" 
+                        name='price' 
                         type="text"
                     />
                 </Form.Group>

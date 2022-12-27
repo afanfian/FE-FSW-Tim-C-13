@@ -12,7 +12,7 @@ export const getAiportActions = () => async (dispatch) => {
 export const CreateAirportActions = (data) => async (dispatch) => {
     try {
         const response = await AirportService.createAirport(data);
-        SweatAlert('Create Berhasil', 'success');
+        SweatAlert(String(response.data.message), 'success');
         return response;
     } catch (error) {
         SweatAlert(String(error.response.data.message), 'warning')
@@ -22,7 +22,7 @@ export const CreateAirportActions = (data) => async (dispatch) => {
 export const PutAirportActions = (id, data) => async (dispatch) => {
     try {
         const response = await AirportService.editAirport(id, data);
-        SweatAlert('Update Berhasil', 'success');
+        SweatAlert(String(response.data.message), 'success');
         return response;
     } catch (error) {
         SweatAlert(String(error.response.data.message), 'warning')
@@ -32,7 +32,7 @@ export const PutAirportActions = (id, data) => async (dispatch) => {
 export const DeleteAirportActions = (id) => async (dispatch) => {
     try {
         const response = await AirportService.deleteAirport(id);
-        SweatAlert('Update Berhasil', 'success');
+        SweatAlert(String(response.data.message), 'success');
         return response;
     } catch (error) {
         SweatAlert(String(error.response.data.message), 'warning')
