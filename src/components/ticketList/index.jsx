@@ -208,7 +208,7 @@ function TicketList(){
                         value={editForm.departure_date} 
                         onChange={(e)=> seteditForm({...editForm,departure_date: e.target.value})}
                         name='departure_date' 
-                        type="text"
+                        type="date"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -218,7 +218,7 @@ function TicketList(){
                         onChange={(e)=> seteditForm({...editForm,arrival_date: e.target.value})} 
                         className="form-control" 
                         name='arrival_date' 
-                        type="text"
+                        type="date"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
