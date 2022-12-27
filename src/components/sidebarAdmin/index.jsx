@@ -10,14 +10,6 @@ function SidebarAdmin() {
         <img src={Logo} alt="Logo" />
       </div>
       <div className="linkWrapper text-white">
-        <Link to="/admin" className="sideLink d-flex align-items-center mb-3 fw-bold">
-          <div className="icon">
-            <svg width="20" height="23" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1 8.49988L10 1.49988L19 8.49988V19.4999C19 20.0303 18.7893 20.539 18.4142 20.9141C18.0391 21.2892 17.5304 21.4999 17 21.4999H3C2.46957 21.4999 1.96086 21.2892 1.58579 20.9141C1.21071 20.539 1 20.0303 1 19.4999V8.49988Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-          <p className="m-0 ms-3">Dashboard</p>
-        </Link>
         <div className="transponder">
           <div className="sideLinkTitle d-flex align-items-center mb-3 fw-bold">
             <div className="icon">

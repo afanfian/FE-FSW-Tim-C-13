@@ -4,6 +4,7 @@ import { Row, Col, Table, Button, ButtonGroup, Modal, Form } from 'react-bootstr
 import DasboardLayoutAdmin from '../layoutAdmin'
 import { PutAirportActions } from "../../config/redux/actions/airportActions";
 import { AirportService } from "../../services/airportService";
+import './airportList.css'
 
 function AirportList(){
 
@@ -12,11 +13,13 @@ function AirportList(){
     const [editForm, seteditForm] = useState([]) //Form Edit
     const dispatch = useDispatch();
 
+    // Get
     useEffect(()=>{
         AirportService.getAirport().then((res)=>{
             setAirport(res.data.airports);
         });
     },[update])
+
     // Edit
     const updatehandler = async () => {
         await dispatch(PutAirportActions(editForm.id,editForm));
@@ -29,7 +32,6 @@ function AirportList(){
         setShow(true)
     })};
     
-    console.log(editForm)
     // Testing Modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -40,14 +42,14 @@ function AirportList(){
         <DasboardLayoutAdmin>
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="/admin">Dashboard</a></li>
+            <li className="breadcrumb-item"><p>C-13 Aeroplane</p></li>
                 <li className="breadcrumb-item active" aria-current="page">Airport List</li>
             </ol>
         </nav>
 
         <Row>
             <Col>
-                <div id="schedule">
+                <div id="airport">
                     <p className="text-center h3 fw-bold">Let's check the nearest airport!</p>
                     <div className="float-lg-end py-2 px-5 mx-2">
                         <Button variant="outline-primary">Add Aiport</Button>
@@ -84,7 +86,8 @@ function AirportList(){
                 </div>
             </Col>
         </Row>
-
+                            
+        {/* Modal Edit */}
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title className="text-center">Update Airport</Modal.Title>
