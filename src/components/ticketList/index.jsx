@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Row, Col, Table, Button, ButtonGroup, Modal, Form } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
 import {  CreateAirportActions, PutAirportActions, DeleteAirportActions } from "../../config/redux/actions/airportActions";
+import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
 import './ticketList.css'
 
@@ -14,10 +15,11 @@ function TicketList(){
     const [formCreate, setFormCreate] = useState([]) //Create
     const dispatch = useDispatch();
 
+    const [ticket, setTicket] = useState([]) //Get
     // Get
     useEffect(()=>{
-        AirportService.getAirport().then((res)=>{
-            setAirport(res.data.airports);
+        TicketService.getTicket().then((res)=>{
+            setTicket(res.data.tickets);
         });
     },[update])
     
@@ -77,18 +79,24 @@ function TicketList(){
                             <tr>
                                 <th>No</th>
                                 <th>Airport Name</th>
-                                <th>Aiport Location</th>
+                                <th>Departure Date</th>
+                                <th>Arrival Date</th>
+                                <th>Class</th>
+                                <th>Price</th>
                                 <th>Button</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {airport.map((airport)=>{
+                            {ticket.map((ticket)=>{
                                 return(
                                 <>
                                     <tr className="text-center">
-                                        <td>{airport.id}</td>
-                                        <td>{airport.airport_name}</td>
-                                        <td>{airport.airport_location}</td>
+                                        <td>{ticket.id}</td>
+                                        <td>{ticket.airport.airport_name}</td>
+                                        <td>{ticket.departure_date}</td>
+                                        <td>{ticket.arrival_date}</td>
+                                        <td>{ticket.class}</td>
+                                        <td>{ticket.price}</td>
                                         <ButtonGroup className="mb-2 text-center">
                                             <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(airport.id)} >Edit</Button>
                                             <Button variant="outline-danger" onClick={()=>deleteHandler(airport.id)}>Delete</Button>
