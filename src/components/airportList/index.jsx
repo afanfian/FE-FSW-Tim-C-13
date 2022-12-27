@@ -54,7 +54,7 @@ function AirportList(){
     const [create, setCreate] = useState(false);
     const handleCloseCreate = () => setCreate(false);
 
-    
+    let i = 1;
     return(
         <DasboardLayoutAdmin>
         <nav aria-label="breadcrumb">
@@ -86,7 +86,7 @@ function AirportList(){
                                 return(
                                 <>
                                     <tr className="text-center">
-                                        <td>{airport.id}</td>
+                                        <td>{i++}</td>
                                         <td>{airport.airport_name}</td>
                                         <td>{airport.airport_location}</td>
                                         <ButtonGroup className="mb-2 text-center">

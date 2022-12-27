@@ -9,8 +9,9 @@ import Schedule from './Schedule'
 import CustomerList from './CustomerList'
 import PaymentList from './PaymentList'
 import AirportList from './AirportList'
+import TicketList from './TicketList'
 import Profile  from './Profile'
 import Checkout from './Checkout'
 import Wishlist from './Wishlist'
 
-export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout, Wishlist, AirportList }
+export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout, Wishlist, AirportList, TicketList }
