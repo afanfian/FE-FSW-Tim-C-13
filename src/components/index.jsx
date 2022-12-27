@@ -14,6 +14,7 @@ import Booking from './booking'
 import CustomerList from './customerList'
 import PaymentList from './paymentList'
 import AirportList from './airportList'
+import TicketList from './ticketList'
 import Profile from './profile'
 import Checkout from './checkout'
 import Wishlist from './wishlist'
@@ -35,6 +36,7 @@ export {
   CustomerList,
   PaymentList,
   AirportList,
+  TicketList,
   Profile,
   Checkout,
   Wishlist
