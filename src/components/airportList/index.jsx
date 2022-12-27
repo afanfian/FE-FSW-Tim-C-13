@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { Row, Col, Table, Button, ButtonGroup, Modal, Form } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
-import { PutAirportActions } from "../../config/redux/actions/airportActions";
+import { PutAirportActions, DeleteAirportActions } from "../../config/redux/actions/airportActions";
 import { AirportService } from "../../services/airportService";
 import './airportList.css'
 
@@ -19,6 +19,13 @@ function AirportList(){
             setAirport(res.data.airports);
         });
     },[update])
+
+    // Delete
+    const deleteHandler = async (id) => {
+        await dispatch(DeleteAirportActions(id));
+        setUpdate(!update)
+        // window.location.reload(false);
+    }
 
     // Edit
     const updatehandler = async () => {
@@ -74,7 +81,7 @@ function AirportList(){
                                         <td>{airport.airport_location}</td>
                                         <ButtonGroup className="mb-2 text-center">
                                             <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(airport.id)} >Edit</Button>
-                                            <Button variant="outline-danger">Delete</Button>
+                                            <Button variant="outline-danger" onClick={()=>deleteHandler(airport.id)}>Delete</Button>
                                         </ButtonGroup>
                                     </tr>
                                 </>

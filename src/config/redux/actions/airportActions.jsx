@@ -20,3 +20,13 @@ export const PutAirportActions = (id, data) => async (dispatch) => {
         SweatAlert(String(error.response.data.message), 'warning')
     }       
 }
+
+export const DeleteAirportActions = (id) => async (dispatch) => {
+    try {
+        const response = await AirportService.deleteAirport(id);
+        SweatAlert('Update Berhasil', 'success');
+        return response;
+    } catch (error) {
+        SweatAlert(String(error.response.data.message), 'warning')
+    }       
+}

@@ -13,4 +13,8 @@ export const AirportService = {
         const response = await API.put('/airports/'+id, data);
         return response;
     },
+    deleteAirport : async (id) => {
+        const response = await API.delete('/airports/'+id);
+        return response;
+    },
 }
