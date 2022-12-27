@@ -12,17 +12,7 @@ export const loginActions = (data, history) => async (dispatch) => {
       SweatAlert(String(error.response.data.message), 'warning')
   }   
 }
-// Login with Google
-export const loginGoogleActions = (data, history) => async (dispatch) => {
-    try {
-      const response = await AuthService.loginGoogle(data);
-      dispatch({type: 'LOGIN', payload: response.data});
-      SweatAlert(response.data.message, 'success');
-      history('/');
-  } catch (error) {
-      SweatAlert(String(error.response.data.message), 'warning')
-  }   
-}
+
 // Verify Account
 export const verifyAccountActions = (data, history) => async (dispatch) => {
   try {
