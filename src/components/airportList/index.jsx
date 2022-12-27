@@ -1,8 +1,18 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import { useDispatch } from 'react-redux';
 import { Row, Col, Table } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
+import { AirportService } from "../../services/airportService";
 
 function AirportList(){
+    const [airport, setAirport] = useState([])
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        AirportService.getAirport().then((res)=>{
+            setAirport(res.data.airports);
+        });
+    },[dispatch])
+
     return(
         <DasboardLayoutAdmin>
         <nav aria-label="breadcrumb">
@@ -25,12 +35,18 @@ function AirportList(){
                                 <th>Aiport Location</th>
                             </tr>
                         </thead>
-                        <tbody className="text-center">
-                            <tr>
-                                <td>1</td>
-                                <td> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                <td> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                            </tr>
+                        <tbody>
+                            {airport.map((airport)=>{
+                                return(
+                                <>
+                                    <tr>
+                                        <td>{airport.id}</td>
+                                        <td>{airport.airport_name}</td>
+                                        <td>{airport.airport_location}</td>
+                                    </tr>
+                                </>
+                                )
+                            })}
                         </tbody>
                     </Table>
                     </div>
