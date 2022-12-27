@@ -17,4 +17,8 @@ export const AirportService = {
         const response = await API.delete('/airports/'+id);
         return response;
     },
+    createAirport : async (data) => {
+        const response = await API.post('/airports/', data);
+        return response;
+    },
 }
