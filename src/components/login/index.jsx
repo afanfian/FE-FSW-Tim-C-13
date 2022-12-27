@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React from "react";
 import { Form, Col, Container, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import GoogleComponent from "react-google-login";
 import "./login.css";
-import { gapi } from "gapi-script";
 import { account, gambarIcon } from "../../assets/index.js";
 import Navbar from "../navbar";
 import { useDispatch } from "react-redux";
 import {
   loginActions,
-  loginGoogleActions,
   verifyAccountActions,
 } from "../../config/redux/actions/authActions";
 
@@ -34,22 +31,6 @@ function LoginComponent(props) {
     dispatch(verifyAccountActions(token, history));
   }
 
-  // Login With Google
-  const responseGoogle = (response) => {
-    dispatch(loginGoogleActions(response, history));
-    console.log(response.accessToken);
-  };
-  useEffect(() => {
-    function start() {
-      gapi.client.init({
-        clientId:
-          "267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com",
-          mode: 'cors',
-      });
-    }
-
-    gapi.load("client:auth2", start);
-  }, []);
   return (
     <div id="masuk">
       <Container>
@@ -141,19 +122,6 @@ function LoginComponent(props) {
                     <p className="mt-4">
                       Dont Have an Account ? <a href="/register">Sign up</a>
                     </p>
-                  </div>
-                  <div className="d-grid gap-8 justify-content-center">
-                    <p className="mt-1"> Or Sign in with :</p>
-                  </div>
-
-                  <div className="d-grid gap-8 justify-content-center">
-                    <GoogleComponent
-                      clientId="267971687256-iphrhvg80ireilb73gjjnvvcg0fdavu2.apps.googleusercontent.com"
-                      onSuccess={responseGoogle}
-                      onFailure={responseGoogle}
-                      cookiePolicy={"single_host_origin"}
-                      className="m-md-3"
-                    />
                   </div>
                 </Form>
               </div>
