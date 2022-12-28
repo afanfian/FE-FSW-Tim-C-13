@@ -35,6 +35,10 @@ export const AuthService = {
     const response = await API.get('/auth/profile', data);
     return response;
   },
+  getAllProfile: async(data) => {
+    const response = await API.get('/auth/allusers', data);
+    return response;
+  },
   editProfile: async(data) => {
     const response = await API.put('/auth/profile', data);
     return response;

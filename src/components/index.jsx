@@ -15,9 +15,10 @@ import CustomerList from './customerList'
 import PaymentList from './paymentList'
 import AirportList from './airportList'
 import TicketList from './ticketList'
+import Wishlist from './wishlist'
+import UserList from './userList'
 import Profile from './profile'
 import Checkout from './checkout'
-import Wishlist from './wishlist'
 
 export {
   AboutComponent,
@@ -39,5 +40,6 @@ export {
   TicketList,
   Profile,
   Checkout,
-  Wishlist
+  Wishlist,
+  UserList
 }
