@@ -27,6 +27,7 @@ function home () {
             setTicket(res.data.tickets);
         });
     },[])
+    
   const [index, setIndex] = useState(0)
 
   const handleSelect = (selectedIndex, e) => {
@@ -102,6 +103,7 @@ function home () {
                           className="mb-3"
                           controlId="departure"
                         >
+                          {/* Airport Departure */}
                           <Form.Label>Departure</Form.Label>
                           <Form.Select
                             type="text"
@@ -126,6 +128,8 @@ function home () {
                           className="mb-3"
                           controlId="arrival"
                         >
+
+                        {/* Airport Arrival */}
                           <Form.Label>Arrival</Form.Label>
                           <Form.Select
                             type="text"
@@ -204,6 +208,7 @@ function home () {
                           className="mb-3"
                           controlId="sofa"
                         >
+                        {/* Class */}
                           <Form.Label>Class</Form.Label>
                           <Form.Select
                             type="text"
@@ -235,7 +240,7 @@ function home () {
                           id="validationFormik0" />
                       </Form.Group>
                       <button type="submit" className="btn-green">
-                        Booking
+                        Booking Ticket
                       </button>
                     </Form>
                   )}
