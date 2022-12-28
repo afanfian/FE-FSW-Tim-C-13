@@ -3,8 +3,9 @@ import API from './api'
 export const AuthService = {
   login: async (data) => {
     const response = await API.post('/auth/login', data)
-    const Name = response.data.firstName
-    const RoleId = response.data.roleId
+    const Name = response.data.username
+    const RoleId = response.data.role
+    console.log(response)
     setHeadersAndStorage(response.data, Name, RoleId)
     return response
   },
@@ -34,15 +35,19 @@ export const AuthService = {
     const response = await API.get('/auth/profile', data);
     return response;
   },
+  getAllProfile: async(data) => {
+    const response = await API.get('/auth/allusers', data);
+    return response;
+  },
   editProfile: async(data) => {
     const response = await API.put('/auth/profile', data);
     return response;
   }
 }
 
-const setHeadersAndStorage = ({ user, token }, Name, RoleId) => {
+const setHeadersAndStorage = ({ username, token }, Name, RoleId) => {
   API.defaults.headers.Authorization = `Bearer ${token}`
-  localStorage.setItem('user', JSON.stringify(Name))
+  localStorage.setItem('username', JSON.stringify(Name))
   localStorage.setItem('role', JSON.stringify(RoleId))
   localStorage.setItem('token', token)
   localStorage.setItem('isLogged', true)
