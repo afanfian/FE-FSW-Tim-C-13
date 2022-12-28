@@ -52,7 +52,7 @@ function UserList(){
                                             <td>{user.email}</td>
                                             <td>{user.phone_number}</td>
                                             <td>{user.address}</td>
-                                            <td><img src={user.photo} alt="photo-user" width="200px" /></td>
+                                            <td><img src={user.photo} alt="photoUser" width="200px" /></td>
                                         </tr>
                                     </>
                                     )
