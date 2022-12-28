@@ -1,10 +1,10 @@
 const initialState = {
   // local storage
-  // user: JSON.parse(localStorage.getItem('user')) || {},
+  // user: JSON.parse(localStorage.getItem('username')) || {},
   user: [],
   token: localStorage.getItem('token'),
-  // isLoggedIn: !!localStorage.getItem('user'),
-  // roleId: JSON.parse(localStorage.getItem('role')) || {}
+  isLoggedIn: !!localStorage.getItem('username'),
+  roleId: JSON.parse(localStorage.getItem('role')) || {}
 }
 
 const auth = (state = initialState, action) => {
@@ -12,10 +12,10 @@ const auth = (state = initialState, action) => {
     case 'LOGIN':
       return ({
         ...state,
-        user: action.payload.user,
+        user: action.payload.username,
         token: action.payload.token,
         isLoggedIn: true,
-        roleId: action.payload.roleId
+        roleId: action.payload.role
       })
     case 'REGISTER':
       return ({

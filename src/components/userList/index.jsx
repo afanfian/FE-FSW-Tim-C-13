@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { Row, Col, Table} from 'react-bootstrap'
-import { TicketService } from "../../services/ticketService";
+import { AuthService } from "../../services/authService";
 import DasboardLayoutAdmin from '../layoutAdmin'
-import './schedule.css'
+import './userList.css'
 
-function Schedule(){
+function UserList(){
 
-    const [ticket, setTicket] = useState([]) //Get
+    const [user, setUser] = useState([]) //Get
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
-    TicketService.getTicket().then((res)=>{
-        setTicket(res.data.tickets);
+    AuthService.getAllProfile().then((res)=>{
+        setUser(res.data.allUsers);
     });
     },[dispatch])
     
@@ -23,38 +23,36 @@ function Schedule(){
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><p>C-13 Aeroplane</p></li>
-                    <li className="breadcrumb-item active" aria-current="page">Schedule List</li>
+                    <li className="breadcrumb-item active" aria-current="page">User List</li>
                 </ol>
             </nav>
             <Row>
                 <Col>
-                    <div id="airport">
+                    <div id="userList">
                         <p className="text-center h3 fw-bold mb-5">Let's Check Your Departure Schedule!</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">
                                 <tr>
                                     <th>No</th>
-                                    <th>Airport Name</th>
-                                    <th>Airport Location</th>
-                                    <th>Departure Date</th>
-                                    <th>Arrival Date</th>
-                                    <th>Class</th>
-                                    <th>Price</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Address</th>
+                                    <th>Photo</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {ticket.map((ticket)=>{
+                                {user.map((user)=>{
                                     return(
                                     <>
                                         <tr className="text-center">
                                             <td>{i++}</td>
-                                            <td>{ticket.airport.airport_name}</td>
-                                            <td>{ticket.airport.airport_location}</td>
-                                            <td>{ticket.departure_date.split("T")[0]}</td>
-                                            <td>{ticket.arrival_date.split("T")[0]}</td>
-                                            <td>{ticket.class}</td>
-                                            <td>{ticket.price}</td>
+                                            <td>{user.username}</td>
+                                            <td>{user.email}</td>
+                                            <td>{user.phone_number}</td>
+                                            <td>{user.address}</td>
+                                            <td><img src={user.photo} alt="photoUser" width="200px" /></td>
                                         </tr>
                                     </>
                                     )
@@ -69,4 +67,4 @@ function Schedule(){
     )
 }
 
-export default Schedule
+export default UserList
