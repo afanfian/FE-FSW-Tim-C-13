@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Container, Row, Col, Form, Carousel } from 'react-bootstrap'
 import './home.css'
 import Navbar from '../navbar'
@@ -13,8 +13,21 @@ import {
 } from '../../assets/index.js'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
+import { TicketService } from "../../services/ticketService";
+import { AirportService } from "../../services/airportService";
 
 function home () {
+  const [airport, setAirport] = useState([]) //Get
+   const [ticket, setTicket] = useState([]) //Get
+    useEffect(()=>{
+        AirportService.getAirport().then((res)=>{
+            setAirport(res.data.airports);
+        });
+         TicketService.getTicket().then((res)=>{
+            setTicket(res.data.tickets);
+        });
+    },[])
+    
   const [index, setIndex] = useState(0)
 
   const handleSelect = (selectedIndex, e) => {
@@ -30,40 +43,6 @@ function home () {
     sofa: Yup.string().required('Class is required'),
     terms: Yup.bool().required().oneOf([true], 'Terms must be accepted')
   })
-
-  // const options = [
-  //   { value: 'CGK - Bandar Udara Internasional Soekarno–Hatta' },
-  //   { value: 'DPS - Bandar Udara Internasional Ngurah Rai' },
-  //   { value: 'SUB - Bandar Udara Internasional Juanda' },
-  //   { value: 'BDO - Bandar Udara Internasional Husein Sastranegara' },
-  //   { value: 'JOG - Bandar Udara Internasional Adi Sucipto' },
-  //   { value: 'SOC - Bandar Udara Internasional Adisumarmo' },
-  //   { value: 'SRG - Bandar Udara Internasional Achmad Yani' },
-  //   { value: 'MLG - Bandar Udara Abdul Rachman Saleh' },
-  //   { value: 'BTJ - Bandar Udara Internasional Hang Nadim' },
-  //   { value: 'MES - Bandar Udara Internasional Polonia' },
-  //   { value: 'KMU - Bandar Udara Internasional Kuala Namu' },
-  //   { value: 'PDG - Bandar Udara Internasional Minangkabau' },
-  //   { value: 'LOP - Bandar Udara Internasional Lombok' }
-  // ]
-
-  // const passengerValue = [
-  //   { value: 'Economy Class' },
-  //   { value: 'Business Class' }
-  // ]
-
-  // const classValue = [
-  //   { value: 'Baby' },
-  //   { value: 'Mr' },
-  //   { value: 'Mrs' }
-  // ]
-
-  // const [departure, setDeparture] = useState('')
-  // const [departureDate, setDepartureDate] = useState(new Date())
-  // const [passenger, setPassenger] = useState('')
-  // const [arrival, setArrival] = useState('')
-  // const [arrivalDate, setArrivalDate] = useState(new Date())
-  // const [sofa, setSofa] = useState('')
 
   return (
     <><div>
@@ -94,6 +73,7 @@ function home () {
         {/* </div> */}
       </div>
       <Container>
+
         {/* Form Ticket */}
         <Row className="pt-5">
           <Col className="col-md-12 w-100 search-flight shadow p-3 mb-5 bg-body rounded">
@@ -123,14 +103,21 @@ function home () {
                           className="mb-3"
                           controlId="departure"
                         >
+                          {/* Airport Departure */}
                           <Form.Label>Departure</Form.Label>
-                          <Form.Control
+                          <Form.Select
                             type="text"
-                            placeholder="Departure"
                             name="departure"
                             value={values.departure}
                             onChange={handleChange}
-                            isInvalid={!!errors.departure} />
+                            isInvalid={!!errors.departure} >
+                            <option>Select Airport</option>
+                            {airport.map((airport) => (
+                            <option value={airport.id} key={airport.id}>
+                            {airport.airport_name}
+                            </option>
+                        ))} 
+                            </Form.Select>
                           <Form.Control.Feedback type="invalid">
                             {errors.departure}
                           </Form.Control.Feedback>
@@ -141,14 +128,22 @@ function home () {
                           className="mb-3"
                           controlId="arrival"
                         >
+
+                        {/* Airport Arrival */}
                           <Form.Label>Arrival</Form.Label>
-                          <Form.Control
+                          <Form.Select
                             type="text"
-                            placeholder="Arrival"
-                            name="arrival"
-                            value={values.arrival}
+                            name="departure"
+                            value={values.departure}
                             onChange={handleChange}
-                            isInvalid={!!errors.arrival} />
+                            isInvalid={!!errors.departure} >
+                            <option>Select Airport</option>
+                            {airport.map((airport) => (
+                            <option value={airport.id} key={airport.id}>
+                            {airport.airport_name}
+                            </option>
+                        ))} 
+                            </Form.Select>
                           <Form.Control.Feedback type="invalid">
                             {errors.arrival}
                           </Form.Control.Feedback>
@@ -189,7 +184,7 @@ function home () {
                             {errors.arrival_date}
                           </Form.Control.Feedback>
                         </Form.Group>
-                        <Form.Group
+                        {/* <Form.Group
                           as={Col}
                           md="6"
                           className="mb-3"
@@ -206,21 +201,27 @@ function home () {
                           <Form.Control.Feedback type="invalid">
                             {errors.passenger}
                           </Form.Control.Feedback>
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group
                           as={Col}
                           md="6"
                           className="mb-3"
                           controlId="sofa"
                         >
+                        {/* Class */}
                           <Form.Label>Class</Form.Label>
-                          <Form.Control
+                          <Form.Select
                             type="text"
                             placeholder="Class"
                             name="sofa"
                             value={values.sofa}
                             onChange={handleChange}
-                            isInvalid={!!errors.sofa} />
+                            isInvalid={!!errors.sofa}>
+                            <option selected>Choose Class</option>
+                            <option value="Economy Class">Economy Class</option>
+                            <option value="Business Class">Business Class</option>
+                            <option value="First Class">First Class</option>
+                          </Form.Select>
 
                           <Form.Control.Feedback type="invalid">
                             {errors.sofa}
@@ -239,7 +240,7 @@ function home () {
                           id="validationFormik0" />
                       </Form.Group>
                       <button type="submit" className="btn-green">
-                        Submit form
+                        Booking Ticket
                       </button>
                     </Form>
                   )}
