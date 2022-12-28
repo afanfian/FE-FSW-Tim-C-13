@@ -4,7 +4,7 @@ const initialState = {
   user: [],
   token: localStorage.getItem('token'),
   isLoggedIn: !!localStorage.getItem('username'),
-  roleId: JSON.parse(localStorage.getItem('role')) || {}
+  // roleId: JSON.parse(localStorage.getItem('role')) || {}
 }
 
 const auth = (state = initialState, action) => {
