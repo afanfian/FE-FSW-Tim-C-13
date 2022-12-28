@@ -1,9 +1,24 @@
-import React from "react";
-import { Row, Col, Table } from 'react-bootstrap'
+import React, {useState, useEffect} from "react";
+import { useDispatch } from 'react-redux';
+import { Row, Col, Table} from 'react-bootstrap'
+// import { CreateTicketActions, PutTicketActions, DeleteTicketActions } from "../../config/redux/actions/ticketAction";
+import { TicketService } from "../../services/ticketService";
 import DasboardLayoutAdmin from '../layoutAdmin'
 import './schedule.css'
 
 function Schedule(){
+
+    const [ticket, setTicket] = useState([]) //Get
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+    TicketService.getTicket().then((res)=>{
+        setTicket(res.data.tickets);
+    });
+    },[dispatch])
+    
+    let i = 1;
     return(
         <DasboardLayoutAdmin>
             <nav aria-label="breadcrumb">
@@ -12,93 +27,39 @@ function Schedule(){
                     <li className="breadcrumb-item active" aria-current="page">Schedule List</li>
                 </ol>
             </nav>
-
             <Row>
                 <Col>
-                    <div id="schedule">
-                    <p className="text-center h3 fw-bold pb-5">Let's Check Your Departure Schedule!</p>
+                    <div id="airport">
+                        <p className="text-center h3 fw-bold mb-5">Let's Check Your Departure Schedule!</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">
                                 <tr>
                                     <th>No</th>
-                                    <th>Plane</th>
-                                    <th>Departure</th>
-                                    <th>Arrival</th>
-                                    <th>Duration</th>
+                                    <th>Airport Name</th>
+                                    <th>Airport Location</th>
+                                    <th>Departure Date</th>
+                                    <th>Arrival Date</th>
+                                    <th>Class</th>
+                                    <th>Price</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-center">
-                                <tr>
-                                    <td>1</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>C-13 Aeroplane</td>
-                                    <td> 07.00 <br /> Bandar Udara Internasional Soekarno-Hatta (CGK)</td>
-                                    <td> 09.00 <br /> Bandar Udara Internasional Ngurah Rai (DPS)</td>
-                                    <td> 2 Hours </td>
-                                </tr>
+                            <tbody>
+                                {ticket.map((ticket)=>{
+                                    return(
+                                    <>
+                                        <tr className="text-center">
+                                            <td>{i++}</td>
+                                            <td>{ticket.airport.airport_name}</td>
+                                            <td>{ticket.airport.airport_location}</td>
+                                            <td>{ticket.departure_date.split("T")[0]}</td>
+                                            <td>{ticket.arrival_date.split("T")[0]}</td>
+                                            <td>{ticket.class}</td>
+                                            <td>{ticket.price}</td>
+                                        </tr>
+                                    </>
+                                    )
+                                })}
                             </tbody>
                         </Table>
                         </div>
