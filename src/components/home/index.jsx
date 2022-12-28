@@ -18,7 +18,7 @@ import { AirportService } from "../../services/airportService";
 
 function home () {
   const [airport, setAirport] = useState([]) //Get
-   const [ticket, setTicket] = useState([]) //Get
+   const [setTicket] = useState([]) //Get
     useEffect(()=>{
         AirportService.getAirport().then((res)=>{
             setAirport(res.data.airports);
