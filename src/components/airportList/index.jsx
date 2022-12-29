@@ -68,7 +68,7 @@ function AirportList(){
             <Col>
                 <div id="airport">
                     <p className="text-center h3 fw-bold">Let's check the nearest airport!</p>
-                    <div className="float-lg-end py-2 px-5 mx-2">
+                    <div className="float-lg-end py-2 px-2 mx-2">
                         <Button variant="outline-primary" onClick={setCreate} >Add Aiport</Button>
                     </div>
                     <div>

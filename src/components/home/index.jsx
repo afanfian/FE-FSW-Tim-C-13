@@ -18,6 +18,7 @@ import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
 import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
 
+
 function home() {
   const [airport, setAirport] = useState([]); //Get
   const [ticket, setTicket] = useState([]); //Get
