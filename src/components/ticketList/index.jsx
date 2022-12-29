@@ -156,12 +156,17 @@ function TicketList(){
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Class</Form.Label>
-                    <Form.Control
-                        value={formCreate.class} 
+                    <Form.Select aria-label="Default select example"
                         onChange={(e)=> setFormCreate({...formCreate,class: e.target.value})}
-                        name='class' 
-                        type="text"
-                    />
+                    >
+                        <option>Select Class</option>
+                            <option value='Economy'>
+                                Economy
+                            </option>
+                            <option value='Business'>
+                                Business
+                            </option>
+                    </Form.Select>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Price</Form.Label>
@@ -221,15 +226,17 @@ function TicketList(){
                         type="date"
                     />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Class</Form.Label>
-                    <Form.Control
-                        value={editForm.class} 
+                <Form.Select aria-label="Default select example"
                         onChange={(e)=> seteditForm({...editForm,class: e.target.value})}
-                        name='class' 
-                        type="text"
-                    />
-                </Form.Group>
+                    >
+                        <option>Select Class</option>
+                            <option value='Economy'>
+                                Economy
+                            </option>
+                            <option value='Business'>
+                                Business
+                            </option>
+                    </Form.Select>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     <Form.Label>Price</Form.Label>
                     <Form.Control

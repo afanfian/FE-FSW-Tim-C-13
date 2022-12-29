@@ -1,10 +1,25 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Container, Row, Col} from 'react-bootstrap'
+import { useLocation } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { TicketService } from "../../services/ticketService";
 import { Footer } from "../../components"
 import Navbar from '../navbar/navbarafterlogin'
 import './wishlist.css'
 
 function wishlist(){
+    const {state} = useLocation();
+    console.log(state);
+    const [ticket, setTicket] = useState([]) //Get
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        TicketService.getTicketId(state.ticket).then((res)=>{
+            setTicket(res.data.ticket);
+        });
+        },[dispatch])
+
+    console.log()
+
     return(
         <>
         <div id="wishlist">
@@ -17,7 +32,7 @@ function wishlist(){
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Airplane</h4>
-                                <h5 className="text-black text-center">C-13 Aeroplane</h5>
+                                <h5 className="text-black text-center">{ticket.arrival_date}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Departure</h4>
