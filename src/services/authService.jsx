@@ -5,7 +5,7 @@ export const AuthService = {
     const response = await API.post('/auth/login', data)
     const Name = response.data.username
     const RoleId = response.data.role
-    console.log(response)
+    // console.log(response)
     setHeadersAndStorage(response.data, Name, RoleId)
     return response
   },
@@ -48,7 +48,7 @@ export const AuthService = {
 const setHeadersAndStorage = ({ username, token }, Name, RoleId) => {
   API.defaults.headers.Authorization = `Bearer ${token}`
   localStorage.setItem('username', JSON.stringify(Name))
-  localStorage.setItem('role', JSON.stringify(RoleId))
+  localStorage.setItem('role',(RoleId))
   localStorage.setItem('token', token)
   localStorage.setItem('isLogged', true)
 }

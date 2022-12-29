@@ -1,5 +1,5 @@
 import { BookingService } from "../../../services/bookingService";
-import SweatAlert from "../../SweatAlert";
+import SweatAlert from "../../sweatAlert";
 
 export const getBookingActions = (data) => async (dispatch) => {
     try {
@@ -10,15 +10,10 @@ export const getBookingActions = (data) => async (dispatch) => {
     }       
 }
 
-export const BookingActions = (data,roundtrip) => async (dispatch) => {
+export const CreateBookingActions = (data) => async (dispatch) => {
     try {
-        const response = await BookingService.Booking(data);
-        if (roundtrip === true) {
-            dispatch({type: 'BOOKING_ROUND', payload : response.data.data});
-        }else{
-            dispatch({type: 'BOOKING', payload : response.data.data.newBooking[0].id});
-        }
-        // dispatch({type: 'BOOKING', payload : response.data.data.newBooking.id});
+        const response = await BookingService.createBooking(data);
+        SweatAlert(String(response.data.message), 'success');
         return response;
     } catch (error) {
         SweatAlert(String(error.response.data.message), 'warning')
