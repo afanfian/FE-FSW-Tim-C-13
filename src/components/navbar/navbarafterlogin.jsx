@@ -1,24 +1,32 @@
 /* eslint-disable react/react-in-jsx-scope */
 // import Button from 'react-bootstrap/Button'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Nav, Navbar, Offcanvas, OverlayTrigger, Popover, Stack } from 'react-bootstrap'
 import './navbar.css'
 import { LogoPesawatNavbar } from '../../assets/index.js'
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logoutActions } from '../../config/redux/actions/authActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutActions, getProfileActions } from '../../config/redux/actions/authActions';
 
 
 function navigasiLogin() {
+  const {user} = useSelector(state => state.auth);
+  // const photo = user.profile;
+  // const profile = user.profile
+  // console.log(profile)
   const history = useNavigate();
   const dispatch = useDispatch();
   const onSubmit = () => {
     dispatch(logoutActions(history));
   }
 
+  useEffect(()=>{
+    dispatch(getProfileActions())
+  },[dispatch])
+
   const profilePopover = (
     <Popover id="popover-basic">
-      <Popover.Header as="h3" className="text-center">Profile</Popover.Header>
+      <Popover.Header as="h3" className="text-center">{user.username}</Popover.Header>
       <Popover.Body className="w-100">
         <div className="d-grid gap-2 w-100">
           <button type="button" className="btn btn-light w-100 d-flex align-items-center border-0">
@@ -60,19 +68,18 @@ function navigasiLogin() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="/" className="pt-3 text-black fw-bold">Search Ticket</Nav.Link>
                   <Nav.Link href="/user/ticket-promo" className="pt-3 text-black fw-bold">Ticket Promo</Nav.Link>
-                  <Nav.Link href="/user/booking" className="pt-3 text-black fw-bold">Booking</Nav.Link>
-                  <Nav.Link href="/user/checkout" className="pt-3 text-black fw-bold">Checkout</Nav.Link>
-                  <Nav.Link href="/user/wishlist" className="pt-3 text-black fw-bold">Wishlist</Nav.Link>
                   <Nav.Link href="/user/notification" className="pt-3 text-black fw-bold">Notification</Nav.Link>
                 </Nav>
                 <Stack direction="horizontal" gap={4}>
                   <OverlayTrigger trigger="click" placement="bottom" overlay={profilePopover}>
                     <div className="userIcon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6C72A7" className="bi bi-person-circle" viewBox="0 0 16 16">
+                      {/* <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#6C72A7" className="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                      </svg>
+                      </svg> */}
+                      <img src={user.photo} alt="profiluser" className="rounded-circle mb-2" width="50px" />
                     </div>
                   </OverlayTrigger>
                 </Stack>

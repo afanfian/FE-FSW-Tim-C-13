@@ -7,6 +7,7 @@ import "./navbar.css";
 import { LogoPesawatNavbar } from "../../assets/index.js";
 
 function navbarBeforeLogin() {
+  // console.log(login)
   return (
     <div>
       <Container>
@@ -41,14 +42,14 @@ function navbarBeforeLogin() {
                     <Nav.Link href="/about" className="pt-3 text-black fw-bold">
                       About
                     </Nav.Link>
-                    <Nav.Link href="/login">
-                      <button className="btn-navbar fw-bold">Login</button>
-                    </Nav.Link>
-                    <Nav.Link href="/register">
-                      <button className="btn-navbar fw-bold">
-                        Registration
-                      </button>
-                    </Nav.Link>
+                      <Nav.Link href="/login">
+                        <button className="btn-navbar fw-bold">Login</button>
+                      </Nav.Link>
+                      <Nav.Link href="/register">
+                        <button className="btn-navbar fw-bold">
+                          Registration
+                        </button>
+                      </Nav.Link>
                   </Nav>
                 </Offcanvas.Body>
               </Navbar.Offcanvas>

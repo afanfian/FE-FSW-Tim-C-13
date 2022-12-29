@@ -1,10 +1,17 @@
 import React from "react"
 import {Container, Row, Card} from 'react-bootstrap'
+import { useLocation } from "react-router-dom";
 import { Footer } from "../../components"
 import Navbar from '../navbar/navbarafterlogin'
 import './checkout.css'
 
 function checkout (){
+    const {state} = useLocation();
+    const ticket = state.ticket;
+    const airport = state.airport;
+    const passenger = state.passenger;
+
+    console.log(state)
     return(
         <>
             <div id="checkout">
@@ -15,13 +22,13 @@ function checkout (){
                             <Card.Body>
                                 <p className="fw-bold text-center">[Checkout]</p>
                                 <p className="fw-bold">Name:</p>
-                                <p className="">Fian Awamiry Maulana</p>
-                                <p className="fw-bold">Departure:</p>
-                                <p className="">Bandar Udara Internasional Soekarno-Hatta (CGK)</p>
-                                <p className="fw-bold">Arrival:</p>
-                                <p className="">Bandar Udara Internasional Ngurah Rai (DPS)</p>
+                                <p className="">{passenger.passenger_name}</p>
+                                <p className="fw-bold">Airport Name:</p>
+                                <p className="">{airport.airport_name}</p>
+                                <p className="fw-bold">Departure Date:</p>
+                                <p className="">{ticket.departure_date}</p>
                                 <p className="fw-bold">Price:</p>
-                                <p className="">896.000</p>
+                                <p className="">{ticket.price}</p>
                             </Card.Body>
                         </Card>
                     </Row>

@@ -21,4 +21,10 @@ export const TicketService = {
         const response = await API.post('/tickets/', data);
         return response;
     },
+    searchTicket : async (data) => {
+        const response = await API.get('/tickets/search', {
+            params: {...data}
+        });
+        return response;
+    },
 }

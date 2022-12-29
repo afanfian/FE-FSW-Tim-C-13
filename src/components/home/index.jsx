@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import "./home.css";
 import Navbar from "../navbar";
@@ -14,16 +13,17 @@ import {
 } from "../../assets/index.js";
 import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
-import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
+import { useNavigate } from "react-router-dom";
+import NavigasiLogin from '../navbar/navbarafterlogin';
 
 
 function home() {
   const [airport, setAirport] = useState([]); //Get
-  const [update, setUpdate] = useState(false) //Update
-  const [setTicket] = useState([]); //Get
+  // const [update, setUpdate] = useState(false) //Update
+  const [ticket, setTicket] = useState([]); //Get
   const [formCreate, setFormCreate] = useState([]); //Create
-  const dispatch = useDispatch();
-
+  const Navigate = useNavigate();
+  const login = window.localStorage.getItem("isLogged")
   useEffect(() => {
     AirportService.getAirport().then((res) => {
       setAirport(res.data.airports);
@@ -32,13 +32,19 @@ function home() {
       setTicket(res.data.tickets);
     });
   }, []);
-
+  console.log(ticket)
   // Booking Ticket
   const createHandler = async () => {
-    await dispatch(CreateBookingActions(formCreate));
-    setUpdate(!update)
-    // setCreate(true)
-}
+    TicketService.searchTicket(formCreate).then(
+      (res) => {
+        // setTicketId(res.data);
+        Navigate("/user/search-ticket", {state:{
+          ticket: res.data.tickets[0]
+        }})
+      });
+  }
+
+  console.log(typeof login)
 
   const [index, setIndex] = useState(0);
 
@@ -53,7 +59,8 @@ function home() {
         <div id="home">
           {/* <div className="content"> */}
           <Container>
-            <Navbar />
+            {login === "true" ? <NavigasiLogin /> : 
+            <Navbar />}
             {/* Jumbotron */}
             <Row>
               <Col className="col-md-6">
@@ -75,7 +82,7 @@ function home() {
           </Container>
           {/* </div> */}
         </div>
-        <Container>
+        <Container id="search-ticket">
           
           {/* Form Ticket */}
           <Form>
@@ -124,16 +131,26 @@ function home() {
                             </option>
                     </Form.Select>
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Price</Form.Label>
+                {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Passanger Name</Form.Label>
                     <Form.Control
-                        value={formCreate.price} 
-                        onChange={(e)=> setFormCreate({...formCreate,price: e.target.value})} 
+                        value={formCreate.passanger_name} 
+                        onChange={(e)=> setFormCreate({...formCreate,passanger_name: e.target.value})} 
                         className="form-control" 
-                        name='price' 
+                        name='passanger_name' 
                         type="text"
                     />
                 </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>NIK</Form.Label>
+                    <Form.Control
+                        value={formCreate.nik} 
+                        onChange={(e)=> setFormCreate({...formCreate,nik: e.target.value})} 
+                        className="form-control" 
+                        name='nik' 
+                        type="text"
+                    />
+                </Form.Group> */}
                 <Button variant="primary" onClick={createHandler}>
                     Save Changes
                 </Button>
