@@ -83,9 +83,9 @@ function profileComponent() {
                   {/* <!-- Profile picture image--> */}
                   <img
                     className="img-account-profile rounded-circle mb-2"
-                    src={(user.profile)?(user.profile.photo):(null)}
+                    src={(user)?(user.photo):(null)}
                     alt="photouser"
-                    width="200px"
+                    width="150px"
                   />
                 </div>
               </div>
@@ -164,29 +164,29 @@ function profileComponent() {
                   <Card.Body>
                      <div className="mb-3">
                       <p className="fw-bold">Username</p>
-                      <p>{(user.profile)?(user.profile.username):(null)}</p>
+                      <p>{(user)?(user.username):(null)}</p>
                     </div>
                     <div className="row gx-3 mb-3">
                       <div className="col-md-6">
                         <p className="fw-bold">Firstname</p>
-                        <p>{(user.profile)?(user.profile.firstName):(null)}</p>
+                        <p>{(user)?(user.firstName):(null)}</p>
                       </div>
                       <div className="col-md-6">
                         <p className="fw-bold">Lastname</p>
-                        <p>{(user.profile)?(user.profile.lastName):(null)}</p>
+                        <p>{(user)?(user.lastName):(null)}</p>
                       </div>
                     </div>
                     <div className="mb-3">
                       <p className="fw-bold">Address</p>
-                      <p>{(user.profile)?(user.profile.address):(null)}</p>
+                      <p>{(user)?(user.address):(null)}</p>
                     </div>
                     <div className="mb-3">
                       <p className="fw-bold">Email</p>
-                      <p>{(user.profile)?(user.profile.email):(null)}</p>
+                      <p>{(user)?(user.email):(null)}</p>
                     </div>
                     <div className="mb-3">
                       <p className="fw-bold">Phone</p>
-                      <p>{(user.profile)?(user.profile.phone_number):(null)}</p>
+                      <p>{(user)?(user.phone_number):(null)}</p>
                     </div>
                   </Card.Body>
                 )}

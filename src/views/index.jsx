@@ -15,5 +15,8 @@ import UserList from './UserList'
 import Profile  from './Profile'
 import Checkout from './Checkout'
 import TicketPromo from './TicketPromo'
+import ProtectedAdmin from './ProtectedAdmin'
+import ProtectedUser from './ProtectedUser'
+import SearchTicket from './SearchTicket'
 
-export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo }
+export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo, ProtectedAdmin, ProtectedUser, SearchTicket }

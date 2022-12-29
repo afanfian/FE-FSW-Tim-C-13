@@ -20,6 +20,9 @@ import UserList from './userList'
 import Profile from './profile'
 import Checkout from './checkout'
 import TicketPromo from './ticketPromo'
+import ProtectedAdmin from './protectedAdminPage'
+import ProtectedUser from './protectedUserPage'
+import SearchTicket from './searchTicket'
 
 export {
   AboutComponent,
@@ -43,5 +46,8 @@ export {
   Checkout,
   Wishlist,
   UserList,
-  TicketPromo
+  TicketPromo,
+  ProtectedAdmin,
+  ProtectedUser,
+  SearchTicket
 }

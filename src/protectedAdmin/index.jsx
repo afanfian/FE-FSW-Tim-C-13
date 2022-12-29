@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const ProtectedRouteAdmin = ({ component: Component, ...props }) => {
     const Admin = useSelector((state) => state.auth.roleId);
     console.log(Admin)
-    return <>{Admin ? <Outlet /> : <Navigate to="/" />}</>;
+    return <>{Admin ? <Outlet /> : <Navigate to="/no/access/admin" />}</>;
 };
 
 export default ProtectedRouteAdmin;
