@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 import Navbar from '../navbar/navbarafterlogin'
 import './ticketPromo.css'
 import { TicketService } from "../../services/ticketService";
+import { useNavigate } from "react-router-dom";
 
 
 function wishlist(){
 
     const [ticket, setTicket] = useState([]) //Get
-
+    const history = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -19,6 +20,15 @@ function wishlist(){
     });
     },[dispatch])
 
+    // console.log(ticket)
+
+    const addWishlist = (id, departure_date, arrival_date) =>{
+        history("/user/wishlist", {
+            state: {
+                ticket: id, departure_date, arrival_date
+            }
+        })
+    }
     // let i = 1;
     return(
         <>
@@ -57,6 +67,9 @@ function wishlist(){
                                     <h4 className="text-green text-center">Price</h4>
                                     <h5 className="text-black text-center">{ticket.price}</h5>
                                 </div>
+                                <button type="submit" className="btn-navbar" onClick={()=>addWishlist(ticket.airport.id, ticket.departure_date, ticket.arrival_date)}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                                </button>
                             </div>
                         </div>
                         </>

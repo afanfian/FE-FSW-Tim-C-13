@@ -5,3 +5,14 @@
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
 }
+.btn-navbar{
+    background-color: #4C98CC;
+    color: white;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-navbar:hover {
+    transform: scale(1.1);
+}

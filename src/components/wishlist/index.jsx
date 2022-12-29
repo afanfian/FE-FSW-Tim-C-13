@@ -1,10 +1,26 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Container, Row, Col} from 'react-bootstrap'
+import { useLocation } from "react-router-dom";
+import { TicketService } from "../../services/ticketService";
 import { Footer } from "../../components"
 import Navbar from '../navbar/navbarafterlogin'
 import './wishlist.css'
 
 function wishlist(){
+    const {state} = useLocation();
+    console.log(state);
+    const [ticket, setTicket] = useState([]) //Get
+    const [airport, setAirport] = useState([])
+    
+    useEffect(()=>{
+    TicketService.getTicketId(state.ticket).then((res)=>{
+        setTicket(res.data.ticket);
+        setAirport(res.data.ticket.airport);
+    });
+    },[])
+
+    console.log(state)
+
     return(
         <>
         <div id="wishlist">
@@ -16,29 +32,30 @@ function wishlist(){
                         <div className="about border border-2 shadow p-3 mb-5 bg-body rounded">
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Airplane</h4>
-                                <h5 className="text-black text-center">C-13 Aeroplane</h5>
+                                <h4 className="text-green text-center">Airport Name</h4>
+                                <h5 className="text-black text-center">{airport.airport_name}</h5>
                             </div>
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Departure</h4>
-                                <h5 className="text-black text-center">Soekarno-Hatta (CGK)</h5>
+                                <h4 className="text-green text-center">Airport Location</h4>
+                                <h5 className="text-black text-center">{airport.airport_location}</h5>
                             </div>
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Arrival</h4>
-                                <h5 className="text-black text-center">Ngurah Rai (DPS)</h5>
+                                <h4 className="text-green text-center">Departure Date</h4>
+                                <h5 className="text-black text-center">{state.departure_date.split("T")[0]}</h5>
                             </div>
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Duration</h4>
-                                <h5 className="text-black text-center">2.5 Hours</h5>
+                                <h4 className="text-green text-center">Arrival Date</h4>
+                                <h5 className="text-black text-center">{state.arrival_date.split("T")[0]}</h5>
                             </div>
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Date</h4>
-                                <h5 className="text-black text-center">26 December 2022</h5>
+                                <h4 className="text-green text-center">Class</h4>
+                                <h5 className="text-black text-center">{ticket.class}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Price</h4>
-                                <h5 className="text-black text-center">650.000</h5>
+                                <h5 className="text-black text-center">{ticket.price}</h5>
                             </div>
+                            <button className="btn-green"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path d="M15 1H5a2 2 0 0 0-2 2v16l7-5 7 5V3a2 2 0 0 0-2-2z"/></svg></button>
                         </div>
                         </div>
                     </Col>
