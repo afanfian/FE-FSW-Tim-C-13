@@ -18,7 +18,7 @@ function wishlist(){
         });
         },[dispatch])
 
-    console.log()
+    console.log(ticket.airport)
 
     return(
         <>
@@ -31,28 +31,28 @@ function wishlist(){
                         <div className="about border border-2 shadow p-3 mb-5 bg-body rounded">
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Airplane</h4>
+                                <h4 className="text-green text-center">Airport Name</h4>
+                                <h5 className="text-black text-center">{ticket.airport_name}</h5>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">Airport Location</h4>
+                                <h5 className="text-black text-center">{ticket.airport_location}</h5>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">Departure Date</h4>
+                                <h5 className="text-black text-center">{ticket.departure_date}</h5>
+                            </div>
+                            <div className="d-flex flex-column">
+                                <h4 className="text-green text-center">Arrival Date</h4>
                                 <h5 className="text-black text-center">{ticket.arrival_date}</h5>
                             </div>
                             <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Departure</h4>
-                                <h5 className="text-black text-center">Soekarno-Hatta (CGK)</h5>
-                            </div>
-                            <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Arrival</h4>
-                                <h5 className="text-black text-center">Ngurah Rai (DPS)</h5>
-                            </div>
-                            <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Duration</h4>
-                                <h5 className="text-black text-center">2.5 Hours</h5>
-                            </div>
-                            <div className="d-flex flex-column">
-                                <h4 className="text-green text-center">Date</h4>
-                                <h5 className="text-black text-center">26 December 2022</h5>
+                                <h4 className="text-green text-center">Class</h4>
+                                <h5 className="text-black text-center">{ticket.class}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Price</h4>
-                                <h5 className="text-black text-center">650.000</h5>
+                                <h5 className="text-black text-center">{ticket.price}</h5>
                             </div>
                         </div>
                         </div>
