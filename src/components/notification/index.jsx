@@ -14,6 +14,12 @@ function notification() {
   const onSubmit = () => {
     dispatch(verifyAccountActions(data, history));
   }
+  // const admin = window.localStorage.getItem("roleId")
+  // useEffect(() => {
+  //   if(admin === 1){
+  //     history("/admin/airport-list")
+  //   }
+  // }, []);
 
   return (
     <>
