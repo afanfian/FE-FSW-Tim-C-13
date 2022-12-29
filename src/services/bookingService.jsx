@@ -1,13 +1,20 @@
 import API from "./api"
 
 export const BookingService = {
-    getBookingSchedules : async (data) => {
-        const response = await API.post('/flights/search/', data);
+    createBooking : async (data) => {
+        const response = await API.post('/bookings', data);
         return response;
     },
-
-    createBooking : async (data) => {
-        const response = await API.post('/bookings/add/', data);
+    getBooking : async (data) => {
+        const response = await API.get('/bookings', data);
+        return response;
+    },
+    getBookingUser : async (user, data) => {
+        const response = await API.get('/bookings/'+user, data);
+        return response;
+    },
+    getBookingId : async (id, data) => {
+        const response = await API.get('/bookings/'+id, data);
         return response;
     },
 }
