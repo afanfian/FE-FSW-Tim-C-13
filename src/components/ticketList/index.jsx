@@ -66,7 +66,7 @@ function TicketList(){
         <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
             <li className="breadcrumb-item"><p>C-13 Aeroplane</p></li>
-                <li className="breadcrumb-item active" aria-current="page">Airport List</li>
+                <li className="breadcrumb-item active" aria-current="page">Ticket List</li>
             </ol>
         </nav>
 
