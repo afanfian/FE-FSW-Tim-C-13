@@ -16,14 +16,15 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
+import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
 
 function home() {
   const [airport, setAirport] = useState([]); //Get
   const [ticket, setTicket] = useState([]); //Get
-  const [formCreate, setFormCreate] = useState([]) //Create
+  const [formCreate, setFormCreate] = useState([]); //Create
   const dispatch = useDispatch();
   console.log(formCreate);
-  
+
   useEffect(() => {
     AirportService.getAirport().then((res) => {
       setAirport(res.data.airports);
@@ -32,6 +33,18 @@ function home() {
       setTicket(res.data.tickets);
     });
   }, []);
+
+  const createBookingHandler = async () => {
+    await dispatch(CreateBookingActions(formCreate));
+    setCreate(true);
+  };
+
+  // Testing Model
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+
+  const [create, setCreate] = useState(false);
+  const handleCloseCreate = () => setCreate(false);
 
   const [index, setIndex] = useState(0);
 
@@ -120,7 +133,12 @@ function home() {
                               type="text"
                               name="departure"
                               value={values.departure}
-                              onChange={handleChange}
+                              onChange={(e) =>
+                                setFormCreate({
+                                  ...formCreate,
+                                  id_airport: e.target.value,
+                                })
+                              }
                               isInvalid={!!errors.departure}
                             >
                               <option>Select Airport</option>
@@ -134,6 +152,7 @@ function home() {
                               {errors.departure}
                             </Form.Control.Feedback>
                           </Form.Group>
+
                           <Form.Group
                             as={Col}
                             md="6"
@@ -146,7 +165,12 @@ function home() {
                               type="text"
                               name="departure"
                               value={values.arrival}
-                              onChange={handleChange}
+                              onChange={(e) =>
+                                setFormCreate({
+                                  ...formCreate,
+                                  id_airport: e.target.value,
+                                })
+                              }
                               isInvalid={!!errors.departure}
                             >
                               <option>Select Airport</option>
@@ -171,8 +195,8 @@ function home() {
                               type="date"
                               placeholder="Departure Date"
                               name="departure_date"
-                              value={values.departure_date}
-                              onChange={handleChange}
+                              value={formCreate.departure_date}
+                              onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
                               isInvalid={!!errors.departure_date}
                             />
                             <Form.Control.Feedback type="invalid">
@@ -190,8 +214,8 @@ function home() {
                               type="date"
                               placeholder="Arrival Date"
                               name="arrival_date"
-                              value={values.arrival_date}
-                              onChange={handleChange}
+                              value={formCreate.arrival_date}
+                              onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
                               isInvalid={!!errors.arrival_date}
                             />
                             <Form.Control.Feedback type="invalid">
@@ -199,23 +223,24 @@ function home() {
                             </Form.Control.Feedback>
                           </Form.Group>
                           <Form.Group
-                          as={Col}
-                          md="6"
-                          className="mb-3"
-                          controlId="passenger"
-                        >
-                          <Form.Label>Passenger</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="Passenger"
-                            name="passenger"
-                            value={values.passenger}
-                            onChange={handleChange}
-                            isInvalid={!!errors.passenger} />
-                          <Form.Control.Feedback type="invalid">
-                            {errors.passenger}
-                          </Form.Control.Feedback>
-                        </Form.Group>
+                            as={Col}
+                            md="6"
+                            className="mb-3"
+                            controlId="passenger"
+                          >
+                            <Form.Label>Passenger</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="Passenger"
+                              name="passenger"
+                              value={formCreate.passenger}
+                              onChange={(e)=> setFormCreate({...formCreate,passanger_name: e.target.value})} 
+                              isInvalid={!!errors.passenger}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              {errors.passenger}
+                            </Form.Control.Feedback>
+                          </Form.Group>
                           <Form.Group
                             as={Col}
                             md="6"
@@ -228,18 +253,13 @@ function home() {
                               type="text"
                               placeholder="Class"
                               name="sofa"
-                              value={values.sofa}
+                              value={formCreate.sofa}
                               onChange={handleChange}
                               isInvalid={!!errors.sofa}
                             >
                               <option selected>Choose Class Type</option>
-                              <option value="Economy Class">
-                                Economy
-                              </option>
-                              <option value="Business Class">
-                                Business
-                              </option>
-                              <option value="First Class">First</option>
+                              <option value="Economy Class">Economy</option>
+                              <option value="Business Class">Business</option>
                             </Form.Select>
 
                             <Form.Control.Feedback type="invalid">
@@ -249,36 +269,47 @@ function home() {
 
                           {/* NIK */}
                           <Form.Group
-                          as={Col}
-                          md="6"
-                          className="mb-3"
-                          controlId="passenger"
-                        >
-                          <Form.Label>ID Number</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="ID Number"
-                            name="nik"
-                            value={values.nik}
-                            onChange={handleChange}
-                            isInvalid={!!errors.passenger} />
-                          <Form.Control.Feedback type="invalid">
-                            {errors.passenger}
-                          </Form.Control.Feedback>
-                        </Form.Group>
+                            as={Col}
+                            md="6"
+                            className="mb-3"
+                            controlId="passenger"
+                          >
+                            <Form.Label>ID Number</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="ID Number"
+                              name="nik"
+                              value={formCreate.nik}
+                              onChange={handleChange}
+                              isInvalid={!!errors.passenger}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              {errors.passenger}
+                            </Form.Control.Feedback>
+                          </Form.Group>
+
+                          {/* Email */}
+                          <Form.Group
+                            as={Col}
+                            md="6"
+                            className="mb-3"
+                            controlId="passenger"
+                          >
+                            <Form.Label>Email Address</Form.Label>
+                            <Form.Control
+                              type="text"
+                              placeholder="Email Address"
+                              name="nik"
+                              value={formCreate.email_address}
+                              onChange={handleChange}
+                              isInvalid={!!errors.passenger}
+                            />
+                            <Form.Control.Feedback type="invalid">
+                              {errors.passenger}
+                            </Form.Control.Feedback>
+                          </Form.Group>
                         </Row>
-                        <Form.Group className="mb-3">
-                          <Form.Check
-                            required
-                            name="terms"
-                            label="Agree to terms and conditions"
-                            onChange={handleChange}
-                            isInvalid={!!errors.terms}
-                            feedback={errors.terms}
-                            feedbackType="invalid"
-                            id="validationFormik0"
-                          />
-                        </Form.Group>
+
                         <button type="submit" className="btn-green">
                           Booking Ticket
                         </button>
