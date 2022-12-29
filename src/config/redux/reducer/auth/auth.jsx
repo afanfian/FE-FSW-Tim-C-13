@@ -4,7 +4,7 @@ const initialState = {
   user: [],
   token: localStorage.getItem('token'),
   isLoggedIn: !!localStorage.getItem('username'),
-  // roleId: JSON.parse(localStorage.getItem('role')) || {}
+  roleId: localStorage.getItem('role') === 1 ? true : false 
 }
 
 const auth = (state = initialState, action) => {
@@ -15,7 +15,7 @@ const auth = (state = initialState, action) => {
         user: action.payload.username,
         token: action.payload.token,
         isLoggedIn: true,
-        roleId: action.payload.role
+        // roleId: action.payload.role
       })
     case 'REGISTER':
       return ({
