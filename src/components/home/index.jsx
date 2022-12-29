@@ -32,7 +32,7 @@ function home() {
       setTicket(res.data.tickets);
     });
   }, []);
-
+  console.log(ticket)
   // Booking Ticket
   const createHandler = async () => {
     TicketService.searchTicket(formCreate).then(
