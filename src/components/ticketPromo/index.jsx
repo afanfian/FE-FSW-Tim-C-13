@@ -22,10 +22,10 @@ function wishlist(){
 
     // console.log(ticket)
 
-    const addWishlist = (id) =>{
+    const addWishlist = (id, departure_date, arrival_date) =>{
         history("/user/wishlist", {
             state: {
-                ticket: id,
+                ticket: id, departure_date, arrival_date
             }
         })
     }
@@ -67,7 +67,7 @@ function wishlist(){
                                     <h4 className="text-green text-center">Price</h4>
                                     <h5 className="text-black text-center">{ticket.price}</h5>
                                 </div>
-                                <button type="submit" onClick={()=>addWishlist(ticket.airport.id)}>Testing</button>
+                                <button type="submit" onClick={()=>addWishlist(ticket.airport.id, ticket.departure_date, ticket.arrival_date)}>Testing</button>
                             </div>
                         </div>
                         </>

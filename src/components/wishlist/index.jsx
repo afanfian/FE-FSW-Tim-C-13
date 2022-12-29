@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Container, Row, Col} from 'react-bootstrap'
 import { useLocation } from "react-router-dom";
-import { useDispatch } from 'react-redux';
 import { TicketService } from "../../services/ticketService";
 import { Footer } from "../../components"
 import Navbar from '../navbar/navbarafterlogin'
@@ -11,14 +10,16 @@ function wishlist(){
     const {state} = useLocation();
     console.log(state);
     const [ticket, setTicket] = useState([]) //Get
-    const dispatch = useDispatch();
+    const [airport, setAirport] = useState([])
+    
     useEffect(()=>{
-        TicketService.getTicketId(state.ticket).then((res)=>{
-            setTicket(res.data.ticket);
-        });
-        },[dispatch])
+    TicketService.getTicketId(state.ticket).then((res)=>{
+        setTicket(res.data.ticket);
+        setAirport(res.data.ticket.airport);
+    });
+    },[])
 
-    console.log(ticket.airport)
+    console.log(state)
 
     return(
         <>
@@ -32,19 +33,19 @@ function wishlist(){
                         <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Airport Name</h4>
-                                <h5 className="text-black text-center">{ticket.airport_name}</h5>
+                                <h5 className="text-black text-center">{airport.airport_name}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Airport Location</h4>
-                                <h5 className="text-black text-center">{ticket.airport_location}</h5>
+                                <h5 className="text-black text-center">{airport.airport_location}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Departure Date</h4>
-                                <h5 className="text-black text-center">{ticket.departure_date}</h5>
+                                <h5 className="text-black text-center">{state.departure_date.split("T")[0]}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Arrival Date</h4>
-                                <h5 className="text-black text-center">{ticket.arrival_date}</h5>
+                                <h5 className="text-black text-center">{state.arrival_date.split("T")[0]}</h5>
                             </div>
                             <div className="d-flex flex-column">
                                 <h4 className="text-green text-center">Class</h4>

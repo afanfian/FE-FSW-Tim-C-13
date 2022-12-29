@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Container, Row, Col, Form, Carousel } from "react-bootstrap";
+import { Container, Row, Col, Form, Carousel, Button } from "react-bootstrap";
 import "./home.css";
 import Navbar from "../navbar";
 import Footer from "../footer";
@@ -12,8 +12,6 @@ import {
   Content3,
   LogoPesawat,
 } from "../../assets/index.js";
-import { Formik } from "formik";
-import * as Yup from "yup";
 import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
 import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
@@ -21,10 +19,10 @@ import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
 
 function home() {
   const [airport, setAirport] = useState([]); //Get
+  const [update, setUpdate] = useState(false) //Update
   const [ticket, setTicket] = useState([]); //Get
   const [formCreate, setFormCreate] = useState([]); //Create
   const dispatch = useDispatch();
-  console.log(formCreate);
 
   useEffect(() => {
     AirportService.getAirport().then((res) => {
@@ -35,33 +33,18 @@ function home() {
     });
   }, []);
 
-  const createBookingHandler = async () => {
+  // Booking Ticket
+  const createHandler = async () => {
     await dispatch(CreateBookingActions(formCreate));
-    setCreate(true);
-  };
-
-  // Testing Model
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-
-  const [create, setCreate] = useState(false);
-  const handleCloseCreate = () => setCreate(false);
+    setUpdate(!update)
+    // setCreate(true)
+}
 
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
-  const schema = Yup.object().shape({
-    departure: Yup.string().required("Departure is required"),
-    departure_date: Yup.string().required("Departure Date is required"),
-    passenger: Yup.string().required("Pasengger is required"),
-    arrival: Yup.string().required("Arrival is required"),
-    arrival_date: Yup.string().required("Arrival Date is required"),
-    sofa: Yup.string().required("Class is required"),
-    terms: Yup.bool().required().oneOf([true], "Terms must be accepted"),
-  });
 
   return (
     <>
@@ -93,234 +76,69 @@ function home() {
           {/* </div> */}
         </div>
         <Container>
+          
           {/* Form Ticket */}
-          <Row className="pt-5">
-            <Col className="col-md-12 w-100 search-flight shadow p-3 mb-5 bg-body rounded">
-              <Row>
-                <Col>
-                  <Formik
-                    validationSchema={schema}
-                    onSubmit={console.log}
-                    initialValues={{
-                      departure: "",
-                      departure_date: "",
-                      arrival: "",
-                      arrival_date: "",
-                      passenger: "",
-                      sofa: "",
-                      terms: false,
-                    }}
-                  >
-                    {({
-                      handleSubmit,
-                      handleChange,
-                      handleBlur,
-                      values,
-                      touched,
-                      isValid,
-                      errors,
-                    }) => (
-                      <Form noValidate onSubmit={handleSubmit}>
-                        <Row className="mb-3">
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="departure"
-                          >
-                            {/* Airport Departure */}
-                            <Form.Label>Departure</Form.Label>
-                            <Form.Select
-                              type="text"
-                              name="departure"
-                              value={values.departure}
-                              onChange={(e) =>
-                                setFormCreate({
-                                  ...formCreate,
-                                  id_airport: e.target.value,
-                                })
-                              }
-                              isInvalid={!!errors.departure}
-                            >
-                              <option>Select Airport</option>
-                              {airport.map((airport) => (
-                                <option value={airport.id} key={airport.id}>
-                                  {airport.airport_name}
-                                </option>
-                              ))}
-                            </Form.Select>
-                            <Form.Control.Feedback type="invalid">
-                              {errors.departure}
-                            </Form.Control.Feedback>
-                          </Form.Group>
+          <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Select aria-label="Default select example"
+                        onChange={(e)=> setFormCreate({...formCreate,id_airport: e.target.value})}
+                    >
+                        <option>Select Airport</option>
+                        {airport.map((airport) => (
+                            <option value={airport.id} key={airport.id}>
+                            {airport.airport_name}
+                            </option>
+                        ))} 
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Departure Date</Form.Label>
+                    <Form.Control
+                        value={formCreate.departure_date} 
+                        onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
+                        name='departure_date' 
+                        type="date"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Arrival Date</Form.Label>
+                    <Form.Control
+                        value={formCreate.arrival_date} 
+                        onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
+                        className="form-control" 
+                        name='arrival_date' 
+                        type="date"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Class</Form.Label>
+                    <Form.Select aria-label="Default select example"
+                        onChange={(e)=> setFormCreate({...formCreate,class: e.target.value})}
+                    >
+                        <option>Select Class</option>
+                            <option value='Economy'>
+                                Economy
+                            </option>
+                            <option value='Business'>
+                                Business
+                            </option>
+                    </Form.Select>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control
+                        value={formCreate.price} 
+                        onChange={(e)=> setFormCreate({...formCreate,price: e.target.value})} 
+                        className="form-control" 
+                        name='price' 
+                        type="text"
+                    />
+                </Form.Group>
+                <Button variant="primary" onClick={createHandler}>
+                    Save Changes
+                </Button>
+          </Form>
 
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="arrival"
-                          >
-                            {/* Airport Arrival */}
-                            <Form.Label>Arrival</Form.Label>
-                            <Form.Select
-                              type="text"
-                              name="departure"
-                              value={values.arrival}
-                              onChange={(e) =>
-                                setFormCreate({
-                                  ...formCreate,
-                                  id_airport: e.target.value,
-                                })
-                              }
-                              isInvalid={!!errors.departure}
-                            >
-                              <option>Select Airport</option>
-                              {airport.map((airport) => (
-                                <option value={airport.id} key={airport.id}>
-                                  {airport.airport_name}
-                                </option>
-                              ))}
-                            </Form.Select>
-                            <Form.Control.Feedback type="invalid">
-                              {errors.arrival}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="departure_date"
-                          >
-                            <Form.Label>Departure Date</Form.Label>
-                            <Form.Control
-                              type="date"
-                              placeholder="Departure Date"
-                              name="departure_date"
-                              value={formCreate.departure_date}
-                              onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
-                              isInvalid={!!errors.departure_date}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {errors.departure_date}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="arrival_date"
-                          >
-                            <Form.Label>Arrival Date</Form.Label>
-                            <Form.Control
-                              type="date"
-                              placeholder="Arrival Date"
-                              name="arrival_date"
-                              value={formCreate.arrival_date}
-                              onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
-                              isInvalid={!!errors.arrival_date}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {errors.arrival_date}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="passenger"
-                          >
-                            <Form.Label>Passenger</Form.Label>
-                            <Form.Control
-                              type="text"
-                              placeholder="Passenger"
-                              name="passenger"
-                              value={formCreate.passenger}
-                              onChange={(e)=> setFormCreate({...formCreate,passanger_name: e.target.value})} 
-                              isInvalid={!!errors.passenger}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {errors.passenger}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="sofa"
-                          >
-                            {/* Class */}
-                            <Form.Label>Class Type</Form.Label>
-                            <Form.Select
-                              type="text"
-                              placeholder="Class"
-                              name="sofa"
-                              value={formCreate.sofa}
-                              onChange={handleChange}
-                              isInvalid={!!errors.sofa}
-                            >
-                              <option selected>Choose Class Type</option>
-                              <option value="Economy Class">Economy</option>
-                              <option value="Business Class">Business</option>
-                            </Form.Select>
-
-                            <Form.Control.Feedback type="invalid">
-                              {errors.sofa}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-
-                          {/* NIK */}
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="passenger"
-                          >
-                            <Form.Label>ID Number</Form.Label>
-                            <Form.Control
-                              type="text"
-                              placeholder="ID Number"
-                              name="nik"
-                              value={formCreate.nik}
-                              onChange={handleChange}
-                              isInvalid={!!errors.passenger}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {errors.passenger}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-
-                          {/* Email */}
-                          <Form.Group
-                            as={Col}
-                            md="6"
-                            className="mb-3"
-                            controlId="passenger"
-                          >
-                            <Form.Label>Email Address</Form.Label>
-                            <Form.Control
-                              type="text"
-                              placeholder="Email Address"
-                              name="nik"
-                              value={formCreate.email_address}
-                              onChange={handleChange}
-                              isInvalid={!!errors.passenger}
-                            />
-                            <Form.Control.Feedback type="invalid">
-                              {errors.passenger}
-                            </Form.Control.Feedback>
-                          </Form.Group>
-                        </Row>
-
-                        <button type="submit" className="btn-green">
-                          Booking Ticket
-                        </button>
-                      </Form>
-                    )}
-                  </Formik>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
           {/* Caraousel */}
           <Row>
             <Carousel
