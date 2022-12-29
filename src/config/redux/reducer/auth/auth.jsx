@@ -34,15 +34,15 @@ const auth = (state = initialState, action) => {
     case 'GETPROFILE':
       return ({
         ...state,
-        user: action.payload.data,
-        token: action.payload.token,
+        user: action.payload.data.profile,
+        // token: action.payload.token,
         isLoggedIn: true
       })
     case 'EDITPROFILE':
     return ({
       ...state,
       user: action.payload.data,
-      token: action.payload.token,
+      // token: action.payload.token,
       isLoggedIn: true
     })
     default:

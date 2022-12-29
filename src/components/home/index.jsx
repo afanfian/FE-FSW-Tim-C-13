@@ -20,7 +20,7 @@ import { CreateBookingActions } from "../../config/redux/actions/bookingAction";
 function home() {
   const [airport, setAirport] = useState([]); //Get
   const [update, setUpdate] = useState(false) //Update
-  const [setTicket] = useState([]); //Get
+  const [ticket, setTicket] = useState([]); //Get
   const [formCreate, setFormCreate] = useState([]); //Create
   const dispatch = useDispatch();
 
