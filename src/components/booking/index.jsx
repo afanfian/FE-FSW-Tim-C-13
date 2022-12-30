@@ -68,14 +68,20 @@ function bookingComponent() {
                 {/* Waktu berangkat */}
                 <div id="time" className="">
                   <div id="departure-time" className="col-auto ps-2 d-flex">
-                    <p>Waktu Keberangkatan :  </p>
-                    <p>15.00</p>
+                    <p>Waktu Keberangkatan : {ticket.departure_date.split("T")[0]}</p>
                   </div>
+                </div>
+                <hr />
+                <div className="ps-2">
+                    <p>Pagi-pagi jalan-jalan</p>
+                    <p>Malamnya makan tempe</p>
+                    <p>Jangan lupa liburan</p>
+                    <p>Bersama C-13 Aeroplane</p>
                 </div>
                 <hr />
                 {/* Harga Tiket */}
                 <div id="ticket-price" className="col-auto ps-2 d-flex align-items-center">
-                    <h4>Price :  IDR  896.000</h4>
+                    <h4>Price :  {ticket.price}</h4>
                   
                 </div>
 
@@ -91,18 +97,14 @@ function bookingComponent() {
               <div id="detail-pemesan" className="mb-4">
                 <div className="d-flex p-2">
                   <img src={DetailPemesan} alt="Detail Pemasanan" />
-                  <h4> Detail Pemesan </h4>
+                  <h4 className="text-green"> Order Details </h4>
                 </div>
 
                 <div id="order" className="ms-5">
-                  <h4>Air Name:</h4>
-                  <h5>{airport.airport_name}</h5>
-                  <h4>Air Location:</h4>
-                  <h5>{airport.airport_location}</h5>
-                  <h4>Departure Date:</h4>
-                  <h5>{ticket.departure_date}</h5>
-                  <h4>Arrival Date:</h4>
-                  <h5>{ticket.arrival_date}</h5>
+                  <h5>Air Name : <span className="text-green">{airport.airport_name}</span></h5>
+                  <h5>Air Location : <span className="text-green">{airport.airport_location}</span></h5>
+                  <h5>Departure Date : <span className="text-green">{ticket.departure_date.split("T")[0]}</span></h5>
+                  <h5>Arrival Date : <span className="text-green">{ticket.arrival_date.split("T")[0]}</span></h5>
                 </div>
               </div>
 
@@ -110,15 +112,13 @@ function bookingComponent() {
               <div id="detail-penumpang" className="mb-4">
                 <div className="d-flex p-2">
                   <img src={DetailPenumpang} alt="Detail Penumpang" />
-                  <h4> Detail Penumpang </h4>
+                  <h4 className="text-green"> Passenger Details </h4>
                 </div>
 
                 <div id="passanger" className="ms-5">
                   <div name="Title" id="" className="me-4 mt-2">
-                    <h4>Pasenger Name:</h4>
-                    <h5>{passenger.passenger_name}</h5>
-                    <h4>ID Number:</h4>
-                    <h5>{passenger.nik}</h5>
+                    <h5>Pasenger Name : <span className="text-green">{passenger.passenger_name}</span></h5>
+                    <h5>ID Number : <span className="text-green">{passenger.nik}</span></h5>
                   </div>
                 </div>
               </div>
@@ -127,22 +127,22 @@ function bookingComponent() {
               <div id="detail-penumpang" className="mb-4">
                 <div className="d-flex p-2">
                   <img src={Services} alt="Services" />
-                  <h4> Layanan Ekstra </h4>
+                  <h4 className="text-green"> Extra Services </h4>
                 </div>
 
                 <div id="bagasi">
                   <div id="logo-bagasi" className="d-flex">
                     <img src={Bagasi} alt="Bagasi " />
-                    <h6>Bagasi</h6>
+                    <h6>Baggage</h6>
                   </div>
 
                   <div id="ket-bagasi">
-                    <p>Maximum bagasi sebanyak 20 kg</p>
+                    <p>Maximum baggage is 20 kg</p>
                   </div>
                 </div>
               </div>
               <div id="button" className="d-flex justify-content-end">
-                <button className="btn btn-primary" onClick={createHandler}>Lakukan pemesanan</button>
+                <button className="btn-checkout" onClick={createHandler}>Checkout</button>
               </div>
             </div>
           </Row>

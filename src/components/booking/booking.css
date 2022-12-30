@@ -64,3 +64,16 @@
 #ticket-price h4{
     font-weight:bold;
 }
+
+.btn-checkout{
+    background-color: #4C98CC;
+    color: white;
+    border-radius: 10px;
+    padding: 1.5%;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-checkout:hover {
+    transform: scale(1.1);
+}

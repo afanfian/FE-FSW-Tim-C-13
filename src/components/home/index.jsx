@@ -68,7 +68,7 @@ function home() {
                   <img src={LogoPesawat} width="300px" alt="" />
                 </div>
               </Col>
-              <Col className="col-md-6 pt-5">
+              <Col className="col-md-6 pt-5 pb-3">
                 <div className="text-center">
                   <p className="fw-bold h1">
                     Confused about where to find plane tickets?
@@ -83,79 +83,60 @@ function home() {
           {/* </div> */}
         </div>
         <Container id="search-ticket">
-          
+          <div className="form py-5 border border-2 shadow p-3 mb-5 bg-body rounded">
           {/* Form Ticket */}
-          <Form>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Select aria-label="Default select example"
-                        onChange={(e)=> setFormCreate({...formCreate,id_airport: e.target.value})}
-                    >
-                        <option>Select Airport</option>
-                        {airport.map((airport) => (
-                            <option value={airport.id} key={airport.id}>
-                            {airport.airport_name}
-                            </option>
-                        ))} 
-                    </Form.Select>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Departure Date</Form.Label>
-                    <Form.Control
-                        value={formCreate.departure_date} 
-                        onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
-                        name='departure_date' 
-                        type="date"
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Arrival Date</Form.Label>
-                    <Form.Control
-                        value={formCreate.arrival_date} 
-                        onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
-                        className="form-control" 
-                        name='arrival_date' 
-                        type="date"
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Class</Form.Label>
-                    <Form.Select aria-label="Default select example"
-                        onChange={(e)=> setFormCreate({...formCreate,class: e.target.value})}
-                    >
-                        <option>Select Class</option>
-                            <option value='Economy'>
-                                Economy
-                            </option>
-                            <option value='Business'>
-                                Business
-                            </option>
-                    </Form.Select>
-                </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>Passanger Name</Form.Label>
-                    <Form.Control
-                        value={formCreate.passanger_name} 
-                        onChange={(e)=> setFormCreate({...formCreate,passanger_name: e.target.value})} 
-                        className="form-control" 
-                        name='passanger_name' 
-                        type="text"
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                    <Form.Label>NIK</Form.Label>
-                    <Form.Control
-                        value={formCreate.nik} 
-                        onChange={(e)=> setFormCreate({...formCreate,nik: e.target.value})} 
-                        className="form-control" 
-                        name='nik' 
-                        type="text"
-                    />
-                </Form.Group> */}
-                <Button variant="primary" onClick={createHandler}>
-                    Save Changes
-                </Button>
-          </Form>
-
+            <Form>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Arrival</Form.Label>
+                      <Form.Select aria-label="Default select example"
+                          onChange={(e)=> setFormCreate({...formCreate,id_airport: e.target.value})}
+                      >
+                          <option>Select Airport</option>
+                          {airport.map((airport) => (
+                              <option value={airport.id} key={airport.id}>
+                              {airport.airport_name}
+                              </option>
+                          ))} 
+                      </Form.Select>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Departure Date</Form.Label>
+                      <Form.Control
+                          value={formCreate.departure_date} 
+                          onChange={(e)=> setFormCreate({...formCreate,departure_date: e.target.value})}
+                          name='departure_date' 
+                          type="date"
+                      />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Arrival Date</Form.Label>
+                      <Form.Control
+                          value={formCreate.arrival_date} 
+                          onChange={(e)=> setFormCreate({...formCreate,arrival_date: e.target.value})} 
+                          className="form-control" 
+                          name='arrival_date' 
+                          type="date"
+                      />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                      <Form.Label>Class</Form.Label>
+                      <Form.Select aria-label="Default select example"
+                          onChange={(e)=> setFormCreate({...formCreate,class: e.target.value})}
+                      >
+                          <option>Select Class</option>
+                              <option value='Economy'>
+                                  Economy
+                              </option>
+                              <option value='Business'>
+                                  Business
+                              </option>
+                      </Form.Select>
+                  </Form.Group>
+                  <Button variant="primary" onClick={createHandler}>
+                      Save Changes
+                  </Button>
+            </Form>
+          </div>
           {/* Caraousel */}
           <Row>
             <Carousel
