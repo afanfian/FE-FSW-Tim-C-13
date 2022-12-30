@@ -3,7 +3,7 @@ import {Container, Row, Col, Form, Button} from 'react-bootstrap'
 import { Footer } from "../../components"
 import Navbar from '../navbar/navbarafterlogin'
 import './searchTicket.css'
-import { PassangerService } from "../../services/passangerService";
+import { PassengerService } from "../../services/passangerService";
 import { useNavigate, useLocation } from "react-router-dom";
 
 
@@ -15,7 +15,7 @@ function searchTicket(){
     const Navigate = useNavigate();
 
     const createHandler = async () => {
-    PassangerService.createPassanger(formCreate).then(
+    PassengerService.createPassanger(formCreate).then(
             (res) => {
                 Navigate("/user/booking", {state:{
                     ticket: ticket,
