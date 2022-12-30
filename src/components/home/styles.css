@@ -83,4 +83,11 @@ display: block;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
-  
+
+.form{
+  background-image: linear-gradient(to right, #86CEFF , white);
+  border-radius: 10px;
+  border-color: grey;
+  padding-left: 10%;
+  padding-right: 10%;
+}
