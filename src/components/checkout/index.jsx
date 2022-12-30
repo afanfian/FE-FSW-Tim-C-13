@@ -11,7 +11,7 @@ function checkout (){
     const airport = state.airport;
     const passenger = state.passenger;
 
-    console.log(state)
+    // console.log(state)
     return(
         <>
             <div id="checkout">

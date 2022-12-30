@@ -20,7 +20,6 @@ import NavigasiLogin from '../navbar/navbarafterlogin';
 function home() {
   const [airport, setAirport] = useState([]); //Get
   // const [update, setUpdate] = useState(false) //Update
-  const [ticket, setTicket] = useState([]); //Get
   const [formCreate, setFormCreate] = useState([]); //Create
   const Navigate = useNavigate();
   const login = window.localStorage.getItem("isLogged")
@@ -28,11 +27,8 @@ function home() {
     AirportService.getAirport().then((res) => {
       setAirport(res.data.airports);
     });
-    TicketService.getTicket().then((res) => {
-      setTicket(res.data.tickets);
-    });
   }, []);
-  console.log(ticket)
+  // console.log(ticket)
   // Booking Ticket
   const createHandler = async () => {
     TicketService.searchTicket(formCreate).then(
@@ -44,7 +40,7 @@ function home() {
       });
   }
 
-  console.log(typeof login)
+  // console.log(typeof login)
 
   const [index, setIndex] = useState(0);
 

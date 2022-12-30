@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch } from 'react-redux';
-import { Row, Col, Table, Button, ButtonGroup } from 'react-bootstrap'
+import { Row, Col, Table, Button, ButtonGroup, Modal, Form,  } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
 import { PassengerService } from "../../services/passangerService";
 import { DeletePassengerActions, PutPassengerActions } from "../../config/redux/actions/passangerAction";
@@ -29,6 +29,16 @@ function CustomerList(){
         await dispatch(DeletePassengerActions(id));
         setUpdate(!update)
     }
+
+    const modalHandler = async (id) => {
+        PassengerService.getPassengerId(id).then((res)=>{
+        seteditForm(res.data.passenger)
+        setShow(true)
+    })};
+
+    // Testing Modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
 
     // console.log(passenger)
 
@@ -65,6 +75,7 @@ function CustomerList(){
                                                 <td>{passenger.passenger_name}</td>
                                                 <td>{passenger.nik}</td>
                                                 <ButtonGroup className="mb-2 text-center">
+                                                    <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(passenger.id)} >Edit</Button>
                                                     <Button variant="outline-danger" onClick={()=>deleteHandler(passenger.id)}>Delete</Button>
                                                 </ButtonGroup>
                                             </tr>
@@ -77,6 +88,44 @@ function CustomerList(){
                     </div>
                 </Col>
             </Row>
+            
+            <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+            <Modal.Title className="text-center">Update Airport</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Passenger Name</Form.Label>
+                    <Form.Control
+                        value={editForm.passenger_name} 
+                        onChange={(e)=> seteditForm({...editForm,passenger_name: e.target.value})}
+                        name='passenger_name' 
+                        type="text"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>ID Number</Form.Label>
+                    <Form.Control
+                        value={editForm.nik} 
+                        onChange={(e)=> seteditForm({...editForm,nik: e.target.value})} 
+                        className="form-control" 
+                        name='nik' 
+                        type="text"
+                    />
+                </Form.Group>
+            </Form>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={updatehandler}>
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
         </DasboardLayoutAdmin>
     )
 }

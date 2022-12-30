@@ -8,7 +8,7 @@ import './wishlist.css'
 
 function wishlist(){
     const {state} = useLocation();
-    console.log(state);
+    // console.log(state);
     const [ticket, setTicket] = useState([]) //Get
     const [airport, setAirport] = useState([])
     
@@ -19,7 +19,7 @@ function wishlist(){
     });
     },[])
 
-    console.log(state)
+    // console.log(state)
 
     return(
         <>
