@@ -20,14 +20,14 @@ function notification() {
   //     history("/admin/airport-list")
   //   }
   // }, []);
-
+  
   return (
     <>
       <div id="notification">
         <Navbar />
         <Container>
           <Row className="justify-content-center m-auto">
-            <h3 className="my-3"><b>NOTIFICATION</b></h3>
+            <h3 className="my-3 text-center pb-5"><b>Check your Notifications!</b></h3>
             <Card className="col-md-6 mb-3 text-center">
               <Card.Body>
                 <p className="fw-bold h3">[Data Verification]</p>
@@ -36,34 +36,6 @@ function notification() {
                 {/* <p>{window.localStorage.getItem('token')}</p> */}
                 <p className="h4">Verify Your Account Below!</p>
                 <button className="btn-green" onClick={onSubmit}>Klik</button>
-              </Card.Body>
-            </Card>
-
-            <Card className="mb-3">
-              <Card.Body>
-                <b>[Flight Cancel]</b>
-              </Card.Body>
-              <Card.Body>
-                Penerbangan anda tanggal <b>30 Desember 2022</b> menuju Jakarta
-                <b> dibatalkan</b>.
-              </Card.Body>
-            </Card>
-
-            <Card className="mb-3">
-              <Card.Body>
-                <b>[Flight Delay]</b>
-              </Card.Body>
-              <Card.Body>
-                Penerbangan anda menuju Jakarta <b>ditunda 15 menit</b>.
-              </Card.Body>
-            </Card>
-
-            <Card className="mb-3">
-              <Card.Body>
-                <b>[Flight Complete]</b>
-              </Card.Body>
-              <Card.Body>
-                Penerbangan anda menuju Jakarta <b>telah selesai</b>.
               </Card.Body>
             </Card>
           </Row>

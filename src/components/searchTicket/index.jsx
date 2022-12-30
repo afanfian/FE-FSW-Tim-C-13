@@ -15,7 +15,7 @@ function searchTicket(){
     const Navigate = useNavigate();
 
     const createHandler = async () => {
-    PassengerService.createPassanger(formCreate).then(
+    PassengerService.createPassenger(formCreate).then(
             (res) => {
                 Navigate("/user/booking", {state:{
                     ticket: ticket,

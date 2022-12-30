@@ -18,7 +18,7 @@ export const verifyAccountActions = (data, history) => async (dispatch) => {
   try {
     await AuthService.verifyAccount(data)
     SweatAlert('Verified Account', 'success')
-    history('/user/booking')
+    history('/user/profile')
   } catch (error) {
     SweatAlert(String(error.response.message), 'warning')
   }
