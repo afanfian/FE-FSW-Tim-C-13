@@ -1,9 +1,48 @@
-import React from "react";
-import { Row, Col, Table } from 'react-bootstrap'
+import React, {useState, useEffect} from "react";
+import { useDispatch } from 'react-redux';
+import { Row, Col, Table, Button, ButtonGroup, Modal, Form,  } from 'react-bootstrap'
 import DasboardLayoutAdmin from '../layoutAdmin'
+import { PassengerService } from "../../services/passangerService";
+import { DeletePassengerActions, PutPassengerActions } from "../../config/redux/actions/passangerAction";
 import './customerList.css'
 
 function CustomerList(){
+
+    const [passenger, setPassenger] = useState([]) //Get
+    const [update, setUpdate] = useState(false) //Update
+    const [editForm, seteditForm] = useState([]) //Form Edit
+
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+    PassengerService.getPassenger().then((res)=>{
+        setPassenger(res.data.passengers);
+    });
+    },[update])
+    
+    const updatehandler = async () => {
+        await dispatch(PutPassengerActions(editForm.id,editForm));
+        setUpdate(!update)
+    }
+
+    const deleteHandler = async (id) => {
+        await dispatch(DeletePassengerActions(id));
+        setUpdate(!update)
+    }
+
+    const modalHandler = async (id) => {
+        PassengerService.getPassengerId(id).then((res)=>{
+        seteditForm(res.data.passenger)
+        setShow(true)
+    })};
+
+    // Testing Modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+
+    // console.log(passenger)
+
+    let i = 1;
     return(
         <DasboardLayoutAdmin>
             <nav aria-label="breadcrumb">
@@ -16,95 +55,77 @@ function CustomerList(){
             <Row>
                 <Col>
                     <div id="customer">
-                    <p className="text-center h3 fw-bold pb-5">Customer Data  <span className="text-green">C-13 AEROPLANE</span></p>
+                    <p className="text-center h3 fw-bold pb-5"><span className="text-green">C-13 AEROPLANE</span> Customer List</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Address</th>
-                                    <th>Email</th>
+                                    <th>ID Number</th>
+                                    <th>Button</th>
                                 </tr>
                             </thead>
-                            <tbody className="text-center">
-                                <tr>
-                                    <td>1</td>
-                                    <td>Fian Awamiry Maulana</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Perumahan Binar Asri</td>
-                                    <td>Afanfian89@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Zaki Maulana</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Perumahan Kavling Tanah Putih</td>
-                                    <td>Zaki19@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Agnes Nababan</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Patimura No.10</td>
-                                    <td>Agnes1232@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Selly</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Kalimantan No.90</td>
-                                    <td>Selly9897@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Albi</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Wonorejo No.18</td>
-                                    <td>Albi97@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Sulthan</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Surya Asri No.87</td>
-                                    <td>Sulthantaks12@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>Dimas</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Surya Asri No.12</td>
-                                    <td>Dimas217@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>Daud</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Rungkut Asri No.128</td>
-                                    <td>Daud86@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td>Widi</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Rungkut Harapan No.128</td>
-                                    <td>Widi172@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td>Afan</td>
-                                    <td>089515776243</td>
-                                    <td>Jl. Rungkut Baban No.128</td>
-                                    <td>askasa86@gmail.com</td>
-                                </tr>
+                            <tbody>
+                                {passenger.map((passenger)=>{
+                                    return(
+                                        <>
+                                            <tr className="text-center">
+                                                <td>{i++}</td>
+                                                <td>{passenger.passenger_name}</td>
+                                                <td>{passenger.nik}</td>
+                                                <ButtonGroup className="mb-2 text-center">
+                                                    <Button variant="outline-warning" data-bs-toggle="modal" onClick={()=>modalHandler(passenger.id)} >Edit</Button>
+                                                    <Button variant="outline-danger" onClick={()=>deleteHandler(passenger.id)}>Delete</Button>
+                                                </ButtonGroup>
+                                            </tr>
+                                        </>
+                                    )
+                                })}
                             </tbody>
                         </Table>
                         </div>
                     </div>
                 </Col>
             </Row>
+            
+            <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+            <Modal.Title className="text-center">Update Airport</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <Form>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Passenger Name</Form.Label>
+                    <Form.Control
+                        value={editForm.passenger_name} 
+                        onChange={(e)=> seteditForm({...editForm,passenger_name: e.target.value})}
+                        name='passenger_name' 
+                        type="text"
+                    />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>ID Number</Form.Label>
+                    <Form.Control
+                        value={editForm.nik} 
+                        onChange={(e)=> seteditForm({...editForm,nik: e.target.value})} 
+                        className="form-control" 
+                        name='nik' 
+                        type="text"
+                    />
+                </Form.Group>
+            </Form>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={updatehandler}>
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
         </DasboardLayoutAdmin>
     )
 }
