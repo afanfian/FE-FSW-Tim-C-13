@@ -29,7 +29,7 @@ function UserList(){
             <Row>
                 <Col>
                     <div id="userList">
-                        <p className="text-center h3 fw-bold mb-5">Let's Check Your Departure Schedule!</p>
+                    <p className="text-center h3 fw-bold pb-5"><span className="text-green">C-13 AEROPLANE</span> User List</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">
@@ -52,7 +52,7 @@ function UserList(){
                                             <td>{user.email}</td>
                                             <td>{user.phone_number}</td>
                                             <td>{user.address}</td>
-                                            <td><img src={user.photo} alt="photoUser" width="80px" /></td>
+                                            <td><img src={user.photo} alt="photoUser" width="80px" className="rounded-circle" /></td>
                                         </tr>
                                     </>
                                     )

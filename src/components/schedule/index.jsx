@@ -29,7 +29,7 @@ function Schedule(){
             <Row>
                 <Col>
                     <div id="airport">
-                        <p className="text-center h3 fw-bold mb-5">Let's Check Your Departure Schedule!</p>
+                        <p className="text-center h3 fw-bold pb-5"><span className="text-green">C-13 AEROPLANE</span> Schedule Ticket List</p>
                         <div>
                         <Table>
                             <thead className="text-center fw-bold">

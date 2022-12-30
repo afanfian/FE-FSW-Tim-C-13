@@ -18,7 +18,7 @@ export const verifyAccountActions = (data, history) => async (dispatch) => {
   try {
     await AuthService.verifyAccount(data)
     SweatAlert('Verified Account', 'success')
-    history('/user/booking')
+    history('/user/profile')
   } catch (error) {
     SweatAlert(String(error.response.message), 'warning')
   }
@@ -58,7 +58,7 @@ export const getProfileActions = () => async (dispatch) => {
 export const editProfileActions = (data, history) => async (dispatch) => {
   try {
     const response = await AuthService.editProfile(data)
-    console.log(response)
+    // console.log(response)
     dispatch({ type: 'EDITPROFILE', payload: response  })
     SweatAlert(response.data.message, 'success')
     history('/user/pofile')
