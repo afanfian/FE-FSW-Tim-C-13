@@ -22,7 +22,7 @@ function notification() {
     }
   }, [admin]);
 
-  console.log(typeof admin)
+  // console.log(typeof admin)
   
   return (
     <>

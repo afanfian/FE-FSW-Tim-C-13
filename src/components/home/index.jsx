@@ -15,6 +15,7 @@ import { TicketService } from "../../services/ticketService";
 import { AirportService } from "../../services/airportService";
 import { useNavigate } from "react-router-dom";
 import NavigasiLogin from '../navbar/navbarafterlogin';
+import SweatAlert from "../../config/sweatAlert";
 
 
 function home() {
@@ -33,14 +34,17 @@ function home() {
   const createHandler = async () => {
     TicketService.searchTicket(formCreate).then(
       (res) => {
-        // setTicketId(res.data);
-        Navigate("/user/search-ticket", {state:{
-          ticket: res.data.tickets[0]
-        }})
+        console.log(res.data)
+        if(res.data.tickets.length === 0){
+          SweatAlert('Ticket yang Anda Cari Tidak Ditemukan', 'error')
+        }else{
+          Navigate("/user/search-ticket", {state:{
+            ticket: res.data.tickets[0]
+          }})
+        }
       });
   }
 
-  // console.log(typeof login)
 
   const [index, setIndex] = useState(0);
 
