@@ -12,7 +12,6 @@ import LayoutAdmin from './layoutAdmin'
 import Schedule from './schedule'
 import Booking from './booking'
 import CustomerList from './customerList'
-import PaymentList from './paymentList'
 import AirportList from './airportList'
 import TicketList from './ticketList'
 import Wishlist from './wishlist'
@@ -39,7 +38,6 @@ export {
   Schedule,
   Booking,
   CustomerList,
-  PaymentList,
   AirportList,
   TicketList,
   Profile,

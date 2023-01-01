@@ -27,10 +27,6 @@ function SidebarAdmin() {
             <div className="icon" />
             <p className="m-0 ms-3">Schedule List</p>
           </Link>
-          <Link to="/admin/payment-list" className="sideLink d-flex align-items-center mb-3">
-            <div className="icon" />
-            <p className="m-0 ms-3">Payment List</p>
-          </Link>
           <Link to="/admin/airport-list" className="sideLink d-flex align-items-center mb-3">
             <div className="icon" />
             <p className="m-0 ms-3">Airport List</p>
