@@ -34,7 +34,7 @@ function home() {
   const createHandler = async () => {
     TicketService.searchTicket(formCreate).then(
       (res) => {
-        console.log(res.data)
+        // console.log(res.data)
         if(res.data.tickets.length === 0){
           SweatAlert('Ticket yang Anda Cari Tidak Ditemukan', 'error')
         }else{

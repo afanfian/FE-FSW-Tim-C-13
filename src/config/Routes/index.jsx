@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ProtectedRouteAdmin from '../../protectedAdmin'
 import ProtectedRouteUser from '../../protectedUser'
-import { Login, Register, Notification, About, Home, NotFoundPage, Schedule, Booking, CustomerList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo, ProtectedAdmin, ProtectedUser, SearchTicket} from '../../views'
+import { Login, Register, Notification, About, Home, NotFoundPage, Schedule, Booking, CustomerList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo, ProtectedAdmin, ProtectedUser, SearchTicket, History} from '../../views'
 const index = () => {
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ const index = () => {
           <Route path="user/notification" element={<Notification />} />
           <Route path="user/profile" element={<Profile />} />
           <Route path="user/search-ticket" element={<SearchTicket />} />
+          <Route path="user/history" element={<History />} />
         </Route>
         {/* Admin */}
         <Route element={<ProtectedRouteAdmin />}>
@@ -32,8 +33,8 @@ const index = () => {
         </Route>
         {/* Not Found */}
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="no/access/admin" element={<ProtectedAdmin />} />
-        <Route path="no/access/user" element={<ProtectedUser />} />
+        <Route path="no-access-admin" element={<ProtectedAdmin />} />
+        <Route path="no-access-user" element={<ProtectedUser />} />
       </Routes>
     </BrowserRouter>
   )

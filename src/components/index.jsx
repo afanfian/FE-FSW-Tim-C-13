@@ -22,6 +22,7 @@ import TicketPromo from './ticketPromo'
 import ProtectedAdmin from './protectedAdminPage'
 import ProtectedUser from './protectedUserPage'
 import SearchTicket from './searchTicket'
+import History from './history'
 
 export {
   AboutComponent,
@@ -47,5 +48,6 @@ export {
   TicketPromo,
   ProtectedAdmin,
   ProtectedUser,
-  SearchTicket
+  SearchTicket,
+  History,
 }
