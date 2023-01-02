@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Container, Row, Card } from 'react-bootstrap'
 import Navbar from '../navbar/navbarafterlogin'
 import { useNavigate } from 'react-router-dom';
@@ -14,12 +14,15 @@ function notification() {
   const onSubmit = () => {
     dispatch(verifyAccountActions(data, history));
   }
-  // const admin = window.localStorage.getItem("roleId")
-  // useEffect(() => {
-  //   if(admin === 1){
-  //     history("/admin/airport-list")
-  //   }
-  // }, []);
+  const admin = window.localStorage.getItem("role")
+
+  useEffect(() => {
+    if(admin === '1'){
+      history("/admin/airport-list")
+    }
+  }, [admin]);
+
+  // console.log(typeof admin)
   
   return (
     <>
