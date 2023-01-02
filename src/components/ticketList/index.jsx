@@ -15,7 +15,7 @@ function TicketList(){
     const [editForm, seteditForm] = useState([]) //Form Edit
     const [formCreate, setFormCreate] = useState([]) //Create
     const dispatch = useDispatch();
-    console.log(formCreate);
+    // console.log(formCreate);
     const [ticket, setTicket] = useState([]) //Get
     // Get
     useEffect(()=>{
@@ -27,6 +27,7 @@ function TicketList(){
         });
     },[update])
     
+    console.log(ticket)
     // Edit
     const updatehandler = async () => {
         await dispatch(PutTicketActions(editForm.id,editForm));

@@ -10,7 +10,7 @@ export const BookingService = {
         return response;
     },
     getBookingUser : async (user, data) => {
-        const response = await API.get('/bookings/'+user, data);
+        const response = await API.get('/bookings/user');
         return response;
     },
     getBookingId : async (id, data) => {
