@@ -71,6 +71,7 @@ function navigasiLogin() {
                   <Nav.Link href="/" className="pt-3 text-black fw-bold">Search Ticket</Nav.Link>
                   <Nav.Link href="/user/ticket-promo" className="pt-3 text-black fw-bold">Ticket Promo</Nav.Link>
                   <Nav.Link href="/user/notification" className="pt-3 text-black fw-bold">Notification</Nav.Link>
+                  <Nav.Link href="/user/history" className="pt-3 text-black fw-bold">History Transaction</Nav.Link>
                 </Nav>
                 <Stack direction="horizontal" gap={4}>
                   <OverlayTrigger trigger="click" placement="bottom" overlay={profilePopover}>

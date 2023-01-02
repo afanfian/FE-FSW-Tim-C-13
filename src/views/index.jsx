@@ -7,7 +7,6 @@ import Register from './Register'
 import Booking from './Booking'
 import Schedule from './Schedule'
 import CustomerList from './CustomerList'
-import PaymentList from './PaymentList'
 import AirportList from './AirportList'
 import TicketList from './TicketList'
 import Wishlist from './Wishlist'
@@ -18,5 +17,6 @@ import TicketPromo from './TicketPromo'
 import ProtectedAdmin from './ProtectedAdmin'
 import ProtectedUser from './ProtectedUser'
 import SearchTicket from './SearchTicket'
+import History from './History'
 
-export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, PaymentList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo, ProtectedAdmin, ProtectedUser, SearchTicket }
+export { Login, Notification, NotFoundPage, About, Home, Register, Schedule, Booking, CustomerList, Profile, Checkout, Wishlist, AirportList, TicketList, UserList, TicketPromo, ProtectedAdmin, ProtectedUser, SearchTicket, History }
