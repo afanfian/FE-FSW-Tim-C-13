@@ -35,17 +35,9 @@ function history(){
                             <>
                         <div className="about border border-2 shadow p-3 mb-5 bg-body rounded">
                             <div className="d-flex flex-column flex-lg-row justify-content-evenly pt-3">
-                                {/* <div className="d-flex flex-column">
-                                    <h4 className="text-green text-center">Airport Name</h4>
-                                    <h5 className="text-black text-left">{history.ticket.airport.airport_name}</h5>
-                                </div> */}
                                 <div className="d-flex flex-column">
                                     <h4 className="text-green text-center">Username</h4>
                                     <h5 className="text-black text-left">{history.User.username}</h5>
-                                </div>
-                                <div className="d-flex flex-column">
-                                    <h4 className="text-green text-center">Email</h4>
-                                    <h5 className="text-black text-left">{history.User.email}</h5>
                                 </div>
                                 <div className="d-flex flex-column">
                                     <h4 className="text-green text-center">Phone Number</h4>
@@ -56,7 +48,7 @@ function history(){
                                     <h5 className="text-black text-left">{history.ticket.class}</h5>
                                 </div>
                                 <div className="d-flex flex-column">
-                                    <h4 className="text-green text-center">Price</h4>
+                                    <h4 className="text-green text-center">Total Payment</h4>
                                     <h5 className="text-black text-left">{history.ticket.price}</h5>
                                 </div>
                             </div>
